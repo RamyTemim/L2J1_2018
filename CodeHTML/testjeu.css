@@ -1,0 +1,134 @@
+@font-face{
+	font-family: 'tictactoe';
+	src: url('fonts/TicTacToe.ttf') ;
+}
+@font-face{
+	font-family: 'alphawood';
+	src: url('fonts/AlphaWood.ttf') ;
+}
+@font-face{
+	font-family: 'asian';
+	src: url('fonts/AsianDelight.ttf') ;
+}
+/*.Titre
+{
+	text-align: center;
+	color: black;
+	text-shadow: -0.06em 0 red, 0.06em 0 cyan;
+}*/
+html, body{
+	padding: 0;
+	margin:0;
+}
+header{
+	border: 1px black solid;
+	background-color: #3385ff;
+	/*height: 100px;*/
+}
+#stamlogo{
+	vertical-align: middle;
+
+}
+.centrer{
+	text-align: center; 
+}
+/*nav{
+	margin-top: 50px;
+	margin-left: 20px;
+	padding: 15px;
+	width: 170px;
+	border: 4px black solid;
+	float: left;
+	
+}
+*/
+/*article{
+	margin: 50px;
+	border:5px black double;
+	width: 50%;
+	padding: 5%;
+	margin: auto;
+	margin-top: 50px;
+}*/
+footer{
+	border:black solid;
+	background-color: red;
+	margin-top: 250px;
+}
+body{
+     background: linear-gradient(to top, #ccffff 0%, #ffffff 49%);
+}
+#conteneur
+{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px; 
+}
+.navigateur{
+	width: 100px;
+	padding-right: 70px;
+	margin-top: 50px;
+	border: 7px black groove;
+	background-image: url("img/fondtest1.png");
+	
+}
+.articledroit{
+	margin-top: 50px;
+	border: 7px black groove;
+	padding-right: 50px;
+	padding-left: 50px;
+	width: 75%;
+	height: 400px;
+	background-image: url("img/fondtest1.png");
+}
+.color{
+	background-color: blue;
+}
+
+.logo{
+	float: right;
+}
+.Morpion{
+	font-family: 'tictactoe';
+	text-align: center;
+	font-size: 50px;
+}
+.Sudoku{
+	font-family: 'asian', arial;
+	text-align: center;
+	font-size: 50px;
+}
+.wood{
+	border:1px black solid;
+	background-image: url(img/wood.png);
+	width: 270px;
+	height: 45px;
+	text-align: center;
+	font-family: 'alphawood', arial;
+	font-size: 27px;
+	font-weight: bold;
+	color: white; 
+	margin-right: 50px;
+	border-radius: 10px;
+	transform: rotate(-5deg) translate(210px, -190px);
+}
+.DescriptionMorpion{
+	margin-left: 200px;
+	width: 75%;
+	border: 2px black solid ;
+	padding: 50px;
+	color: white;
+	background-image: url(img/wood.png);
+	border-radius: 200px;
+	font-weight: bold;
+}
+.DescriptionSudoku{
+	margin-left: 200px;
+	width: 75%;
+	border: 2px black solid ;
+	padding: 50px;
+	color: white;
+	background-image: url(img/wood.png);
+	border-radius: 200px;
+	font-weight: bold;
+}
