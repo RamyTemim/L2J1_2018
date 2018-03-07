@@ -20,32 +20,21 @@ public class SudokuController {
 	}
 
 	@RequestMapping(value = "/sudokuFacile", method = RequestMethod.GET)
-	public Grille nouvellePartieFacile() {
-		Grille facile = new Grille();
-		Solution solution = new Solution(facile);
-		solution.generateSolvedSudoku();
-		Generator grillefacile = new Generator(facile);
-		grillefacile.generateEasyLevel(solution.mygrille);
-		return facile;
+	public void EasyGameSudoku() {
+		EasyGrid easy = new EasyGrid();
+		easy.generateSudokuGrid();
+		// TODO return easy.generateSudokuGrid();
 	}
 
 	@RequestMapping(value = "/sudokuNormal", method = RequestMethod.GET)
-	public Grille nouvellePartieNormal() {
-		Grille normal = new Grille();
-		Solution solution = new Solution(normal);
-		solution.generateSolvedSudoku();
-		Generator grillenormal = new Generator(normal);
-		grillenormal.generateNormalLevel(solution.mygrille);
-		return normal;
+	public void MediumGameSudoku() {
+		MediumGrid medium = new MediumGrid();
+		medium.generateSudokuGrid();
 	}
 
 	@RequestMapping(value = "/sudokuDifficile", method = RequestMethod.GET)
-	public Grille nouvellePartieDifficile() {
-		Grille difficile = new Grille();
-		Solution solution = new Solution(difficile);
-		solution.generateSolvedSudoku();
-		Generator grilledifficile = new Generator(difficile);
-		grilledifficile.generateHardLevel(solution.mygrille);
-		return difficile;
+	public void HardGameSudoku() {
+		HardGrid hard = new HardGrid();
+		hard.generateSudokuGrid();
 	}
 }
