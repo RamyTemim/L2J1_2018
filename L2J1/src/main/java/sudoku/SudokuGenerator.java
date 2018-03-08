@@ -12,7 +12,7 @@ public interface SudokuGenerator {
 	/**
 	 * This method will be overridden based on difficulty
 	 * 
-	 * @param difficulty
+	 * 
 	 */
 	 void generateSudokuGrid();
 
@@ -56,11 +56,11 @@ public interface SudokuGenerator {
 		}
 
 		for (int i = 0; i < toCheck.length; i++) {
-			if (legalMove(board, x, y, toCheck[i])) {
+			if (possibleValue(board, x, y, toCheck[i])) {
 				board[x][y] = toCheck[i];
 				if (x == 8) {
 					if (y == 8)
-						return true;// We're done! Yay!
+						return true;
 					else {
 						nextX = 0;
 						nextY = y + 1;
@@ -84,11 +84,13 @@ public interface SudokuGenerator {
 	 * @param current The value to check in said cell.
 	 * @return True if current is legal, false otherwise.
 	 */
-	default boolean legalMove(int[][]board, int x, int y, int current) {
+	default boolean possibleValue(int[][]board, int x, int y, int current) {
+		// check if in column
 		for (int i = 0; i < 9; i++) {
 			if (current == board[x][i])
 				return false;
 		}
+		// check if in line
 		for (int i = 0; i < 9; i++) {
 			if (current == board[i][y])
 				return false;
@@ -105,6 +107,7 @@ public interface SudokuGenerator {
 				cornerY = 6;
 			else
 				cornerY = 3;
+		// check if in square
 		for (int i = cornerX; i < 10 && i < cornerX + 3; i++)
 			for (int j = cornerY; j < 10 && j < cornerY + 3; j++)
 				if (current == board[i][j])
@@ -118,10 +121,6 @@ public interface SudokuGenerator {
 	 * @param holesToMake How many 0s to put in the board.
 	 */
 	static void makeHoles(int[][]board, int holesToMake) {
-		/*
-		 * We define difficulty as follows: Easy: 32+ clues (49 or fewer holes) Medium: 27-31 clues (50-54 holes) Hard: 26 or fewer clues (54+ holes) This is human difficulty, not algorithmically
-		 * (though there is some correlation)
-		 */
 		double remainingSquares = 81;
 		double remainingHoles = (double) holesToMake;
 
