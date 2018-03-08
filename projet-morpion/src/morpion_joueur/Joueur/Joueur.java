@@ -1,4 +1,4 @@
-package moprion.Joueur;
+package morpion_joueur.Joueur;
 import morpion.grille.Jetons;
 public class Joueur {
 	///// tous les champs

@@ -1,5 +1,5 @@
 package morpion.grille;
-import moprion.Joueur.Joueur;
+import morpion_joueur.Joueur.*;
 
 public class CaseGrille {
 	//////// tous le champs 
