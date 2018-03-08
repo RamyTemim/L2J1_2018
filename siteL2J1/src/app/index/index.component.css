@@ -1,0 +1,17 @@
+fieldset
+{
+  border-radius: 10px;
+}
+
+legend
+{
+    text-shadow: 2px 2px 2px;
+    color: red;
+}
+
+li
+{
+  list-style-type: none;
+  display: flex;
+  text-shadow: 1px 1px 1px;
+}
