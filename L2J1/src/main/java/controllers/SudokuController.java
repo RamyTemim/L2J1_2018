@@ -9,32 +9,41 @@ import sudoku.*;
 @RestController
 public class SudokuController {
 
-	@RequestMapping(value = "/sudoku", method = RequestMethod.GET)
-	public void menu() {
-		/* TODO : creer un menu choix pour : choisir la difficulté (le choix de la difficulté nous renvoins vers les methods ci-dessous)
-		 *  -  choisir la difficulté (le choix de la difficulté nous renvoins vers les fonction ci-dessous)
-		 *  -  lire les regle du jeux
-		 *  -  opition
-		 *  PS: cette method va faire appel au methods definie ci-dessous
-		 * */
-	}
-
+	/**
+	 * Generate an easy sudoku (20 holes)
+	 * 
+	 * @return easy sudoku grid
+	 */
 	@RequestMapping(value = "/sudokuFacile", method = RequestMethod.GET)
-	public void EasyGameSudoku() {
+	public int[][] EasyGameSudoku() {
 		EasyGrid easy = new EasyGrid();
 		easy.generateSudokuGrid();
-		// TODO return easy.generateSudokuGrid();
+		return easy.generateRestSudokuGrid();
 	}
 
+	/**
+	 * Generate a medium sudoku (40 holes)
+	 * 
+	 * @return medium sudoku grid
+	 */
 	@RequestMapping(value = "/sudokuNormal", method = RequestMethod.GET)
-	public void MediumGameSudoku() {
+	public int[][] MediumGameSudoku() {
 		MediumGrid medium = new MediumGrid();
 		medium.generateSudokuGrid();
+		return medium.generateRestSudokuGrid();
+
 	}
 
+	/**
+	 * Generate a hard sudoku (60 holes)
+	 * 
+	 * @return hard sudoku grid
+	 */
 	@RequestMapping(value = "/sudokuDifficile", method = RequestMethod.GET)
-	public void HardGameSudoku() {
+	public int[][] HardGameSudoku() {
 		HardGrid hard = new HardGrid();
 		hard.generateSudokuGrid();
+		return hard.generateRestSudokuGrid();
 	}
+
 }
