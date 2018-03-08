@@ -1,0 +1,23 @@
+#footer
+{
+    text-decoration: none;
+    position: fixed;
+    width: 100%;
+    background-color: #4dd2ff;
+    text-align: center;
+    color: white;
+    bottom: 0px;
+    left:0px;
+    font-size: 12px;
+}
+a{
+  border-right: 1px solid white;
+  padding-left: 2px;
+  text-decoration: none;
+  color: inherit;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+a:hover{
+  text-decoration: underline;
+}
