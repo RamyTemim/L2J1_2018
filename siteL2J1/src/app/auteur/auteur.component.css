@@ -13,3 +13,21 @@ h1
 	color: black;
 	text-shadow: black 2px 2px 2px;
 }
+*{
+  width: 900px;
+  margin: auto;
+}
+p{
+  text-align: center;
+}
+a{
+  display: inline-block;
+  margin: 0 30px;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+a img{
+  width: 100%;
+}
