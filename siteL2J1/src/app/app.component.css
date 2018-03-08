@@ -1,4 +1,14 @@
 div
 {
+  margin: 75px;
   text-align: center;
+}
+
+h1
+{
+  font-size: 40px;
+	font-weight: normal;
+	text-align: center;
+	color: black;
+	text-shadow: black 2px 2px 2px;
 }
