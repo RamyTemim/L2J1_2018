@@ -1,5 +1,5 @@
 package morpion.grille;
-import moprion.Joueur.*;
+import morpion_joueur.Joueur.*;
 import morpion.grille.Jetons;
 public class Grille {
 	//////// tous les champs 

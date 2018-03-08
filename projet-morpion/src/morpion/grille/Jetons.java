@@ -1,5 +1,5 @@
 package morpion.grille;
-import moprion.Joueur.Joueur;
+import morpion_joueur.Joueur.Joueur;
 public class Jetons {
 	//////// tous le champs 
 	private char car;

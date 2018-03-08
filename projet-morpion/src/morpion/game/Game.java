@@ -1,8 +1,6 @@
 package morpion.game;
-
+import morpion_joueur.Joueur.*;
 import java.util.Scanner;
-
-import moprion.Joueur.Joueur;
 import morpion.grille.Grille;
 import saisie.Input;
 

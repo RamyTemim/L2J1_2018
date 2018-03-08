@@ -1,4 +1,4 @@
-package Moprpion;
+package main;
 import morpion.game.Game;
 public class Program {
 
