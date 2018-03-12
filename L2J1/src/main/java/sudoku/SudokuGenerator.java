@@ -9,12 +9,6 @@ public interface SudokuGenerator {
 
 	int[][] generateRestSudokuGrid();
 	
-	/**
-	 * This method will be overridden based on difficulty
-	 * 
-	 * 
-	 */
-	 void generateSudokuGrid();
 
 	/**
 	 * Driver method for nextBoard.
@@ -23,10 +17,9 @@ public interface SudokuGenerator {
 	 *            the number of blank spaces to insert
 	 * @return board, a partially completed 9x9 Sudoku board
 	 */
-	default int[][] nextBoard(int difficulty) {
+	default int[][] nextBoard() {
 		int[][] board = new int[BOARD_WIDTH][BOARD_HEIGHT];
 		nextCell(board, 0, 0);
-		makeHoles(board, difficulty);
 		return board;
 	}
 
@@ -120,7 +113,7 @@ public interface SudokuGenerator {
 	 *
 	 * @param holesToMake How many 0s to put in the board.
 	 */
-	static void makeHoles(int[][]board, int holesToMake) {
+	default int[][] makeHoles(int[][]board, int holesToMake) {
 		double remainingSquares = 81;
 		double remainingHoles = (double) holesToMake;
 
@@ -133,6 +126,7 @@ public interface SudokuGenerator {
 				}
 				remainingSquares--;
 			}
+		return board;
 	}
 	
 	/**
@@ -148,5 +142,18 @@ public interface SudokuGenerator {
 		}
 		System.out.println();
 	}
+	/**
+	 * affect a solved grid to a new grid
+	 * @param old
+	 * @param newone
+	 */
+	default void affect(int[][] old,int[][] newone){
+		for(int i=0 ;i < 9; i++)
+			for(int j=0 ;j < 9; j++){
+				newone[i][j] = old[i][j];
+			}
+	}
+	
+	int[][] getSolvedSudoku();
 
 }
