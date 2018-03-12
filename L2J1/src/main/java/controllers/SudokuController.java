@@ -9,6 +9,9 @@ import sudoku.*;
 @RestController
 public class SudokuController {
 
+	int[][] solvedboard = new int[9][9];
+	int[][] grid = new int[9][9];
+
 	/**
 	 * Generate an easy sudoku (20 holes)
 	 * 
@@ -17,8 +20,9 @@ public class SudokuController {
 	@RequestMapping(value = "/sudokuFacile", method = RequestMethod.GET)
 	public int[][] EasyGameSudoku() {
 		EasyGrid easy = new EasyGrid();
-		easy.generateSudokuGrid();
-		return easy.generateRestSudokuGrid();
+		easy.affect(easy.generateRestSudokuGrid(), grid);
+		easy.affect(easy.getSolvedSudoku(), solvedboard);
+		return grid;
 	}
 
 	/**
@@ -29,9 +33,9 @@ public class SudokuController {
 	@RequestMapping(value = "/sudokuNormal", method = RequestMethod.GET)
 	public int[][] MediumGameSudoku() {
 		MediumGrid medium = new MediumGrid();
-		medium.generateSudokuGrid();
-		return medium.generateRestSudokuGrid();
-
+		medium.affect(medium.generateRestSudokuGrid(), grid);
+		medium.affect(medium.getSolvedSudoku(), solvedboard);
+		return grid;
 	}
 
 	/**
@@ -42,8 +46,18 @@ public class SudokuController {
 	@RequestMapping(value = "/sudokuDifficile", method = RequestMethod.GET)
 	public int[][] HardGameSudoku() {
 		HardGrid hard = new HardGrid();
-		hard.generateSudokuGrid();
-		return hard.generateRestSudokuGrid();
+		hard.affect(hard.generateRestSudokuGrid(), grid);
+		hard.affect(hard.getSolvedSudoku(), solvedboard);
+		return grid;
+	}
+
+	/**
+	 * 
+	 * @return solved sudoku for any difficulty
+	 */
+	@RequestMapping(value = "/solvedSudoku", method = RequestMethod.GET)
+	public int[][] EasyGameSudokuSolved() {
+		return solvedboard;
 	}
 
 }
