@@ -2,14 +2,18 @@ package sudoku;
 
 public class EasyGrid implements SudokuGenerator {
 
-	@Override
-	public void generateSudokuGrid() {
-		print(nextBoard(20));
-
-	}
+	int[][] solvedboard = new int[BOARD_WIDTH][BOARD_HEIGHT];
+	int[][] grid = new int[BOARD_WIDTH][BOARD_HEIGHT];
 
 	@Override
 	public int[][] generateRestSudokuGrid() {
-		return nextBoard(20);
+		affect(nextBoard(), grid);
+		affect(grid, solvedboard);
+		return makeHoles(grid, 20);
+	}
+
+	@Override
+	public int[][] getSolvedSudoku() {
+		return solvedboard;
 	}
 }
