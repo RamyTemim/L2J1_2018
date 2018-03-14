@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SudokuService } from '../sudoku.service';
 
 @Component({
   selector: 'app-sudoku',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sudoku.component.css']
 })
 export class SudokuComponent implements OnInit {
+  sudoku: Array<any>;
 
-  constructor() { }
+  constructor(private sudokuService: SudokuService) { }
 
   ngOnInit() {
+    this.sudokuService.getAll().subscribe(
+      data => {
+        this.sudoku = data;
+      },
+      error => console.log(error)
+    )
   }
 
 }

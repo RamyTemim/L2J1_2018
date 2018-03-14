@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { AuteurComponent } from './auteur/auteur.component';
 import { ContacterComponent } from './contacter/contacter.component';
 import { ConditionComponent } from './condition/condition.component';
+import { SudokuService } from './sudoku.service';
 
 
 @NgModule({
@@ -28,9 +30,10 @@ import { ConditionComponent } from './condition/condition.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SudokuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
