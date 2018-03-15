@@ -9,14 +9,22 @@ import 'rxjs/add/operator/map';
 })
 export class SudokuFacileComponent implements OnInit {
   private sudokuFacileUrl = 'http://localhost:8080/sudokuFacile';
+  private solution = 'http://localhost:8080/solvedSudoku';
   data1: any ={};
+  data1sol: any ={};
 
   constructor(private http: Http) {
   this.getGrilleFacile();
+  this.getGrilleSolved();
   }
 
   getDataFacile(){
     return this.http.get(this.sudokuFacileUrl)
+    .map((res: Response) => res.json())
+  }
+  
+  getDataSolution(){
+    return this.http.get(this.solution)
     .map((res: Response) => res.json())
   }
   getGrilleFacile(){
@@ -26,6 +34,14 @@ export class SudokuFacileComponent implements OnInit {
       this.data1 = data1
     })
   }
+   getGrilleSolved(){
+      console.log('Affichage de la solution');
+    this.getDataSolution().subscribe(data1sol =>{
+      console.log(data1sol);
+      this.data1sol = data1sol
+    })
+  }
+  
 
   ngOnInit() {
   }
