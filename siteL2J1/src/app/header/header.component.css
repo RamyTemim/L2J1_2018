@@ -20,8 +20,12 @@ h1
 #logomini{
   background-color: transparent;
   font-weight: bold;
-
 }
+
+#titreLogo{
+  font-family: impact;
+}
+
 ul {
   margin: 0px;
   padding: 0px;
