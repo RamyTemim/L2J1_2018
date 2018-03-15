@@ -11,14 +11,13 @@ export class SudokuComponent implements OnInit {
   private sudokuFacileUrl = 'http://localhost:8080/sudokuFacile'; 
   private sudokuNormalUrl = 'http://localhost:8080/sudokuNormal';
   private sudokuDifficileUrl = 'http://localhost:8080/sudokuDifficile';
-  data: any ={};
+  data1: any ={};
+  data2: any ={};
+  data3: any ={};
 
   constructor(private http: Http) {
-    console.log('Affichage grille facile');
     this.getGrilleFacile();
-    console.log('Affichage grille normal');
     this.getGrilleNormal();
-    console.log('Affichage grille difficile');
     this.getGrilleDifficle();
    }
 
@@ -40,23 +39,26 @@ getDataDifficile(){
 }
 
 getGrilleFacile(){
-  this.getDataFacile().subscribe(data =>{
-    console.log(data);
-    this.data = data
+    console.log('Affichage grille facile');
+  this.getDataFacile().subscribe(data1 =>{
+    console.log(data1);
+    this.data1 = data1
   })
 }
 
 getGrilleNormal(){
-  this.getDataNormal().subscribe(data =>{
-    console.log(data);
-    this.data = data
+	console.log('Affichage grille normal');
+  this.getDataNormal().subscribe(data2 =>{
+    console.log(data2);
+    this.data2 = data2
   })
 }
 
 getGrilleDifficle(){
-  this.getDataDifficile().subscribe(data =>{
-    console.log(data);
-    this.data = data
+    console.log('Affichage grille difficile');
+  this.getDataDifficile().subscribe(data3 =>{
+    console.log(data3);
+    this.data3 = data3
   })
 }
   ngOnInit() {
