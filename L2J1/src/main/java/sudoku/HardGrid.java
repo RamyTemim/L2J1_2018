@@ -9,7 +9,7 @@ public class HardGrid implements SudokuGenerator {
 	public int[][] generateRestSudokuGrid() {
 		affect(nextBoard(), grid);
 		affect(grid, solvedboard);
-		return makeHoles(grid, 40);
+		return makeHoles(grid, 60);
 	}
 
 	@Override
