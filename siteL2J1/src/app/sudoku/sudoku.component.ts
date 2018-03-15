@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./sudoku.component.css']
 })
 export class SudokuComponent implements OnInit {
-  private sudokuFacileUrl = 'http://localhost:8080/sudokuFacile'; 
+/*  private sudokuFacileUrl = 'http://localhost:8080/sudokuFacile';
   private sudokuNormalUrl = 'http://localhost:8080/sudokuNormal';
   private sudokuDifficileUrl = 'http://localhost:8080/sudokuDifficile';
   data1: any ={};
@@ -21,7 +21,7 @@ export class SudokuComponent implements OnInit {
     this.getGrilleDifficle();
    }
 
-/*On récupère les data en json*/
+On récupère les data en json
 
 getDataFacile(){
   return this.http.get(this.sudokuFacileUrl)
@@ -60,7 +60,7 @@ getGrilleDifficle(){
     console.log(data3);
     this.data3 = data3
   })
-}
+}*/
   ngOnInit() {
   }
 
