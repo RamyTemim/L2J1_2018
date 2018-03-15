@@ -14,6 +14,9 @@ import { AuteurComponent } from './auteur/auteur.component';
 import { ContacterComponent } from './contacter/contacter.component';
 import { ConditionComponent } from './condition/condition.component';
 import { SudokuService } from './sudoku.service';
+import { SudokuFacileComponent } from './sudoku-facile/sudoku-facile.component';
+import { SudokuNormalComponent } from './sudoku-normal/sudoku-normal.component';
+import { SudokuDifficileComponent } from './sudoku-difficile/sudoku-difficile.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { SudokuService } from './sudoku.service';
     MorpionComponent,
     AuteurComponent,
     ContacterComponent,
-    ConditionComponent
+    ConditionComponent,
+    SudokuFacileComponent,
+    SudokuNormalComponent,
+    SudokuDifficileComponent
   ],
   imports: [
     BrowserModule,
