@@ -8,8 +8,8 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./sudoku-difficile.component.css']
 })
 export class SudokuDifficileComponent implements OnInit {
-  private sudokuDifficileUrl = 'http://localhost:8080/sudokuDifficile';
-  private solution = 'http://localhost:8080/solvedSudoku';
+  private sudokuDifficileUrl = 'http://localhost:8080/sudoku/sudokuDifficile';
+  private solution = 'http://localhost:8080/sudoku/solvedSudoku';
   data3: any ={};
   data3sol: any ={};
 
