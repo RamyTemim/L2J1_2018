@@ -1,3 +1,7 @@
+@font-face {
+ font-family: 'bit';
+ src: url('../../assets/fonts/BIT.otf');
+}
 *{
   margin: 0;
   padding: 0;
@@ -10,9 +14,14 @@ h1
 	text-align: center;
 	color: black;
   margin-bottom: 20px;
+  font-family: 'bit',Arial;
+  color: #333333;
 }
 p{
   text-align: center;
+  font-family: 'bit', Arial;
+  font-size: 1.2em;
+  color: #333333;
 }
 .ps a{
   display: inline-block;
@@ -47,9 +56,11 @@ p{
 
 .nom{
   display: block;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 50px;
+  margin-bottom: 60px;
   text-align: center;
+  font-family: 'bit';
+  color: #333333;
   text-transform: uppercase;
   font-size: 22px;
   border-top: 20px;
