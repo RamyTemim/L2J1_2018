@@ -1,5 +1,9 @@
 package controllers;
 
+import main.Application;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,10 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import sudoku.*;
 
 @RestController
+@RequestMapping("/sudoku")
 public class SudokuController {
 
 	int[][] solvedboard = new int[9][9];
 	int[][] grid = new int[9][9];
+	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
 	/**
 	 * Generate an easy sudoku (20 holes)
@@ -22,6 +28,7 @@ public class SudokuController {
 		EasyGrid easy = new EasyGrid();
 		easy.affect(easy.generateRestSudokuGrid(), grid);
 		easy.affect(easy.getSolvedSudoku(), solvedboard);
+		log.info("generate easy sudoku");
 		return grid;
 	}
 
@@ -35,6 +42,7 @@ public class SudokuController {
 		MediumGrid medium = new MediumGrid();
 		medium.affect(medium.generateRestSudokuGrid(), grid);
 		medium.affect(medium.getSolvedSudoku(), solvedboard);
+		log.info("generate normal sudoku");
 		return grid;
 	}
 
@@ -48,6 +56,7 @@ public class SudokuController {
 		HardGrid hard = new HardGrid();
 		hard.affect(hard.generateRestSudokuGrid(), grid);
 		hard.affect(hard.getSolvedSudoku(), solvedboard);
+		log.info("generate hard sudoku");
 		return grid;
 	}
 
@@ -57,6 +66,7 @@ public class SudokuController {
 	 */
 	@RequestMapping(value = "/solvedSudoku", method = RequestMethod.GET)
 	public int[][] EasyGameSudokuSolved() {
+		log.info("get sudoku solution");
 		return solvedboard;
 	}
 
