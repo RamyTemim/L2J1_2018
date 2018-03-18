@@ -8,8 +8,8 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./sudoku-normal.component.css']
 })
 export class SudokuNormalComponent implements OnInit {
-  private sudokuNormalUrl = 'http://localhost:8080/sudokuNormal';
-  private solution = 'http://localhost:8080/solvedSudoku';
+  private sudokuNormalUrl = 'http://localhost:8080/sudoku/sudokuNormal';
+  private solution = 'http://localhost:8080/sudoku/solvedSudoku';
   data2: any ={};
   data2sol: any ={};
 
