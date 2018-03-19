@@ -10,6 +10,7 @@ import { ContacterComponent }     from './contacter/contacter.component';
 import { SudokuFacileComponent }  from './sudoku-facile/sudoku-facile.component';
 import { SudokuNormalComponent }  from './sudoku-normal/sudoku-normal.component';
 import { SudokuDifficileComponent }  from './sudoku-difficile/sudoku-difficile.component';
+import { SudokuIndexComponent } from './sudoku-index/sudoku-index.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'contacter', component: ContacterComponent },
   { path: 'sudoku-facile', component: SudokuFacileComponent},
   { path: 'sudoku-normal', component: SudokuNormalComponent},
-  { path: 'sudoku-difficile', component: SudokuDifficileComponent}
+  { path: 'sudoku-difficile', component: SudokuDifficileComponent},
+  { path: 'sudoku-index', component: SudokuIndexComponent}
 ];
 
 @NgModule({
