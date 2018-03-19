@@ -24,7 +24,9 @@
 	margin-bottom: 30px;
 }
 .descriptionSudoku{
-	margin:auto;
+	margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
 	/*ancienne couleur
   background-color: teal;
 	*/
@@ -32,7 +34,7 @@
 	background-image: url(../../assets/img/fond_grunge_blue.jpg);
 	background-size: cover;
 	width: 75%;
-	border: 2px black solid ;
+	border: 2px black solid;
 	padding: 50px;
 	color: white;
 	border-radius: 200px;
@@ -41,9 +43,62 @@
 
 .sudoku{
 	margin: 60px;
-	border: 7px black groove;
+	border: transparent;
 	padding-right: 50px;
 	padding-left: 50px;
 	width: 75%;
 	height: 400px;
+}
+
+.bouton{
+}
+
+table {
+  margin:1em auto;
+}
+td {
+  height:30px;
+  width:30px;
+  border:1px solid;
+  text-align:center;
+}
+
+input {
+	height: 30px;
+	width: 30px;
+	border: transparent;
+	text-align: center;
+}
+td:first-child {
+  border-left:solid;
+}
+td:nth-child(3n) {
+  border-right:solid ;
+}
+
+td:nth-child(4){
+	border-left:solid;
+}
+
+td:nth-child(7){
+	border-left:solid;
+}
+
+tr:nth-child(1) td{
+	border-top:solid;
+}
+
+tr:nth-child(4) td{
+	border-top:solid;
+}
+
+tr:nth-child(7) td{
+	border-top:solid;
+}
+
+tr:first-child {
+  border-top:solid;
+}
+tr:nth-child(3n) td {
+  border-bottom:solid ;
 }
