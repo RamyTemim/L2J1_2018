@@ -2,33 +2,14 @@
  font-family: 'bit';
  src: url('../../assets/fonts/BIT.otf');
 }
-/*Pas util de le garder c'est la banierre avec écrit description du jeu
-.titreDescription{
-	border:1px black solid;
-	width: 270px;
-	height: 45px;
-	text-align: center;
-	//ancienne couleur de fond
-  background-color: teal;
-	background-image: url(../../assets/img/fond_pierre_kiandjan_16.jpg);
-	font-family: 'bit',Arial;
-	font-size: 25px;
-	font-weight: bold;
-	color: white;
-	margin-right:50px;
-	border-radius: 10px;
-	transform: rotate(-5deg) translate(210px, -190px);
-}
-*/
 .dj{
 	font-size: 25px;
 	margin-bottom: 30px;
 }
 .descriptionMorpion{
-	margin:auto;
-	/* ancienne couleur de fond
-  background-color: teal;
-	*/
+  margin-top: 20px;
+  margin-right:auto;
+	margin-left:auto;
 	font-family: 'bit',Arial;
 	background-image: url(../../assets/img/fond_smoke_blue.jpg);
 	background-size: cover;
@@ -42,9 +23,8 @@
 
 .morpion{
 	margin: 60px;
-	border: 7px black groove;
+	border: none;
 	padding-right: 50px;
 	padding-left: 50px;
 	width: 75%;
-	height: 400px;
 }
