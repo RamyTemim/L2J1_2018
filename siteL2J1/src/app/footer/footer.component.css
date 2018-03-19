@@ -17,6 +17,9 @@ a{
   padding-left: 10px;
   padding-right: 10px;
 }
+.antipipe{
+  border-right: none;
+}
 a:hover{
   text-decoration: underline;
 }
