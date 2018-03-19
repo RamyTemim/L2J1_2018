@@ -17,6 +17,7 @@ import { SudokuService } from './sudoku.service';
 import { SudokuFacileComponent } from './sudoku-facile/sudoku-facile.component';
 import { SudokuNormalComponent } from './sudoku-normal/sudoku-normal.component';
 import { SudokuDifficileComponent } from './sudoku-difficile/sudoku-difficile.component';
+import { SudokuIndexComponent } from './sudoku-index/sudoku-index.component';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { SudokuDifficileComponent } from './sudoku-difficile/sudoku-difficile.co
     SudokuFacileComponent,
     SudokuNormalComponent,
     SudokuDifficileComponent,
-
+    SudokuIndexComponent
   ],
   imports: [
     BrowserModule,
