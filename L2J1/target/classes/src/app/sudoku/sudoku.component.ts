@@ -8,27 +8,59 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./sudoku.component.css']
 })
 export class SudokuComponent implements OnInit {
-  private apiUrl = 'http://localhost:8080/sudokuFacile'; //Lien du sudokuFacile
-  data: any ={};
+/*  private sudokuFacileUrl = 'http://localhost:8080/sudokuFacile';
+  private sudokuNormalUrl = 'http://localhost:8080/sudokuNormal';
+  private sudokuDifficileUrl = 'http://localhost:8080/sudokuDifficile';
+  data1: any ={};
+  data2: any ={};
+  data3: any ={};
 
   constructor(private http: Http) {
-    console.log('Affichage grille facile');
-    this.getGrille();
+    this.getGrilleFacile();
+    this.getGrilleNormal();
+    this.getGrilleDifficle();
    }
 
-/*On récupère les data en json*/
+On récupère les data en json
 
-getData(){
-  return this.http.get(this.apiUrl)
+getDataFacile(){
+  return this.http.get(this.sudokuFacileUrl)
   .map((res: Response) => res.json())
 }
 
-getGrille(){
-  this.getData().subscribe(data =>{
-    console.log(data);
-    this.data = data
+getDataNormal(){
+  return this.http.get(this.sudokuNormalUrl)
+  .map((res: Response) => res.json())
+}
+
+getDataDifficile(){
+  return this.http.get(this.sudokuDifficileUrl)
+  .map((res: Response) => res.json())
+}
+
+getGrilleFacile(){
+    console.log('Affichage grille facile');
+  this.getDataFacile().subscribe(data1 =>{
+    console.log(data1);
+    this.data1 = data1
   })
 }
+
+getGrilleNormal(){
+	console.log('Affichage grille normal');
+  this.getDataNormal().subscribe(data2 =>{
+    console.log(data2);
+    this.data2 = data2
+  })
+}
+
+getGrilleDifficle(){
+    console.log('Affichage grille difficile');
+  this.getDataDifficile().subscribe(data3 =>{
+    console.log(data3);
+    this.data3 = data3
+  })
+}*/
   ngOnInit() {
   }
 
