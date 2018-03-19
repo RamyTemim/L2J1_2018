@@ -102,3 +102,10 @@ h2 span{
 #i3:checked ~ .nav #dot3{
   background: #fff;
 }
+
+.fleche{
+  margin-top: 190px;
+  color:white;
+  font-size: 3em;
+  font-family: fantasy;
+}
