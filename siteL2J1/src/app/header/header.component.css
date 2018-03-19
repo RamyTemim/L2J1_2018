@@ -14,7 +14,6 @@ h1
   color: white;
   font-family: Arial;
   background-color: #4dd2ff;
-  opacity: 0.8;
 
 }
 #logomini{
@@ -33,9 +32,9 @@ ul {
 }
 ul li {
   display:inline-grid;
-  width: 300px;
-  height: 40px;
-  line-height: 40px;
+  width: 200px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
   margin: 0px;
   vertical-align: baseline;
