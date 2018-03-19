@@ -13,7 +13,7 @@ h1
   right: 0px;
   color: white;
   font-family: Arial;
-  background-color: #4dd2ff;
+  background-color: rgba(26, 59, 177, 0.91);
 
 }
 #logomini{
@@ -43,13 +43,14 @@ ul li a {
   text-decoration: none;
   color: white;
   display: block;
-  background-color: #4dd2ff;
+  background-color: rgba(26, 59, 177, 0.91);;
 }
 ul li:hover{
-  background-color: blue;
+  background-color: rgba(22, 39, 128, 0.8);
+  transform: scale(1.1);
 }
 ul li a:hover{
-  background-color: blue;
+  background-color: rgba(22, 39, 128, 0.8);
 }
 ul li ul li{
   display: none;
