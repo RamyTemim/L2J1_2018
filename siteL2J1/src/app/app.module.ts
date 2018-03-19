@@ -19,6 +19,9 @@ import { SudokuNormalComponent } from './sudoku-normal/sudoku-normal.component';
 import { SudokuDifficileComponent } from './sudoku-difficile/sudoku-difficile.component';
 import { SudokuIndexComponent } from './sudoku-index/sudoku-index.component';
 import { MorpionIndexComponent } from './morpion-index/morpion-index.component';
+import { MorpionGrilleComponent } from './morpion-grille/morpion-grille.component';
+import { MorpionJ1vsIaComponent } from './morpion-j1vs-ia/morpion-j1vs-ia.component';
+import { MorpionJ1vsJ2Component } from './morpion-j1vs-j2/morpion-j1vs-j2.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { MorpionIndexComponent } from './morpion-index/morpion-index.component';
     SudokuNormalComponent,
     SudokuDifficileComponent,
     SudokuIndexComponent,
-    MorpionIndexComponent
+    MorpionIndexComponent,
+    MorpionGrilleComponent,
+    MorpionJ1vsIaComponent,
+    MorpionJ1vsJ2Component
   ],
   imports: [
     BrowserModule,
