@@ -1,8 +1,14 @@
 <h1> Nous contacter </h1>
-<fieldset>
-  <legend> Demande </legend>
-  <textarea id="textarea" rows ="20" cols="80"></textarea>
-  <br>
-  <input value="Remettre à zéro" type="reset">
-  <input value="Soumettre" type="submit">
-</fieldset>
+<!--
+<a href="mailto:tarujan.vallipuram@gmail.com">Envoyer un mail</a>
+-->
+<div class="contacter">
+  <form id="contact" method="post" action="contacter.component.php">
+    <input class="p-holder" name="nom" type="text" placeholder="Nom" required>
+    <input class="p-holder" name="email" type="email" placeholder="Ton Mail" required>
+    <br>
+    <textarea class="p-holder" name="message" placeholder="Message" row="4" required></textarea>
+    <br>
+    <input class="envoyer" type="submit" value="Envoyer un message"/>
+  </form>
+</div>
