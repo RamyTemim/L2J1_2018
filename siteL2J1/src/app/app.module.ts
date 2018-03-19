@@ -18,6 +18,7 @@ import { SudokuFacileComponent } from './sudoku-facile/sudoku-facile.component';
 import { SudokuNormalComponent } from './sudoku-normal/sudoku-normal.component';
 import { SudokuDifficileComponent } from './sudoku-difficile/sudoku-difficile.component';
 import { SudokuIndexComponent } from './sudoku-index/sudoku-index.component';
+import { MorpionIndexComponent } from './morpion-index/morpion-index.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SudokuIndexComponent } from './sudoku-index/sudoku-index.component';
     SudokuFacileComponent,
     SudokuNormalComponent,
     SudokuDifficileComponent,
-    SudokuIndexComponent
+    SudokuIndexComponent,
+    MorpionIndexComponent
   ],
   imports: [
     BrowserModule,
