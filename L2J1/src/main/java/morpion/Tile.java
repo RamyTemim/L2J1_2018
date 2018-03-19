@@ -1,4 +1,4 @@
-package TicTacToe;
+package morpion;
 
 public class Tile {
 	/// tile veut dire case 

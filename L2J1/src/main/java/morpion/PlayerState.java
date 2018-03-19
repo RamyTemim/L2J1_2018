@@ -1,4 +1,4 @@
-package TicTacToe;
+package morpion;
 
 public enum PlayerState {
 	IN_PROGRESS, 

@@ -1,4 +1,4 @@
-package TicTacToe;
+package morpion;
 
 import java.util.List;
 
