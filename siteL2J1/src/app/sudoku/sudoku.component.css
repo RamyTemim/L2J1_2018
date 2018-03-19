@@ -1,3 +1,8 @@
+@font-face {
+ font-family: 'bit';
+ src: url('../../assets/fonts/BIT.otf');
+}
+/*
 .titreDescription{
 	border:1px black solid;
 	width: 270px;
@@ -13,10 +18,19 @@
 	border-radius: 10px;
 	transform: rotate(-5deg) translate(210px, -190px);
 }
-
+*/
+.dj{
+	font-size: 25px;
+	margin-bottom: 30px;
+}
 .descriptionSudoku{
 	margin:auto;
+	/*ancienne couleur
   background-color: teal;
+	*/
+	font-family: 'bit',Arial;
+	background-image: url(../../assets/img/fond_grunge_blue.jpg);
+	background-size: cover;
 	width: 75%;
 	border: 2px black solid ;
 	padding: 50px;
