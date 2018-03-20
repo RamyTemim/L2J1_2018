@@ -17,6 +17,7 @@ h1
 form{
   margin-top: 50px;
   transition: all 4s ease-in-out;
+  margin-bottom: 150px;
 }
 
 .p-holder{
