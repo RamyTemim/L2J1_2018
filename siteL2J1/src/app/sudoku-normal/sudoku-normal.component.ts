@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 export class SudokuNormalComponent implements OnInit {
   private sudokuNormalUrl = 'http://localhost:8080/sudoku/sudokuNormal';
   private solution = 'http://localhost:8080/sudoku/solvedSudoku';
-  data2: any ={};
+  data2: number[][];
   data2sol: any ={};
 
   constructor(private http: Http) {
