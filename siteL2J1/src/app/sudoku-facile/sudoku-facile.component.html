@@ -1,1 +1,27 @@
-<app-sudoku></app-sudoku>
+<div class="sudoku">
+	<h1 class="titreSudoku">Sudoku</h1>
+
+<table >
+<tr *ngFor="let data of data1">
+                    <td ><input type="text" maxlength="1" value='{{data[0] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[1] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[2] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[3] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[4] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[5] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[6] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[7] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[8] | json}}'></td>
+</tr>
+</table>
+	<nav class="bouton">
+		<button routerLink="/sudoku">Valider</button>
+		<button routerLink="/sudoku">Solution</button>
+		<button routerLink="index">Quitter</button>
+		<button routerLink="/sudoku">Retour</button>
+	</nav>
+</div>
+	<article class="descriptionSudoku">
+		<span class="dj">Description du jeu :</span><br>
+		Le sudoku est un jeu en forme de grille défini en 1979 par l’Américain Howard Garns, mais inspiré du carré latin, ainsi que du problème des 36 officiers du mathématicien suisse Leonhard Euler.<br>Le but du jeu est de remplir ces cases avec des chiffres allant de 1 à 9 en veillant toujours à ce qu'un même chiffre ne figure qu'une seule fois par colonne, une seule fois par ligne, et une seule fois par carré de neuf cases.
+	</article>
