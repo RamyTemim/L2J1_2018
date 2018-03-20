@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Joueur } from '../joueur';
+import { Joueur } from './joueur';
 
 @Component({
   selector: 'app-joueur',
