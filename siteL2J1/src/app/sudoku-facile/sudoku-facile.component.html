@@ -1,6 +1,7 @@
 <div class="sudoku">
 	<h1 class="titreSudoku">Sudoku</h1>
 
+
 <table >
 <tr *ngFor="let data of data1">
                     <td ><input type="text" maxlength="1" value='{{data[0] | json}}'></td>
@@ -14,6 +15,7 @@
 					<td ><input type="text" maxlength="1" value='{{data[8] | json}}'></td>
 </tr>
 </table>
+
 	<nav class="bouton">
 		<button routerLink="/sudoku">Valider</button>
 		<button routerLink="/sudoku">Solution</button>

@@ -2,6 +2,13 @@
  font-family: 'bit';
  src: url('../../assets/fonts/BIT.otf');
 }
+@font-face {
+ font-family: 'crayon';
+ src: url('../../assets/fonts/crayon.ttf');
+}
+h1{
+  font-family: 'crayon';
+}
 .dj{
 	font-size: 25px;
 	margin-bottom: 30px;
@@ -23,11 +30,12 @@
 
 .morpion{
   margin: auto;
-	border: none;
-	padding-right: 50px;
-	padding-left: 50px;
-	width: 50%;
-  background-color: white;
+  border: none;
+  padding-right: 50px;
+  padding-left: 50px;
+  width: 50%;
+  background-image: url("../../assets/img/effet_papier.jpg");
+  background-size: cover;
   padding: 20px;
 }
 button{

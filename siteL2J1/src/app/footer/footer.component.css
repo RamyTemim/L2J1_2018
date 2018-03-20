@@ -24,3 +24,10 @@ a{
 a:hover{
   text-decoration: underline;
 }
+.antipipe_icon{
+  border-right: none;
+}
+.antipipe_icon :hover{
+  border-right: none;
+  filter: grayscale(70%);
+}
