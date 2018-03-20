@@ -2,7 +2,14 @@ div{
   text-align: center;
 }
 
-.GG {
+.GG{
+  height: 100px;
+  width: 100%;
+  top:0px;
+  bottom: 10px;
+}
+
+/*.GG {
   width: 150px;
   height: 150px;
   top: 0px;
