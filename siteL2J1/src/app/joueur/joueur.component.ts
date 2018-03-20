@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Joueur } from '../joueur';
 
 @Component({
   selector: 'app-joueur',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JoueurComponent implements OnInit {
 
+  joueur: Joueur ={
+    nom: ''
+  }
   constructor() { }
 
   ngOnInit() {
