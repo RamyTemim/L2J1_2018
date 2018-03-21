@@ -22,7 +22,8 @@ import { MorpionIndexComponent } from './morpion-index/morpion-index.component';
 import { MorpionGrilleComponent } from './morpion-grille/morpion-grille.component';
 import { MorpionJ1vsIaComponent } from './morpion-j1vs-ia/morpion-j1vs-ia.component';
 import { MorpionJ1vsJ2Component } from './morpion-j1vs-j2/morpion-j1vs-j2.component';
-
+import { JoueurComponent } from './joueur/joueur.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,12 +43,14 @@ import { MorpionJ1vsJ2Component } from './morpion-j1vs-j2/morpion-j1vs-j2.compon
     MorpionIndexComponent,
     MorpionGrilleComponent,
     MorpionJ1vsIaComponent,
-    MorpionJ1vsJ2Component
+    MorpionJ1vsJ2Component,
+    JoueurComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [SudokuService],
   bootstrap: [AppComponent]
