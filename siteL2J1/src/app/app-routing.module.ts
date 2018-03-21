@@ -14,6 +14,7 @@ import { SudokuIndexComponent } from './sudoku-index/sudoku-index.component';
 import { MorpionIndexComponent }     from './morpion-index/morpion-index.component';
 import { MorpionJ1vsIaComponent } from './morpion-j1vs-ia/morpion-j1vs-ia.component';
 import { MorpionJ1vsJ2Component } from './morpion-j1vs-j2/morpion-j1vs-j2.component';
+import { SudokuSolutionComponent } from './sudoku-solution/sudoku-solution.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'sudoku-index', component: SudokuIndexComponent},
   { path: 'morpion-index', component: MorpionIndexComponent },
   { path: 'morpion-j1vs-ia', component: MorpionJ1vsIaComponent },
-  { path: 'morpion-j1vs-j2', component: MorpionJ1vsJ2Component }
+  { path: 'morpion-j1vs-j2', component: MorpionJ1vsJ2Component },
+  { path: 'sudoku-solution', component: SudokuSolutionComponent }
 
 ];
 
