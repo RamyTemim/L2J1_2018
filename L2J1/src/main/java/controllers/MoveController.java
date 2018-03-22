@@ -1,9 +1,7 @@
-package Controller;
-
-
-import java.util.ArrayList;
+package controllers;
 import java.util.List;
 
+import morpion.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,15 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import Details.Game;
-import Details.Move;
-import Details.Player;
-import Details.Position;
-import Service.GameService;
-import Service.MoveService;
-
-import UserOpt.Moveuser;
 
 
 @RestController
