@@ -29,16 +29,12 @@ export class SudokuDifficileComponent implements OnInit {
   }
   
   getGrilleDifficile(){
-      console.log('Affichage grille difficile');
     this.getDataDifficile().subscribe(data3 =>{
-      console.log(data3);
       this.data3 = data3
     })
   }
        getGrilleSolved(){
-      console.log('Affichage de la solution');
     this.getDataSolution().subscribe(data3sol =>{
-      console.log(data3sol);
       this.data3sol = data3sol
     })
   }
