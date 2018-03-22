@@ -1,7 +1,5 @@
-package Controller;
-import Service.*;
-import UserOpt.GameUSer;
-import Details.*;
+package controllers;
+import morpion.*;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
