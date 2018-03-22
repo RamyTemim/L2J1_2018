@@ -29,16 +29,12 @@ export class SudokuNormalComponent implements OnInit {
   }
   
   getGrilleNormal(){
-      console.log('Affichage grille normal');
     this.getDataNormal().subscribe(data2 =>{
-      console.log(data2);
       this.data2 = data2
     })
   }
      getGrilleSolved(){
-      console.log('Affichage de la solution');
     this.getDataSolution().subscribe(data2sol =>{
-      console.log(data2sol);
       this.data2sol = data2sol
     })
   }
