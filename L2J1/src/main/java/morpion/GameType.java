@@ -1,4 +1,4 @@
-package Enumeration;
+package morpion;
 
 public enum GameType {
 COMPUTER,

@@ -1,11 +1,5 @@
-package Details;
+package morpion;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import Enumeration.GameStatus;
-import Enumeration.GameType;
-import Enumeration.Piece;
 
 public class Move {
 private String id ;

@@ -1,7 +1,7 @@
-package UserOpt;
+package morpion;
 
-import Enumeration.GameType;
-import Enumeration.Piece;
+
+
 
 public class GameUSer {
   ///////////  cette class contiendras les valeur taper par l utilisateur .

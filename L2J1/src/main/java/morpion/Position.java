@@ -1,4 +1,4 @@
-package Details;
+package morpion;
 
 public class Position {
 private int boardRow;

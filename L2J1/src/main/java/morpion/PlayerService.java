@@ -1,4 +1,4 @@
-package Service;
+package morpion;
 
 public class PlayerService {
 
