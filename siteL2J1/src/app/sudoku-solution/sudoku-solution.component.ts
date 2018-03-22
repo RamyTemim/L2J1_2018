@@ -22,9 +22,7 @@ datasol: number[][];
  }
 
     getGrilleSolved(){
-     console.log('Affichage de la solution');
    this.getDataSolution().subscribe(datasol =>{
-     console.log(datasol);
      this.datasol = datasol
    })
  }
