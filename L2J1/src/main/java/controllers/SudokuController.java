@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import sudoku.*;
+import sudoku.EasyGrid;
+import sudoku.HardGrid;
+import sudoku.MediumGrid;
 
 @RestController
 @RequestMapping("/sudoku")
@@ -69,5 +71,6 @@ public class SudokuController {
 		log.info("get sudoku solution");
 		return solvedboard;
 	}
+	
 
 }
