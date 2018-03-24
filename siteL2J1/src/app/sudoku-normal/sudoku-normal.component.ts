@@ -9,13 +9,10 @@ import 'rxjs/add/operator/map';
 })
 export class SudokuNormalComponent implements OnInit {
   private sudokuNormalUrl = 'http://localhost:8080/sudoku/sudokuNormal';
-  private solution = 'http://localhost:8080/sudoku/solvedSudoku';
   data2: number[][];
-  data2sol: any ={};
 
   constructor(private http: Http) {
   this.getGrilleNormal();
-  this.getGrilleSolved();
   }
 
   getDataNormal(){
@@ -23,19 +20,10 @@ export class SudokuNormalComponent implements OnInit {
     .map((res: Response) => res.json())
   }
   
-   getDataSolution(){
-    return this.http.get(this.solution)
-    .map((res: Response) => res.json())
-  }
   
   getGrilleNormal(){
     this.getDataNormal().subscribe(data2 =>{
       this.data2 = data2
-    })
-  }
-     getGrilleSolved(){
-    this.getDataSolution().subscribe(data2sol =>{
-      this.data2sol = data2sol
     })
   }
 
