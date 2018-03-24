@@ -3,11 +3,15 @@ package sudoku;
 import java.util.Random;
 
 public interface SudokuGenerator {
-
+	
+	static final String EASY_GRID = "easy";
+	static final String MEDIUM_GRID = "medium";
+	static final String HARD_GRID = "hard";
+	
 	static final int BOARD_WIDTH = 9;
 	static final int BOARD_HEIGHT = 9;
 
-	int[][] generateRestSudokuGrid();
+	int[][] generateRestSudokuGrid(String difficulty);
 	
 
 	/**
