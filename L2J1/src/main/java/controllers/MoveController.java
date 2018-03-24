@@ -1,7 +1,10 @@
 package controllers;
+import morpion.MoveService;
 import java.util.List;
-
+import morpion.GameService;
 import morpion.*;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -10,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
+/*
 @RestController
 @RequestMapping("/move")
 public class MoveController {
@@ -33,13 +36,13 @@ public class MoveController {
  
         Move move = moveService.createMove(game ,currentPlayer, createMove);
        /* gameService.updateGameStatus(game.getId(), moveService.checkCurrentGameStatus(game));*/
-       
+       /*
         return move;
 }
     
-    
+    */
 
-    
+    /*
       /////
      ///// envoiyer les deplacement pour checker les position valide
     /////
@@ -87,3 +90,4 @@ public class MoveController {
 }
     
 }
+*/
