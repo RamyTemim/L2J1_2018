@@ -1,4 +1,4 @@
-package morpion;
+package UserOpt;
 
 public class Moveuser {
 private int boardRow;

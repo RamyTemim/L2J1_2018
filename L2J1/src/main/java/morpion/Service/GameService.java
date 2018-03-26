@@ -1,6 +1,12 @@
-package morpion;
+package Service;
 
 
+import Details.Game;
+import Details.Player;
+import Enumeration.GameStatus;
+import Enumeration.GameType;
+import Enumeration.Piece;
+import UserOpt.GameUSer;
 
 public class GameService {
 	 public Game createNewGame( GameUSer gameuser ) {

@@ -1,10 +1,15 @@
-package morpion;
-
-import static java.util.Arrays.asList;
+package Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import Details.Game;
+import Details.Player;
+import Details.Position;
+import Enumeration.GameType;
+
+import static java.util.Arrays.asList;
 
 public class GameLogic {
 private final  Game game;
