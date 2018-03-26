@@ -1,11 +1,8 @@
-package Details;
+package morpion;
 
-import java.util.ArrayList;
+import morpion.Game;
 import java.util.List;
-
-import Enumeration.GameStatus;
-import Enumeration.GameType;
-import Enumeration.Piece;
+import java.util.ArrayList;
 
 public class Game {
 private GameType id ;
@@ -93,7 +90,6 @@ public void setFirstPlayerPiece(Piece firstPlayerPiece) {
 public GameStatus getStatus() {
 	return status;
 }
-
 public void setStatus(GameStatus status) {
 	this.status = status;
 }

@@ -1,6 +1,6 @@
-package Details;
+package morpion;
 
-import Enumeration.Piece;
+
 
 public class Player {
 private String id;
