@@ -30,7 +30,7 @@ public class MorpionController {
 	 @Autowired
 	 PlayerService playerService;
 	 
-	 //// creeer le jeu de morpion 
+	 //// Crée la partie du morpion 
 	 
 	 @RequestMapping(value = "/create", method = RequestMethod.POST)
 	 public Game createNewGame(@RequestBody GameUSer gameuser ) {
@@ -46,7 +46,7 @@ public class MorpionController {
 
 
     ///
-    ///     crrer un nouvel deplacement
+    ///     Crée un déplacement
     ///
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -62,7 +62,7 @@ public class MorpionController {
 
 
     /////
-    ///// envoiyer les deplacement pour checker les position valide
+    ///// Envoie les déplacements pour vérifier les positions valides
     /////
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -73,7 +73,7 @@ public class MorpionController {
 
 
     ////
-    ////     deplacement intelgence artificiel
+    ////     Déplacement de l'intelligence artificielle
     ////
     @RequestMapping(value = "/autocreate", method = RequestMethod.GET)
     public Move autoCreateMove() {
@@ -85,7 +85,9 @@ public class MorpionController {
     }
 
 
-
+    ////
+    ////     Vérifie les positions actuelles
+    ////
 
     @RequestMapping(value = "/check", method = RequestMethod.GET)
     public List<Position> validateMoves() {
@@ -97,7 +99,7 @@ public class MorpionController {
 
 
     /////
-    ////	 verifier a qui le tour
+    ////	 Vérifie le tour
     ///
 
     @RequestMapping(value = "/turn", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
