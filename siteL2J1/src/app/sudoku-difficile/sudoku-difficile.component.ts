@@ -9,21 +9,37 @@ import 'rxjs/add/operator/map';
 })
 export class SudokuDifficileComponent implements OnInit {
   private sudokuDifficileUrl = 'http://localhost:8080/sudoku/sudokuDifficile';
+  private solution = 'http://localhost:8080/sudoku/solvedSudoku';
   data3: number[][];
+  data3sol: any ={};
 
 
   constructor(private http: Http) {
   this.getGrilleDifficile();
+   this.getGrilleSolved();
   }
 
   getDataDifficile(){
     return this.http.get(this.sudokuDifficileUrl)
     .map((res: Response) => res.json())
   }
+     getDataSolution(){
+    return this.http.get(this.solution)
+    .map((res: Response) => res.json())
+  }
   
   getGrilleDifficile(){
+      console.log('Affichage grille difficile');
     this.getDataDifficile().subscribe(data3 =>{
+      console.log(data3);
       this.data3 = data3
+    })
+  }
+       getGrilleSolved(){
+      console.log('Affichage de la solution');
+    this.getDataSolution().subscribe(data3sol =>{
+      console.log(data3sol);
+      this.data3sol = data3sol
     })
   }
 
