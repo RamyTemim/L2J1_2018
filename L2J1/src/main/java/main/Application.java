@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "controllers", "sudoku" })
+@ComponentScan(basePackages = { "controllers", "sudoku", "morpion" })
 public class Application {
 
 	public static void main(String[] args) {
@@ -24,6 +24,7 @@ public class Application {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/*").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/sudoku/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/morpion/*").allowedOrigins("http://localhost:4200");
 			}
 		};
 	}

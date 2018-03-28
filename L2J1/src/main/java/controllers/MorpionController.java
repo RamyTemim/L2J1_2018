@@ -20,7 +20,7 @@ import morpion.Position;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Morpion")
+@RequestMapping("/morpion")
 public class MorpionController {
 
 	
