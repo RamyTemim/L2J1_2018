@@ -97,7 +97,7 @@ h2 span{
 #i1:checked ~ .nav #dot1,
 #i2:checked ~ .nav #dot2,
 #i3:checked ~ .nav #dot3{
-  background: #fff;
+  background: #b6b6b6;
 }
 
 .fleche{
@@ -111,7 +111,7 @@ h2 span{
   animation: shake 0.6s infinite;
 }
 
-@@keyframes shake {
+@keyframes shake {
   0%{
     transform: translate(0px,0px) rotate(0deg);
   }
