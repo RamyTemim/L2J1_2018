@@ -3,9 +3,17 @@
 
 
 <table >
-	<tr *ngFor="let data of data1">
-		<td *ngFor="let num of data"><input type="text" maxlength="1" [value]="num  !== 0 ? num  : ''" [disabled]= "num  !== 0 ? true  : false" ></td>
-	</tr>
+<tr *ngFor="let data of data1">
+                    <td ><input type="text" maxlength="1" value='{{data[0] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[1] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[2] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[3] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[4] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[5] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[6] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[7] | json}}'></td>
+					<td ><input type="text" maxlength="1" value='{{data[8] | json}}'></td>
+</tr>
 </table>
 
 	<nav class="bouton">
