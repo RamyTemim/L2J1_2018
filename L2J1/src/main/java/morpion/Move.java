@@ -24,7 +24,11 @@ public Move(String id, int ligne, int collonne, Player player, Piece playerPiece
 	this.status = status;
 }
 
-
+public Move(int ligne ,int collonne ,Piece playerPieceCode ) {
+	this.ligne = ligne;
+	this.collonne = collonne;
+	this.playerPieceCode = playerPieceCode;
+}
 public String getId() {
 	return id;
 }
