@@ -1,5 +1,6 @@
 package main;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -8,8 +9,12 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import morpion.Game;
+import morpion.Piece;
+import morpion.Player;
+
 @SpringBootApplication
-@ComponentScan(basePackages = { "controllers", "sudoku", "morpion" })
+@ComponentScan(basePackages = { "controllers", "sudoku" })
 public class Application {
 
 	public static void main(String[] args) {
@@ -24,9 +29,19 @@ public class Application {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/*").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/sudoku/*").allowedOrigins("http://localhost:4200");
-				registry.addMapping("/morpion/*").allowedOrigins("http://localhost:4200");
 			}
 		};
 	}
-
+	@Bean 
+	public CommandLineRunner demo (Game game) {
+		return(args) ->{ 
+			Player fistPlayer= new Player("joueur1", Piece.X);
+			Player secondPlayer = new Player ("joueur", Piece.O);
+		  game.setFirstPlayer(fistPlayer);
+		  game.setSecondPlayer(secondPlayer);
+		};
+		
+	}
 }
+
+
