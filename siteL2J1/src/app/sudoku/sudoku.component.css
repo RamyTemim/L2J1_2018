@@ -47,7 +47,8 @@
 	padding-right: 50px;
 	padding-left: 50px;
 	width: 50%;
-  background-color: white;
+  background-image: url("../../assets/img/effet_papier.jpg");
+  background-size: cover;
   padding: 20px;
 }
 
