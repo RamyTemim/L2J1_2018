@@ -1,14 +1,11 @@
 package controllers;
 
-import main.Application;
-
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import services.SudokuService;
 import sudoku.AbstractGrid;
 
 
@@ -16,10 +13,10 @@ import sudoku.AbstractGrid;
 @RequestMapping("/sudoku")
 public class SudokuController {
 
-	int[][] solvedboard = new int[9][9];
-	int[][] grid = new int[9][9];
-	private static final Logger log = LoggerFactory.getLogger(Application.class);
-
+	@Autowired
+	SudokuService service;
+	
+	
 	/**
 	 * Generate an easy sudoku (20 holes)
 	 * 
@@ -28,10 +25,10 @@ public class SudokuController {
 	@RequestMapping(value = "/sudokuFacile", method = RequestMethod.GET)
 	public int[][] EasyGameSudoku() {
 		AbstractGrid easy = new AbstractGrid();
-		easy.affect(easy.generateRestSudokuGrid("easy"), grid);
-		easy.affect(easy.getSolvedSudoku(), solvedboard);
-		log.info("generate easy sudoku");
-		return grid;
+		easy.affect(easy.generateRestSudokuGrid("easy"), service.getGrid());
+		easy.affect(easy.getSolvedSudoku(), service.getSolvedboard());
+		service.getLog().info("generate easy sudoku");
+		return service.getGrid();
 	}
 
 	/**
@@ -42,10 +39,10 @@ public class SudokuController {
 	@RequestMapping(value = "/sudokuNormal", method = RequestMethod.GET)
 	public int[][] MediumGameSudoku() {
 		AbstractGrid medium = new AbstractGrid();
-		medium.affect(medium.generateRestSudokuGrid("medium"), grid);
-		medium.affect(medium.getSolvedSudoku(), solvedboard);
-		log.info("generate normal sudoku");
-		return grid;
+		medium.affect(medium.generateRestSudokuGrid("medium"), service.getGrid());
+		medium.affect(medium.getSolvedSudoku(), service.getSolvedboard());
+		service.getLog().info("generate normal sudoku");
+		return service.getGrid();
 	}
 
 	/**
@@ -56,10 +53,10 @@ public class SudokuController {
 	@RequestMapping(value = "/sudokuDifficile", method = RequestMethod.GET)
 	public int[][] HardGameSudoku() {
 		AbstractGrid hard = new AbstractGrid();
-		hard.affect(hard.generateRestSudokuGrid("hard"), grid);
-		hard.affect(hard.getSolvedSudoku(), solvedboard);
-		log.info("generate hard sudoku");
-		return grid;
+		hard.affect(hard.generateRestSudokuGrid("hard"), service.getGrid());
+		hard.affect(hard.getSolvedSudoku(), service.getSolvedboard());
+		service.getLog().info("generate hard sudoku");
+		return service.getGrid();
 	}
 
 	/**
@@ -68,8 +65,8 @@ public class SudokuController {
 	 */
 	@RequestMapping(value = "/solvedSudoku", method = RequestMethod.GET)
 	public int[][] EasyGameSudokuSolved() {
-		log.info("get sudoku solution");
-		return solvedboard;
+		service.getLog().info("get sudoku solution");
+		return service.getSolvedboard();
 	}
 	
 
