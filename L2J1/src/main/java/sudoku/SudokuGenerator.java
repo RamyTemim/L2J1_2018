@@ -3,16 +3,15 @@ package sudoku;
 import java.util.Random;
 
 public interface SudokuGenerator {
-	
+
 	static final String EASY_GRID = "easy";
 	static final String MEDIUM_GRID = "medium";
 	static final String HARD_GRID = "hard";
-	
+
 	static final int BOARD_WIDTH = 9;
 	static final int BOARD_HEIGHT = 9;
 
 	int[][] generateRestSudokuGrid(String difficulty);
-	
 
 	/**
 	 * Driver method for nextBoard.
@@ -36,7 +35,7 @@ public interface SudokuGenerator {
 	 *            y value of the current cell
 	 * @return true if the board completed legally, false if this cell has no legal solutions.
 	 */
-	default boolean nextCell(int[][]board, int x, int y) {
+	default boolean nextCell(int[][] board, int x, int y) {
 		int nextX = x;
 		int nextY = y;
 		int[] toCheck = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
@@ -76,12 +75,15 @@ public interface SudokuGenerator {
 	/**
 	 * Given a cell's coordinates and a possible number for that cell, determine if that number can be inserted into said cell legally.
 	 *
-	 * @param x x value of cell
-	 * @param y y value of cell
-	 * @param current The value to check in said cell.
+	 * @param x
+	 *            x value of cell
+	 * @param y
+	 *            y value of cell
+	 * @param current
+	 *            The value to check in said cell.
 	 * @return True if current is legal, false otherwise.
 	 */
-	default boolean possibleValue(int[][]board, int x, int y, int current) {
+	default boolean possibleValue(int[][] board, int x, int y, int current) {
 		// check if in column
 		for (int i = 0; i < 9; i++) {
 			if (current == board[x][i])
@@ -115,9 +117,10 @@ public interface SudokuGenerator {
 	/**
 	 * Given a completed board, replace a given amount of cells with 0s (to represent blanks)
 	 *
-	 * @param holesToMake How many 0s to put in the board.
+	 * @param holesToMake
+	 *            How many 0s to put in the board.
 	 */
-	default int[][] makeHoles(int[][]board, int holesToMake) {
+	default int[][] makeHoles(int[][] board, int holesToMake) {
 		double remainingSquares = 81;
 		double remainingHoles = (double) holesToMake;
 
@@ -132,32 +135,53 @@ public interface SudokuGenerator {
 			}
 		return board;
 	}
-	
+
 	/**
-	 *Prints a representation of board on stdout
+	 * Prints a representation of board on stdout
 	 */
-	default void print(int[][]board)
-	{
-		for(int i=0;i<9;i++)
-		{
-			for(int j=0;j<9;j++)
+	default void print(int[][] board) {
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++)
 				System.out.print(board[i][j] + "  ");
 			System.out.println();
 		}
 		System.out.println();
 	}
+
 	/**
 	 * affect a solved grid to a new grid
+	 * 
 	 * @param old
 	 * @param newone
 	 */
-	default void affect(int[][] old,int[][] newone){
-		for(int i=0 ;i < 9; i++)
-			for(int j=0 ;j < 9; j++){
+	default void affect(int[][] old, int[][] newone) {
+		for (int i = 0; i < 9; i++)
+			for (int j = 0; j < 9; j++) {
 				newone[i][j] = old[i][j];
 			}
 	}
-	
+
+	/**
+	 * generate solved sudoku
+	 * 
+	 * @return sudoku grid
+	 */
 	int[][] getSolvedSudoku();
+
+	/**
+	 * compare 2 array
+	 * 
+	 * @param solution
+	 * @param result
+	 * @return true if the 2 array are equals , false if else.
+	 */
+	default boolean compare(int solution[][], int result[][]) {
+		for (int i = 0; i < 9; i++)
+			for (int j = 0; j < 9; j++) {
+				if (solution[i][j] != result[i][j])
+					return false;
+			}
+		return true;
+	}
 
 }
