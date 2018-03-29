@@ -16,8 +16,6 @@ public interface SudokuGenerator {
 	/**
 	 * Driver method for nextBoard.
 	 *
-	 * @param difficult
-	 *            the number of blank spaces to insert
 	 * @return board, a partially completed 9x9 Sudoku board
 	 */
 	default int[][] nextBoard() {
