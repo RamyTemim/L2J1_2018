@@ -1,6 +1,12 @@
-<div><span>Nom j1: </span> {{ joueur.nom}} </div>
-<div>
-    <label>Entrez votre pseudo:
-      <input [(ngModel)]="joueur.nom" placeholder="Pseudo J1">
-    </label>
+<div class="main">
+  <div class="ajoutdelement">
+    <input [(ngModel)] = "newItem" placeholder="Nom du joueur" class="ajoutdetexte">
+    <button (click) = "pushItem()">Entrer</button>
+  </div>
+  <ul>
+    <li *ngFor = "let i of items; let ind = index">
+      Salut {{i}}
+      <span (click) = "removeItems(ind)">x</span>
+    </li>
+  </ul>
 </div>

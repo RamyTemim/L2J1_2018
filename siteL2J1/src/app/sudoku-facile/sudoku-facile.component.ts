@@ -10,14 +10,14 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./sudoku-facile.component.css']
 })
 export class SudokuFacileComponent implements OnInit {
-
   private sudokuFacileUrl = 'http://localhost:8080/sudoku/sudokuFacile';
   data1:  number[][];
+
 
   constructor(private http: Http,private http2: HttpClient) {
 
   this.getGrilleFacile();
-  
+
   }
 
   getDataFacile(){
@@ -25,6 +25,7 @@ export class SudokuFacileComponent implements OnInit {
     .map((res: Response) => res.json())
   }
   
+
   getGrilleFacile(){
 	this.getDataFacile().subscribe(data1 =>{
       this.data1 = data1
@@ -49,7 +50,6 @@ export class SudokuFacileComponent implements OnInit {
   //return myJsonString ;
   
   }
-  
-  
+
 
 }

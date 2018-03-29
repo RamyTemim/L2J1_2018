@@ -20,7 +20,7 @@ export class SudokuDifficileComponent implements OnInit {
     return this.http.get(this.sudokuDifficileUrl)
     .map((res: Response) => res.json())
   }
-  
+
   getGrilleDifficile(){
     this.getDataDifficile().subscribe(data3 =>{
       this.data3 = data3

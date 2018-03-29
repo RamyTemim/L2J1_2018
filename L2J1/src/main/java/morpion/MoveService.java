@@ -1,10 +1,22 @@
-package morpion;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import morpion.Game;
+import Details.Move;
+import Details.Player;
+import Details.Position;
+import Enumeration.GameStatus;
+import Enumeration.GameType;
+import Enumeration.Piece;
+import UserOpt.Moveuser;
 
 @Service 
 public class MoveService {
@@ -79,8 +91,8 @@ public class MoveService {
 	 //////
 	  public Move autoCreateMove(Game game) {
 		   Move move = new Move();
-		   move.setCollonne(GameLogic.nextAutoMove(getTakenMovePositionsInGame(game)).getBoardCel());
-		   move.setLigne(GameLogic.nextAutoMove(getTakenMovePositionsInGame(game)).getBoardRow());
+		   move.setCollonne(GameLogic.nextMoveIA(game.getDeplacements(),5,game).getBoardCel());
+		   move.setLigne(GameLogic.nextMoveIA(game.getDeplacements(),5,game).getBoardRow());
 		   move.setPlayer(null);
 		   game.setDeplacements(move);
 		 
