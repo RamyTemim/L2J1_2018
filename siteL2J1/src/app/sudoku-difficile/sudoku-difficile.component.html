@@ -4,12 +4,13 @@
 
 <table >
 	<tr *ngFor="let data of data3">
-		<td *ngFor="let num of data"><input type="text" maxlength="1" [value]="num  !== 0 ? num  : ''" [disabled]= "num  !== 0 ? true  : false" ></td>
+		<td *ngFor="let num of data"><input type="text" maxlength="1" [value]="num  !== 0 ? num  : ''" [disabled]= "num  !== 0 ? true  : false" 
+		(change)="saveNumber($event.target.value,i,j)"></td>
 	</tr>
 </table>
 
 	<nav class="bouton">
-		<button routerLink="/sudoku">Valider</button>
+		<button (click) = "validate()">Valider</button>
 		<button routerLink="/sudoku-solution">Solution</button>
 		<button routerLink="index">Quitter</button>
 		<button routerLink="/sudoku">Retour</button>
