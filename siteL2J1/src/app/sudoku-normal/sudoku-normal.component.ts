@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-sudoku-normal',
@@ -41,7 +42,7 @@ export class SudokuNormalComponent implements OnInit {
   console.log(this.data2);
   //alert("you win !");
   console.log(myJsonString);
-  this.http.post("http://localhost:4200/sudoku-facile/post", {"moo":"foo","goo":"loo"}).subscribe(res => console.log(res.json()), const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }));
+  this.http.post("http://localhost:4200/sudoku-facile/post", {moo:"foo",goo:"loo"}).subscribe(res => console.log(res.json()));
   //return myJsonString ;
   
   }
