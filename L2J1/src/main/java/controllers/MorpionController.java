@@ -32,7 +32,7 @@ public class MorpionController {
 	 
 	 //// Crée la partie du morpion 
 	 
-	 @RequestMapping(value = "/create", method = RequestMethod.POST)
+	 @RequestMapping(value = "/creategame", method = RequestMethod.POST)
 	 public Game createNewGame(@RequestBody GameUSer gameuser ) {
 		 Game game = gameService.createNewGame(gameuser); 
 		 return game;

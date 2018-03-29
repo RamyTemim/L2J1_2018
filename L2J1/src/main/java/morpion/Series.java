@@ -1,4 +1,4 @@
-package Details;
+
 
 public class Series {
 private  int nbSeries;

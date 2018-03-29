@@ -1,4 +1,4 @@
-package Service;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ static List<List<Position>>getWinnngPositions(){
  *////////////
 ///////////// retourner les position tout les position 
 ////////////
-static List <Position>getAllPostions(){
+static List <Position> getAllPostions(){
 	List<Position> positions = new ArrayList<>();
 	for (int i = 1; i <= 3; i++) {
 		for (int j = 0; j <=3 ; j++) {
