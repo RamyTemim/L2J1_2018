@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./morpion-grille.component.css']
 })
 export class MorpionGrilleComponent implements OnInit {
+  cases: number[] = [0,0,0];
 
   constructor() { }
 

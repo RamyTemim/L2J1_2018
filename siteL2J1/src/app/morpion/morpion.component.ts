@@ -36,19 +36,29 @@ private choix2: Choix2;
 private CreateUrl = 'http://localhost:8080/morpion/create';
 
   constructor(private http: Http) {
-    this.postChoix1();
-    this.postChoix2();
    }
 
    postChoix1(){
-         this.http.post(this.CreateUrl, this.choix1).subscribe(res => console.log(res.json()));
-         console.log("Choix envoyé");
-   }
+         this.http.post(this.CreateUrl, this.choix1).subscribe(
+           () => {
+             console.log("Choix envoyé : J1 vs IA");
+           },
+           (error) => {
+             console.log ("Erreur : " + error);
+           }
+         );
+    }
 
-   postChoix2(){
-         this.http.post(this.CreateUrl, this.choix2).subscribe(res => console.log(res.json()));
-         console.log("Choix envoyé");
-   }
+    postChoix2(){
+          this.http.post(this.CreateUrl, this.choix2).subscribe(
+            () => {
+              console.log("Choix envoyé : J1 vs J2");
+            },
+            (error) => {
+              console.log ("Erreur : " + error);
+            }
+          );
+     }
 
   ngOnInit() {
   }

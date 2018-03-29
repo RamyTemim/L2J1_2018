@@ -1,17 +1,7 @@
 <table>
-  <tr>
-    <td><input type="text" maxlength="1"></td>
-    <td><input type="text" maxlength="1"></td>
-    <td><input type="text" maxlength="1"></td>
+  <tr *ngFor = "let case of cases">
+    <td *ngFor = "let case of cases">
+    <input type="text" maxlength="1">
+  </td>
   </tr>
-  <tr>
-    <td><input type="text" maxlength="1"></td>
-    <td><input type="text" maxlength="1"></td>
-    <td><input type="text" maxlength="1"></td>
-    </tr>
-    <tr>
-      <td><input type="text" maxlength="1"></td>
-      <td><input type="text" maxlength="1"></td>
-      <td><input type="text" maxlength="1"></td>
-    </tr>
 </table>
