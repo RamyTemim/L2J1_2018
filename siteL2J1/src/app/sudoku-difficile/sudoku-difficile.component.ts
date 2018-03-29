@@ -29,5 +29,20 @@ export class SudokuDifficileComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+    saveNumber(x,i,j) {
+  var y = +x;
+	this.data3[i][j] = y ;
+  }
+  
+  validate(){
+	var myJsonString = JSON.stringify(this.data3);
+  console.log(this.data3);
+  //alert("you win !");
+  console.log(myJsonString);
+  this.http.post("http://localhost:4200/sudoku-facile/post", {"moo":"foo","goo":"loo"}).subscribe(res => console.log(res.json()), const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }));
+  //return myJsonString ;
+  
+  }
 
 }
