@@ -11,6 +11,7 @@ public class SudokuService {
 
 	int[][] solvedboard = new int[9][9];
 	int[][] grid = new int[9][9];
+
 	private final Logger log = LoggerFactory.getLogger(Application.class);
 	
 	
