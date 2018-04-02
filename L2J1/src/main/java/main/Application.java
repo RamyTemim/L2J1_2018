@@ -32,7 +32,7 @@ public class Application {
 			}
 		};
 	}
-	@Bean 
+	/*@Bean 
 	public CommandLineRunner demo (Game game) {
 		return(args) ->{ 
 			Player fistPlayer= new Player("joueur1", Piece.X);
@@ -41,7 +41,7 @@ public class Application {
 		  game.setSecondPlayer(secondPlayer);
 		};
 		
-	}
+	}*/
 }
 
 
