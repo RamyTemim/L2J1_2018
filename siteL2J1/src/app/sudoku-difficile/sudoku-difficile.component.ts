@@ -37,11 +37,14 @@ export class SudokuDifficileComponent implements OnInit {
   
   validate(){
 	var myJsonString = JSON.stringify(this.data3);
-  console.log(this.data3);
-  //alert("you win !");
-  console.log(myJsonString);
-  this.http.post("http://localhost:4200/sudoku-facile/post", {"moo":"foo","goo":"loo"}).subscribe(res => console.log(res.json()));
-  //return myJsonString ;
+
+ this.http.post("http://localhost:8080/sudoku/result", {myJsonString}).subscribe(resultat => {
+ if(resultat.json())
+	{alert("you win !");}
+  else
+	{alert("you lose");}
+  
+ });
   
   }
 
