@@ -19,7 +19,6 @@ private List<Position> playerPosition = new ArrayList<>();
 
 public Game(GameType id, Player firstPlayer, Player secondPlayer, Piece firstPlayerPiece, GameStatus status,
 		List<Move> deplacements, List<Position> playerPosition) {
-	super();
 	this.id = id;
 	this.firstPlayer = firstPlayer;
 	this.secondPlayer = secondPlayer;

@@ -32,16 +32,7 @@ public class Application {
 			}
 		};
 	}
-	@Bean 
-	public CommandLineRunner demo (Game game) {
-		return(args) ->{ 
-			Player fistPlayer= new Player("joueur1", Piece.X);
-			Player secondPlayer = new Player ("joueur", Piece.O);
-		  game.setFirstPlayer(fistPlayer);
-		  game.setSecondPlayer(secondPlayer);
-		};
-		
-	}
 }
+
 
 

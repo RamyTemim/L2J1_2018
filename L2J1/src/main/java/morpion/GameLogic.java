@@ -96,15 +96,6 @@ static boolean isBoardisFull(List<Position> positionPrise) {
 }
 
 
-
-static List<Position> getOpenPosition(List<Position>positionPrises)
-{
-    return getAllPostions().stream().filter(p -> !positionPrises.contains(p)).collect(Collectors.toList());
-}
-
-static Position nextAutomove(List<Position> positionPrises) {
-	return getOpenPosition(positionPrises).get(0);
-}
  
 //////
 /////  generer un deplacement AI
