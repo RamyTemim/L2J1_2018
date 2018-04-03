@@ -14,7 +14,7 @@ import morpion.Piece;
 import morpion.Player;
 
 @SpringBootApplication
-@ComponentScan(basePackages = { "controllers", "sudoku","services" })
+@ComponentScan(basePackages = { "controllers", "sudoku", "services" })
 public class Application {
 
 	public static void main(String[] args) {
@@ -29,19 +29,9 @@ public class Application {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/*").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/sudoku/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/morpion/*").allowedOrigins("http://localhost:4200");
 			}
 		};
+	
 	}
-	/*@Bean 
-	public CommandLineRunner demo (Game game) {
-		return(args) ->{ 
-			Player fistPlayer= new Player("joueur1", Piece.X);
-			Player secondPlayer = new Player ("joueur", Piece.O);
-		  game.setFirstPlayer(fistPlayer);
-		  game.setSecondPlayer(secondPlayer);
-		};
-		
-	}*/
 }
-
-
