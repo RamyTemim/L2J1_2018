@@ -1,27 +1,23 @@
-
+package morpion;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import morpion.Game;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import Details.Game;
-import Details.Move;
-import Details.Player;
-import Details.Position;
-import Details.Series;
-import Enumeration.GameStatus;
-import Enumeration.GameType;
-import Enumeration.Piece;
+		
 
 import static java.util.Arrays.asList;
 
 public class GameLogic {
+	
 private final  Game game;
+
 public GameLogic(Game game){
 	this.game = game;
 }
+
 @Autowired
 static 
 MoveService moveservice;
@@ -96,15 +92,6 @@ static boolean isBoardisFull(List<Position> positionPrise) {
 }
 
 
-
-static List<Position> getOpenPosition(List<Position>positionPrises)
-{
-    return getAllPostions().stream().filter(p -> !positionPrises.contains(p)).collect(Collectors.toList());
-}
-
-static Position nextAutomove(List<Position> positionPrises) {
-	return getOpenPosition(positionPrises).get(0);
-}
  
 //////
 /////  generer un deplacement AI

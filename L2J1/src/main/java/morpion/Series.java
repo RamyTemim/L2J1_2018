@@ -1,4 +1,4 @@
-
+package morpion;
 
 public class Series {
 private  int nbSeries;
