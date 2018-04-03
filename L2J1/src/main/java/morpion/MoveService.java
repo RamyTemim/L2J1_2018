@@ -1,3 +1,4 @@
+package morpion;
 
 
 import java.util.ArrayList;
@@ -10,13 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import morpion.Game;
-import Details.Move;
-import Details.Player;
-import Details.Position;
-import Enumeration.GameStatus;
-import Enumeration.GameType;
-import Enumeration.Piece;
-import UserOpt.Moveuser;
 
 @Service 
 public class MoveService {

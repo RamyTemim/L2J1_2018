@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs/add/operator/map';
+
 
 @Component({
   selector: 'app-sudoku-facile',
@@ -9,14 +11,13 @@ import 'rxjs/add/operator/map';
 })
 export class SudokuFacileComponent implements OnInit {
   private sudokuFacileUrl = 'http://localhost:8080/sudoku/sudokuFacile';
-  private solution = 'http://localhost:8080/sudoku/solvedSudoku';
   data1:  number[][];
-  data1sol: any ={};
 
-  constructor(private http: Http) {
+
+  constructor(private http: Http,private http2: HttpClient) {
+
   this.getGrilleFacile();
-  this.getGrilleSolved();
- 
+
   }
 
   getDataFacile(){
@@ -24,26 +25,31 @@ export class SudokuFacileComponent implements OnInit {
     .map((res: Response) => res.json())
   }
   
-  getDataSolution(){
-    return this.http.get(this.solution)
-    .map((res: Response) => res.json())
-  }
+
   getGrilleFacile(){
-      console.log('Affichage grille facile');
-    this.getDataFacile().subscribe(data1 =>{
-      console.log(data1);
+	this.getDataFacile().subscribe(data1 =>{
       this.data1 = data1
     })
   }
-   getGrilleSolved(){
-      console.log('Affichage de la solution');
-    this.getDataSolution().subscribe(data1sol =>{
-      console.log(data1sol);
-      this.data1sol = data1sol
-    })
+  
+  ngOnInit() {
+
+  }
+  
+  saveNumber(x,i,j) {
+  var y = +x;
+	this.data1[i][j] = y ;
+  }
+  
+  validate(){
+	var myJsonString = JSON.stringify(this.data1);
+  console.log(this.data1);
+  //alert("you win !");
+  console.log(myJsonString);
+  this.http.post("http://localhost:4200/sudoku-facile/post", {moo:"foo",goo:"loo"}).subscribe(res => console.log(res.json()));
+  //return myJsonString ;
+  
   }
 
-  ngOnInit() {
-  }
 
 }

@@ -1,6 +1,5 @@
 package controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,11 +23,11 @@ import java.util.List;
 public class MorpionController {
 
 	
-	 @Autowired
-	 GameService gameService;
 	 
-	 @Autowired
-	 PlayerService playerService;
+	 GameService gameService = new GameService();
+	 
+	 
+	 PlayerService playerService = new PlayerService();
 	 
 	 //// Crée la partie du morpion 
 	 
@@ -38,8 +37,8 @@ public class MorpionController {
 		 return game;
 	 }
 
-    @Autowired
-    private MoveService moveService;
+    
+    private MoveService moveService = new MoveService();
 
     private Game game;
     private Player currentPlayer;
