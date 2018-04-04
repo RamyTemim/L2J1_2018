@@ -39,7 +39,7 @@ public class SudokuController {
 	 * 
 	 * @return medium sudoku grid
 	 */
-	@RequestMapping(value = "/sudokuNormal", method = RequestMethod.POST)
+	@RequestMapping(value = "/sudokuNormal", method = RequestMethod.GET)
 	public int[][] MediumGameSudoku() {
 		AbstractGrid medium = new AbstractGrid();
 		medium.affect(medium.generateRestSudokuGrid("medium"), service.getGrid());
