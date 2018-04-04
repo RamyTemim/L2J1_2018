@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./morpion-j1vs-ia.component.css']
 })
 export class MorpionJ1vsIaComponent implements OnInit {
-  private createURL : 'http://localhost:8080/morpion/create'; // post
+  /*private createURL : 'http://localhost:8080/morpion/create'; // post
   private listURL : 'http://localhost:8080/morpion/list'; // get
   private autocreateURL : 'http://localhost:8080/morpion/autocreate'; // get
   private checkURL : 'http://localhost:8080/morpion/check'; // get
@@ -28,11 +28,11 @@ export class MorpionJ1vsIaComponent implements OnInit {
     this.getTurn();
   }
 
-
+*/
   ngOnInit() {
 
   }
-
+/*
   getListMoveData(){
     return this.http.get(this.listURL)
     .map((res: Response) => res.json())
@@ -80,5 +80,5 @@ export class MorpionJ1vsIaComponent implements OnInit {
       this.turn = turn
     })
   }
-
+*/
 }

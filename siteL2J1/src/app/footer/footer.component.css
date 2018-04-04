@@ -1,7 +1,5 @@
-#footer
-{
+#footer{
   text-decoration: none;
-  position:fixed;
   bottom: 0;
   width: 100%;
   background-color: rgba(26, 59, 177, 0.91);
@@ -10,6 +8,7 @@
   left: 0;
   font-size: 12px;
 }
+
 a{
   border-right: 1px solid white;
   padding-left: 2px;

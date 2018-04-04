@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError, retry } from 'rxjs/operators';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 enum GameType {
@@ -16,11 +16,11 @@ enum GameType {
 }
 
 class Choix1 {
-  constructor(public gameType: 0, piece: 0) {}
+  constructor(public gameType: "COMPUTER", piece: "X") {}
 }
 
 class Choix2 {
-  constructor(public gameType: 1, piece: 0) {}
+  constructor(public gameType: "COMPETITION", piece: "X") {}
 }
 
 @Component({
@@ -31,15 +31,20 @@ class Choix2 {
 export class MorpionComponent implements OnInit {
 private gameType = GameType;
 private piece = Piece;
-private choix1: Choix1;
-private choix2: Choix2;
-private CreateUrl = 'http://localhost:8080/morpion/create';
+private choix1 = Choix1;
+private choix2 = Choix2;
 
-  constructor(private http: Http) {
+  constructor(private httpClient: HttpClient) {
    }
 
    postChoix1(){
-         this.http.post(this.CreateUrl, this.choix1).subscribe(
+
+     var myJsonString = (JSON.stringify(this.choix1));
+     console.log(myJsonString);
+
+         this.httpClient
+         .post("http://localhost:8080/morpion/creategame", {myJsonString})
+         .subscribe(
            () => {
              console.log("Choix envoyé : J1 vs IA");
            },
@@ -50,9 +55,14 @@ private CreateUrl = 'http://localhost:8080/morpion/create';
     }
 
     postChoix2(){
-          this.http.post(this.CreateUrl, this.choix2).subscribe(
+
+      var myJsonString = JSON.stringify(this.choix2);
+
+          this.httpClient
+          .post("http://localhost:8080/morpion/creategame", {myJsonString})
+          .subscribe(
             () => {
-              console.log("Choix envoyé : J1 vs J2");
+              console.log("Choix envoyé : J1 vs IA");
             },
             (error) => {
               console.log ("Erreur : " + error);
