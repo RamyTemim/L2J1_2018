@@ -6,17 +6,17 @@ package morpion;
 public class GameUSer {
   ///////////  cette class contiendras les valeur taper par l utilisateur .
 	
-	private GameType gameType;
-	private Piece piece;
-	public GameUSer(GameType gameType, Piece piece) {
+	private String gameType;
+	private String piece;
+	public GameUSer(String gameType, String piece) {
 		super();
 		this.gameType = gameType;
 		this.piece = piece;
 	}
-	public GameType getGameType() {
+	public String getGameType() {
 		return gameType;
 	}
-	public Piece getPiece() {
+	public String getPiece() {
 		return piece;
 	}
 	

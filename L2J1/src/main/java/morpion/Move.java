@@ -6,15 +6,15 @@ private String id ;
 private int ligne;
 private int collonne;
 private Player player;
-private Piece playerPieceCode;
-private GameStatus status;
+private String playerPieceCode;
+private String status;
 
 
 
 
 public Move() {};
 
-public Move(String id, int ligne, int collonne, Player player, Piece playerPieceCode, GameStatus status) {
+public Move(String id, int ligne, int collonne, Player player, String playerPieceCode, String status) {
 	super();
 	this.id = id;
 	this.ligne = ligne;
@@ -24,7 +24,7 @@ public Move(String id, int ligne, int collonne, Player player, Piece playerPiece
 	this.status = status;
 }
 
-public Move(int ligne ,int collonne ,Piece playerPieceCode ) {
+public Move(int ligne ,int collonne ,String playerPieceCode ) {
 	this.ligne = ligne;
 	this.collonne = collonne;
 	this.playerPieceCode = playerPieceCode;
@@ -53,16 +53,16 @@ public Player getPlayer() {
 public void setPlayer(Player player) {
 	this.player = player;
 }
-public Piece getPlayerPieceCode() {
+public String getPlayerPieceCode() {
 	return playerPieceCode;
 }
-public void setPlayerPieceCode(Piece playerPieceCode) {
+public void setPlayerPieceCode(String playerPieceCode) {
 	this.playerPieceCode = playerPieceCode;
 }
-public GameStatus getStatus() {
+public String getStatus() {
 	return status;
 }
-public void setStatus(GameStatus status) {
+public void setStatus(String status) {
 	this.status = status;
 }
 

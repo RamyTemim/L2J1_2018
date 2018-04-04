@@ -4,15 +4,15 @@ package morpion;
 
 public class Player {
 private String id;
-private Piece piece ;
-public Player(String id, Piece piece) {
+private String piece ;
+public Player(String id, String piece) {
 	this.id = id;
 	this.piece = piece;
 }
 public String getId() {
 	return id;
 }
-public Piece getPiece() {
+public String getPiece() {
 	return piece;
 }
 

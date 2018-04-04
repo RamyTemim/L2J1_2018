@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Game {
-private GameType id ;
+private String id ;
 private Player firstPlayer;
 private Player secondPlayer;
-private Piece firstPlayerPiece;
-private GameStatus status;
+private String firstPlayerPiece;
+private String status;
 private List<Move> deplacements = new ArrayList<>();
 private List<Position> playerPosition = new ArrayList<>();
 
@@ -17,7 +17,7 @@ private List<Position> playerPosition = new ArrayList<>();
  
 
 
-public Game(GameType id, Player firstPlayer, Player secondPlayer, Piece firstPlayerPiece, GameStatus status,
+public Game(String id, Player firstPlayer, Player secondPlayer, String firstPlayerPiece, String status,
 		List<Move> deplacements, List<Position> playerPosition) {
 	this.id = id;
 	this.firstPlayer = firstPlayer;
@@ -28,7 +28,7 @@ public Game(GameType id, Player firstPlayer, Player secondPlayer, Piece firstPla
 	this.playerPosition = playerPosition;
 }
 public Game () {};
-public Game (Player firstPlayer,Piece firstPlayerPiece, GameType id ) {
+public Game (Player firstPlayer,String firstPlayerPiece, String id ) {
 	
 	this.id = id;
 	this.firstPlayer = firstPlayer;
@@ -54,11 +54,11 @@ public void setDeplacements(Move m) {
 	this.deplacements.add(m);
 }
 
-public GameType getId() {
+public String getId() {
 	return id;
 }
 
-public void setId(GameType id) {
+public void setId(String id) {
 	this.id = id;
 }
 
@@ -78,18 +78,18 @@ public void setSecondPlayer(Player secondPlayer) {
 	this.secondPlayer = secondPlayer;
 }
 
-public Piece getFirstPlayerPiece() {
+public String getFirstPlayerPiece() {
 	return firstPlayerPiece;
 }
 
-public void setFirstPlayerPiece(Piece firstPlayerPiece) {
+public void setFirstPlayerPiece(String firstPlayerPiece) {
 	this.firstPlayerPiece = firstPlayerPiece;
 }
 
-public GameStatus getStatus() {
+public String getStatus() {
 	return status;
 }
-public void setStatus(GameStatus status) {
+public void setStatus(String status) {
 	this.status = status;
 }
 

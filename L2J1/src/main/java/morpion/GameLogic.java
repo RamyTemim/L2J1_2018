@@ -116,7 +116,7 @@ public static  Position nextMoveIA(List<Move> takenPositions, int deep,Game game
 					pos.setPlayerPieceCode(null);
 				if (! takenPositions.contains(pos)) 
 						{
-							pos.setPlayerPieceCode(Piece.X);
+							pos.setPlayerPieceCode("X");
 							takenPositions.add(pos);
 							temp = min(game ,deep -1 ,takenPositions);
 							 if (temp > max )
@@ -134,7 +134,7 @@ public static  Position nextMoveIA(List<Move> takenPositions, int deep,Game game
 			}
 			
 		}
-		pos.setPlayerPieceCode(Piece.X);
+		pos.setPlayerPieceCode("X");
 		pos.setCollonne(maxj);
 		pos.setLigne(maxi);
 		takenPositions.set(takenPositions.size()-1, pos);
@@ -148,7 +148,7 @@ public static int max (Game game , int deep ,List<Move> takenPositions ) {
 	int max = MINVAL;
 	int temp;
 	Move pos= new Move();
-	if (deep == 0 || moveservice.checkCurrentGameStatus(game) != GameStatus.IN_PROGRESS )
+	if (deep == 0 || moveservice.checkCurrentGameStatus(game) != "IN_PROGRESS" )
 		return eval(game);
 	for(int i=0;i<3;i++) 
 	{
@@ -160,7 +160,7 @@ public static int max (Game game , int deep ,List<Move> takenPositions ) {
 		
 			if (! takenPositions.contains(pos)) 
 			{
-				pos.setPlayerPieceCode(Piece.O);
+				pos.setPlayerPieceCode("O");
 				takenPositions.add(pos);
 				temp= min (game,deep-1,takenPositions);
 				if (temp > max) {
@@ -180,7 +180,7 @@ public static  int min(Game game ,int deep , List< Move> takenPositions ) {
 	int temp;
 	Move pos= new Move();
 	
-	if(deep == 0  || moveservice.checkCurrentGameStatus(game) != GameStatus.IN_PROGRESS )
+	if(deep == 0  || moveservice.checkCurrentGameStatus(game) != "IN_PROGRESS" )
 		return eval(game);
 	
 	for (int i=0;i<3;i++) {
@@ -191,7 +191,7 @@ public static  int min(Game game ,int deep , List< Move> takenPositions ) {
 			pos.setPlayerPieceCode(null);
 		
 	    if (!takenPositions.contains(pos)) {
-	    pos.setPlayerPieceCode(Piece.X);
+	    pos.setPlayerPieceCode("X");
 	    temp=max(game,deep-1,takenPositions);
 	    if (temp < min)
 	    	min = temp;
@@ -223,14 +223,14 @@ public static void nb_series (Game game ,Series series_j1,Series series_j2, int 
 	for (i=0;i<3;i++) {
 	mov.setCollonne(i);
 	mov.setLigne(i);
-	mov.setPlayerPieceCode(Piece.X);
+	mov.setPlayerPieceCode("X");
 	if (game.getDeplacements().contains(mov)) {
 		compteur1++;
 		compteur2 = 0 ;
 		if (compteur1 == n) {
 			series_j1.setNbSeries(series_j1.getNbSeries()+1);
 		}
-		mov.setPlayerPieceCode(Piece.O);
+		mov.setPlayerPieceCode("O");
 	}else if (game.getDeplacements().contains(mov)) {
 		compteur2++;
 		compteur1 = 0 ;
@@ -246,7 +246,7 @@ public static void nb_series (Game game ,Series series_j1,Series series_j2, int 
 	for(i=0;i<3;i++){
 		mov.setCollonne(2-i);
 		mov.setLigne(i);
-		mov.setPlayerPieceCode(Piece.X);
+		mov.setPlayerPieceCode("X");
         if(game.getDeplacements().contains(mov)){
              compteur1++;
              compteur2 = 0;
@@ -254,7 +254,7 @@ public static void nb_series (Game game ,Series series_j1,Series series_j2, int 
              if (compteur1 == n) {
      			series_j1.setNbSeries(series_j1.getNbSeries()+1);
      		}
-     		mov.setPlayerPieceCode(Piece.O);
+     		mov.setPlayerPieceCode("O");
         }
         else if(game.getDeplacements().contains(mov)){
              compteur2++;
@@ -277,14 +277,14 @@ public static void nb_series (Game game ,Series series_j1,Series series_j2, int 
 		for (j=0;j<3;j++) {
 			mov.setCollonne(j);
 			mov.setLigne(i);
-			mov.setPlayerPieceCode(Piece.X);
+			mov.setPlayerPieceCode("X");
 			if (game.getDeplacements().contains(mov)) {
 				compteur1++;
 				compteur2=0;
 					   if (compteur1 == n) {
 			     			series_j1.setNbSeries(series_j1.getNbSeries()+1);
 			     		}
-				 		mov.setPlayerPieceCode(Piece.O);
+				 		mov.setPlayerPieceCode("O");
 			}else if (game.getDeplacements().contains(mov)) {
 				compteur2++;
 				compteur1=0;
@@ -307,14 +307,14 @@ public static void nb_series (Game game ,Series series_j1,Series series_j2, int 
 		for (j=0;j<3;j++) {
 			mov.setCollonne(i);
 			mov.setLigne(j);
-			mov.setPlayerPieceCode(Piece.X);
+			mov.setPlayerPieceCode("X");
 			if (game.getDeplacements().contains(mov)) {
 				compteur1++;
 				compteur2=0;
 					   if (compteur1 == n) {
 			     			series_j1.setNbSeries(series_j1.getNbSeries()+1);
 			     		}
-				 		mov.setPlayerPieceCode(Piece.O);
+				 		mov.setPlayerPieceCode("O");
 			}else if (game.getDeplacements().contains(mov)) {
 				compteur2++;
 				compteur1=0;

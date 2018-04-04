@@ -67,15 +67,15 @@ public class MoveService {
 	                .collect(Collectors.toList());
 	}
 	  
-	    public GameStatus checkCurrentGameStatus(Game game) {
+	    public String checkCurrentGameStatus(Game game) {
 	        if (GameLogic.isWinner(getPlayerMovePositionsInGame(game, game.getFirstPlayer()))) {
-	            return GameStatus.FISRT_PLAYER_WON;
+	            return "FISRT_PLAYER_WON";
 	        } else if (GameLogic.isWinner(getPlayerMovePositionsInGame(game, game.getSecondPlayer()))) {
-	            return GameStatus.SECOND_PLAYER_WON;
+	            return "SECOND_PLAYER_WON";
 	        } else if (GameLogic.isBoardisFull(getTakenMovePositionsInGame(game))) {
-	            return GameStatus.TIE;
+	            return "TIE";
 	        } else {
-	            return GameStatus.IN_PROGRESS;
+	            return "IN_PROGRESS";
 	        }
 
 	}
