@@ -1,4 +1,4 @@
-package Enumeration;
+package morpion.Enumeration;
 
 public enum GameStatus {
 IN_PROGRESS,
