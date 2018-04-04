@@ -13,6 +13,10 @@ public class GameUSer {
 		this.gameType = gameType;
 		this.piece = piece;
 	}
+	
+	public GameUSer() {}
+	
+	
 	public String getGameType() {
 		return gameType;
 	}

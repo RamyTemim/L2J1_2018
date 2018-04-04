@@ -5,34 +5,24 @@ import { catchError, retry } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
-enum GameType {
-  COMPUTER,
-  COMPETITION
-}
-
- enum Piece {
-  X,
-  O
-}
-
-class Choix1 {
-  constructor(public gameType: "COMPUTER", piece: "X") {}
-}
-
-class Choix2 {
-  constructor(public gameType: "COMPETITION", piece: "X") {}
-}
-
 @Component({
   selector: 'app-morpion',
   templateUrl: './morpion.component.html',
   styleUrls: ['./morpion.component.css']
 })
 export class MorpionComponent implements OnInit {
-private gameType = GameType;
-private piece = Piece;
-private choix1 = Choix1;
-private choix2 = Choix2;
+private choix1 = [
+  {
+    gameType : "COMPUTER",
+    piece : "X"
+  }
+];
+private choix2 = [
+  {
+    gameType : "COMPETITION",
+    piece : "X"
+  }
+];
 
   constructor(private httpClient: HttpClient) {
    }
@@ -57,12 +47,13 @@ private choix2 = Choix2;
     postChoix2(){
 
       var myJsonString = JSON.stringify(this.choix2);
+      console.log(myJsonString);
 
           this.httpClient
           .post("http://localhost:8080/morpion/creategame", {myJsonString})
           .subscribe(
             () => {
-              console.log("Choix envoyé : J1 vs IA");
+              console.log("Choix envoyé : J1 vs J2");
             },
             (error) => {
               console.log ("Erreur : " + error);
