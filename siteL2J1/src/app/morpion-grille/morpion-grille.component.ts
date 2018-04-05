@@ -10,6 +10,10 @@ export class MorpionGrilleComponent implements OnInit {
 
   constructor() { }
 
+  onClick(){
+    console.log("test des conditions");
+  }
+
   ngOnInit() {
   }
 
