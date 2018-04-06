@@ -8,13 +8,13 @@ td {
   text-align:center;
 }
 
-input {
+div {
 	height: 70px;
 	width: 70px;
 	border: none;
 	text-align: center;
 }
 
-input:hover{
+div:hover{
   cursor: pointer;
 }

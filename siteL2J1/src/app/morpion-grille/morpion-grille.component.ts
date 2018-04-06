@@ -6,20 +6,69 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./morpion-grille.component.css']
 })
 export class MorpionGrilleComponent implements OnInit {
+  /*
   cases: number[] = [0,0,0];
-
+  */
+  //*********** Chaque cases contiennent un id et la valeur de la piece ***********
+  cases1 = [
+    {
+      id:11,
+      piece:"O"
+    },
+    {
+      id:12,
+      piece:"O"
+    },
+    {
+      id:13,
+      piece:"O"
+    }
+  ];
+  cases2 = [
+    {
+      id:21,
+      piece:""
+    },
+    {
+      id:22,
+      piece:""
+    },
+    {
+      id:23,
+      piece:""
+    }
+  ];
+  cases3 = [
+    {
+      id:31,
+      piece:""
+    },
+    {
+      id:32,
+      piece:""
+    },
+    {
+      id:33,
+      piece:""
+    }
+  ];
   constructor() { }
-  //Fonction 1
-  function verifCaseLibre(boardRow, boardColumn) {
 
-      for (var i=0; i < scope.movesInGame.length; i++) {
-          var move = scope.movesInGame[i];
-          if(move.boardColumn == boardColumn && move.boardRow == boardRow) {
+  /* Fonction pour le morpion
+  //Fonction 1 Le code n'est pas complet
+  //La fonction 1 doit verifier si la case est libre et retourne un booleen
+
+  function verifCaseLibre(id) {
+      var cases1 =['','',''];
+      for (var i=0 ; i < cases1.length; i++) {
+          var move = cases[i];
+          if(cases1[i] == 'X' || cases1[i] == 'O') {
               return false;
           }
       }
       return true;
-}
+      console.log(verifCaseLibre(id));
+    }
 
 //Fonction 2
 
@@ -34,14 +83,14 @@ function verifTourJoueur() {
 
 //Fonction 3
 scope.markPlayerMove = function (column) {
-   checkPlayerTurn().success(function () {
+   verifTourJoueur().success(function () {
 
-       var boardRow = parseInt(column.id.charAt(0));
-       var boardColumn = parseInt(column.id.charAt(1));
+       var ligne = parseInt(column.id.charAt(0));
+       var colonne = parseInt(column.id.charAt(1));
        var params = {'boardRow': boardRow, 'boardColumn': boardColumn}
 
-       if (checkIfBoardCellAvailable(boardRow, boardColumn) == true) {
-           // if player has a turn
+       if (verifCaseLibre(id) == true) {
+           // si c'est le tour du joueur
            if (scope.playerTurn == true) {
 
                http.post("/move/create", params, {
@@ -82,6 +131,7 @@ scope.nextMoveData = []
      scope.errorMessage = "Can't send the move"
  });
 }
+*/
 
   onClick(){
     console.log("test des conditions");
