@@ -5,51 +5,54 @@ import 'rxjs/add/operator/map';
 
 
 @Component({
-  selector: 'app-sudoku-facile',
-  templateUrl: './sudoku-facile.component.html',
-  styleUrls: ['./sudoku-facile.component.css']
+    selector: 'app-sudoku-facile',
+    templateUrl: './sudoku-facile.component.html',
+    styleUrls: ['./sudoku-facile.component.css']
 })
-export class SudokuFacileComponent implements OnInit {
-  private sudokuFacileUrl = 'http://localhost:8080/sudoku/sudokuFacile';
-  data1:  number[][];
+    
+export class SudokuFacileComponent {
+    private sudokuFacileUrl = 'http://localhost:8080/sudoku/sudokuFacile';
+    data1: number[][];
+    data2: number[][];
 
-  constructor(private http: Http,private http2: HttpClient) {
+    constructor(private http: Http) {
+        this.getGrilleFacile();
+	}
+    
 
-  this.getGrilleFacile();
-  }
 
-  getDataFacile(){
+    getDataFacile() {
+        return this.http.get(this.sudokuFacileUrl).map((res: Response) => res.json())
+    }
 
-    return this.http.get(this.sudokuFacileUrl)
-    .map((res: Response) => res.json())
-  }
+    getGrilleFacile() {
+        this.getDataFacile().subscribe(data9 => {
+            this.data1 = data9;	
+		this.data2 = this.data1.map(function(arr) {
+    return arr.slice();
+});
+        });
+		
+	
+}
 
-  getGrilleFacile(){
+    saveNumber(x, i, j) {
+        var y = +x;
+        this.data2[i][j] = y;
+    }
 
-	this.getDataFacile().subscribe(data1 =>{
-      this.data1 = data1
-    })
-  }
 
-  ngOnInit() {
-  }
+    validate() {
 
-  saveNumber(x,i,j) {
+        var myJsonString = JSON.stringify(this.data2);
 
-  var y = +x;
-	this.data1[i][j] = y ;
-  }
+        this.http.post("http://localhost:8080/sudoku/result", { myJsonString }).subscribe(resultat => {
+            if (resultat.json()){ 
+                alert("you win !"); 
+            }else{ 
+                alert("you lose"); 
+            }
 
-  validate(){
-
-	var myJsonString = JSON.stringify(this.data1);
-
- this.http.post("http://localhost:8080/sudoku/result", {myJsonString}).subscribe(resultat => {
- if(resultat.json())
-	{alert("you win !");}
-  else
-	{alert("you lose");}
-
- });
-  }
+        });
+    }
 }

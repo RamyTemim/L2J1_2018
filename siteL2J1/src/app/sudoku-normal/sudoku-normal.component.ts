@@ -11,6 +11,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 export class SudokuNormalComponent implements OnInit {
   private sudokuNormalUrl = 'http://localhost:8080/sudoku/sudokuNormal';
   data2: number[][];
+  dataTmp: number[][];
 
   constructor(private http: Http) {
   this.getGrilleNormal();
@@ -24,8 +25,11 @@ export class SudokuNormalComponent implements OnInit {
   
   getGrilleNormal(){
     this.getDataNormal().subscribe(data2 =>{
-      this.data2 = data2
-    })
+      this.data2 = data2;
+	  this.dataTmp = this.data2.map(function(arr) {
+    return arr.slice();
+    });
+  });
   }
 
 
@@ -34,11 +38,11 @@ export class SudokuNormalComponent implements OnInit {
   
     saveNumber(x,i,j) {
   var y = +x;
-	this.data2[i][j] = y ;
+	this.dataTmp[i][j] = y ;
   }
   
   validate(){
-	var myJsonString = JSON.stringify(this.data2);
+	var myJsonString = JSON.stringify(this.dataTmp);
 
  this.http.post("http://localhost:8080/sudoku/result", {myJsonString}).subscribe(resultat => {
  if(resultat.json())

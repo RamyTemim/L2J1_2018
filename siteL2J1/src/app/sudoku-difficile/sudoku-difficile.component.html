@@ -3,9 +3,10 @@
 
 
 <table >
-	<tr *ngFor="let data of data3">
-		<td *ngFor="let num of data"><input type="text" maxlength="1" [value]="num  !== 0 ? num  : ''" [disabled]= "num  !== 0 ? true  : false" 
-		(change)="saveNumber($event.target.value,i,j)"></td>
+	<tr *ngFor="let data of data3;let i = index">
+		<td *ngFor="let num of data;let j = index">
+		<input type="text" maxlength="1" [value]="num  !== 0 ? num  : ''" [disabled]= "num  !== 0 ? true  : false" 
+		(input)="saveNumber($event.target.value,i,j)"></td>
 	</tr>
 </table>
 
