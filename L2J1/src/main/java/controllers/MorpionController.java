@@ -1,5 +1,6 @@
 package controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +12,7 @@ import Morpion.TypeGame;
 import services.MorpionService;
 
 
-
+@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
 @RestController
 @RequestMapping("/morpion")
 public class MorpionController {
@@ -19,6 +20,7 @@ public class MorpionController {
 	
 
     
+	
 	MorpionService gameService = new MorpionService();
 	@RequestMapping("/pagehello")
 	public String sayHi() {
@@ -30,7 +32,7 @@ public class MorpionController {
 		
 	 }
 	 
-	 @RequestMapping(value= "/move" , method = RequestMethod.POST)
+	 @RequestMapping(value="/move" , method = RequestMethod.POST)
 	 public int  moveuser(@RequestBody CaseInput idcase ) {
 		 return   gameService.markMove(idcase);
 		  

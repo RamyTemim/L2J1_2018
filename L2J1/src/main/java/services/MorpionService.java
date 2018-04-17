@@ -44,8 +44,9 @@ public class MorpionService {
 		public int temp(int a ) {
 			return a ;
 		}
+		   @JsonIgnore
 	    public int markMove( CaseInput  idcase ) {
-	    	nbmove=nbmove+1;
+	    	nbmove = nbmove +1;
 	     grille.setCaseContenu(idcase.getIdcase(), currentJoueur.getCaractere());
 	     game.setGrille(grille);
 	     
