@@ -1,75 +1,52 @@
 package controllers;
 
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import morpion.Game;
-import morpion.GameService;
-import morpion.GameUSer;
-import morpion.Move;
-import morpion.MoveService;
-import morpion.Moveuser;
-import morpion.Player;
-import morpion.PlayerService;
-import morpion.Position;
+import Morpion.CaseInput;
+import Morpion.Joueur;
+import Morpion.TypeGame;
+import services.MorpionService;
 
-import java.util.List;
+
 
 @RestController
 @RequestMapping("/morpion")
 public class MorpionController {
 
 	
-	 
-	 GameService gameService = new GameService();
-	 
-	 
-	 PlayerService playerService = new PlayerService();
-	 
-	 //// Crée la partie du morpion 
-	 
-	 @RequestMapping(value = "/creategame", method = RequestMethod.POST)
-	 public Game createNewGame(@RequestBody GameUSer gameuser ) {
-		 Game game = gameService.createNewGame(gameuser); 
-		 return game;
-	 }
 
     
-    private MoveService moveService = new MoveService();
-
-    private Game game;
-    private Player currentPlayer;
-
-
-    ///
-    ///     Crée un déplacement
-    ///
-
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public Move createMove(@RequestBody Moveuser createMove) {
-
-        Move move = moveService.createMove(game ,currentPlayer, createMove);
-        gameService.updateGameStatus(game, moveService.checkCurrentGameStatus(game));
-
-        return move;
-    }
-
-
-
-
-    /////
-    ///// Envoie les déplacements pour vérifier les positions valides
-    /////
-
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public List<Move> getMovesInGame() {
-        return moveService.getMovesInGame(game);
-    }
-
-
+	MorpionService gameService = new MorpionService();
+	@RequestMapping("/pagehello")
+	public String sayHi() {
+		return "Hello there !!!!!!!!! ";
+	}
+	 @RequestMapping(value = "/creategame", method = RequestMethod.POST)
+	 public void createNewGame(@RequestBody TypeGame gameuser ) {
+	        gameService.createNewGame(gameuser); 
+		
+	 }
+	 
+	 @RequestMapping(value= "/move" , method = RequestMethod.POST)
+	 public int  moveuser(@RequestBody CaseInput idcase ) {
+		 return   gameService.markMove(idcase);
+		  
+	 }	
+	 @RequestMapping(value = "/gamestatus", method = RequestMethod.GET)
+	    public  int getGameStatus (Joueur j) {
+	        return gameService.gameStatus();
+	        	
+	        }
+	 @RequestMapping(value = "/player", method = RequestMethod.GET)
+	    public  int getJoueur () {
+	        return gameService.gamePlayer();
+	        	
+	        }
+	    }
+/*
 
     ////
     ////     Déplacement de l'intelligence artificielle
@@ -84,28 +61,5 @@ public class MorpionController {
     }
 
 
-    ////
-    ////     Vérifie les positions actuelles
-    ////
-
-    @RequestMapping(value = "/check", method = RequestMethod.GET)
-    public List<Position> validateMoves() {
-
-        return moveService.getPlayerMovePositionsInGame(game, currentPlayer);
-    }
-
-
-
-
-    /////
-    ////	 Vérifie le tour
-    ///
-
-    @RequestMapping(value = "/turn", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public boolean isPlayerTurn() {
-
-        return moveService.isPlayerTurn(game, game.getFirstPlayer(),
-                game.getSecondPlayer());
-    }
+*/
 	 
-}
