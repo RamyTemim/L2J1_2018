@@ -23,6 +23,12 @@ public Joueur  getJetProp(int indice ) {
 	 return  this.grille[indice].getPrioritairejetons();
 }
 
+///// recuperer la contenue d une case dans la grille 
+public Jetons getCaseContenu(int caseId) {
+	return grille[caseId].getContenu();
+}
+
+/// modifier le contenue d une case dans la grille 
 public void setCaseContenu(int caseId ,Jetons contenu) {
 	 this.grille[caseId].setContenu(contenu);
 }

@@ -27,6 +27,10 @@ public Joueur getPrioritairejetons() {
 		return null;
 }
 
+public Jetons getContenu() {
+	return this.contenu;
+}
+
 
 public void setContenu(Jetons contenu) {
 	this.contenu = contenu;

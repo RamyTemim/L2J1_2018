@@ -1,6 +1,5 @@
 package controllers;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +11,6 @@ import Morpion.TypeGame;
 import services.MorpionService;
 
 
-@CrossOrigin(origins = "http://domain2.com", maxAge = 3600)
 @RestController
 @RequestMapping("/morpion")
 public class MorpionController {
@@ -21,7 +19,8 @@ public class MorpionController {
 
     
 	
-	MorpionService gameService = new MorpionService();
+	MorpionService gameService = new MorpionService(); 
+	
 	@RequestMapping("/pagehello")
 	public String sayHi() {
 		return "Hello there !!!!!!!!! ";
@@ -47,21 +46,19 @@ public class MorpionController {
 	        return gameService.gamePlayer();
 	        	
 	        }
-	    }
-/*
+	 
+	 @RequestMapping(value="/reset" , method = RequestMethod.POST)
+	 public int  moveuser(@RequestBody int  rep ) {
+		 return   gameService.clear(rep);
+		  
+	 }	
+	    
 
-    ////
-    ////     Déplacement de l'intelligence artificielle
-    ////
-    @RequestMapping(value = "/autocreate", method = RequestMethod.GET)
-    public Move autoCreateMove() {
-
-
-        Move move = moveService.autoCreateMove(game);
-        gameService.updateGameStatus( game  , moveService.checkCurrentGameStatus(game));
-        return move;
+    @RequestMapping(value = "/automove", method = RequestMethod.GET)
+    public int  autoCreateMove(){
+       return  gameService.iaMove();
+  
     }
 
-
-*/
+    }
 	 
