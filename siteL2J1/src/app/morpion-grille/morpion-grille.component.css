@@ -4,9 +4,17 @@ table {
 td {
   height:70px;
   width:70px;
-  border:5px solid;
   text-align:center;
+  border: 1px solid;
 }
+
+td {
+border-right:5px solid;
+border-bottom:5px solid;
+}
+
+td:last-child { border-right:none; }
+tr:last-child td { border-bottom:none; }
 
 div {
   background-color: white;

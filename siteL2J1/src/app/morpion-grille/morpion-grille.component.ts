@@ -31,6 +31,8 @@ constructor(private httpClient: HttpClient) {
 ngOnInit() {
 }
 
+//Change le tour à chaque coup
+
 changeTour() {
   if (this.tour == 1){
     this.tour = 2;
@@ -39,6 +41,8 @@ changeTour() {
     this.tour = 1;
   }
 }
+
+//Event à chaque clique d'une case -> envoie un post contenant l'id de la case
 
   onClick(i: number){
     console.log("Vous avez cliqué sur la case: " +i);
@@ -69,6 +73,8 @@ changeTour() {
     this.getGameStatus();
   }
 
+//Donne l'état du jeu
+
 getGameStatus(){
   this.httpClient
   .get("http://localhost:8080/morpion/gamestatus")
@@ -94,6 +100,8 @@ getGameStatus(){
   });
 }
 
+//Donne le tour
+
   getTour(){
     this.httpClient
     .get<any[]>("http://localhost:8080/morpion/player")
@@ -106,6 +114,8 @@ getGameStatus(){
       }
     )
   }
+
+//Reset la grille back et front
 
   reset(){
     this.httpClient
