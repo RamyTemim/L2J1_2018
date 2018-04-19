@@ -13,6 +13,7 @@ export class MorpionGrilleComponent implements OnInit {
 
 grille: string[] = [" "," "," "," "," "," "," "," "];
 tour: any;
+gameStatus: number;
 
 constructor(private httpClient: HttpClient) {
   this.getTour();
@@ -41,7 +42,7 @@ changeTour() {
 }
 
   onClick(i: number){
-    console.log(i);
+    console.log("Vous avez cliqué sur la case: " +i);
     var myJsonString = JSON.stringify(i);
 
     if (this.tour==1){
@@ -56,21 +57,36 @@ changeTour() {
 
     this.httpClient
     .post("http://localhost:8080/morpion/move", { myJsonString })
-    .subscribe(resultat => {
-        if (resultat==0){
-            console.log("Partie en cours");
-        }
-        if (resultat==1){
-            alert("Joueur 1 a gagné !");
-        }
-        if (resultat==2){
-            alert("Joueur 2 a gagné !");
-        }
-        if (resultat==3){
-            alert("Match nul");
-        }
-    });
+    .subscribe(
+      (response) => {
+        console.log("C'est envoyé!");
+      },
+      (error) => {
+        console.log("Erreur: "+error);
+      }
+    )
+
+    this.getGameStatus();
   }
+
+getGameStatus(){
+  this.httpClient
+  .get("http://localhost:8080/morpion/gamestatus")
+  .subscribe(resultat => {
+      if (resultat==4){
+          console.log("Partie en cours");
+      }
+      if (resultat==1){
+          alert("Joueur 1 a gagné !");
+      }
+      if (resultat==2){
+          alert("Joueur 2 a gagné !");
+      }
+      if (resultat==3){
+          alert("Match nul");
+      }
+  });
+}
 
   getTour(){
     this.httpClient
