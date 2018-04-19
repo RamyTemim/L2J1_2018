@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import { Case } from './case';
 
 @Component({
   selector: 'app-morpion-grille',
@@ -43,7 +42,8 @@ changeTour() {
 
   onClick(i: number){
     console.log("Vous avez cliqué sur la case: " +i);
-    var myJsonString = JSON.stringify(i);
+    // var myJsonString = JSON.stringify(i);
+    // console.log(myJsonString);
 
     if (this.tour==1){
       this.grille[i] = "X";
@@ -56,7 +56,7 @@ changeTour() {
 
 
     this.httpClient
-    .post("http://localhost:8080/morpion/move", { myJsonString })
+    .post("http://localhost:8080/morpion/move", { 'idcase': i })
     .subscribe(
       (response) => {
         console.log("C'est envoyé!");
@@ -78,9 +78,13 @@ getGameStatus(){
       }
       if (resultat==1){
           alert("Joueur 1 a gagné !");
+          this.reset();
+          this.tour = 1;
       }
       if (resultat==2){
           alert("Joueur 2 a gagné !");
+          this.reset();
+          this.tour = 1;
       }
       if (resultat==3){
           alert("Match nul");
@@ -100,6 +104,21 @@ getGameStatus(){
       }
     )
   }
+
+  reset(){
+    this.httpClient
+    .post("http://localhost:8080/morpion/reset", 1)
+    .subscribe(
+      (response) => {
+        console.log("Reset envoyé !");
+      },
+      (error) => {
+        console.log("Erreur: "+error);
+      }
+    )
+    var newGrille: string[] = [" "," "," "," "," "," "," "," "];
+    this.grille = newGrille;
+}
 
 }
 

@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MorpionJ1vsJ2Component implements OnInit {
 
-  constructor() { }
 
   ngOnInit() {
   }
