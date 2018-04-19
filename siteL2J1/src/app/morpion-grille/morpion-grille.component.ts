@@ -1,103 +1,176 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import 'rxjs/add/operator/map';
+import { Case } from './case';
 
 @Component({
   selector: 'app-morpion-grille',
   templateUrl: './morpion-grille.component.html',
-  styleUrls: ['./morpion-grille.component.css']
+  styleUrls: ['./morpion-grille.component.css'],
 })
 export class MorpionGrilleComponent implements OnInit {
-  /*
-  cases: number[] = [0,0,0];
-  */
-  //*********** Chaque cases contiennent un id et la valeur de la piece ***********
-  cases1 = [
-    {
-      id:11,
-      piece:"O"
-    },
-    {
-      id:12,
-      piece:"O"
-    },
-    {
-      id:13,
-      piece:"O"
-    }
-  ];
-  cases2 = [
-    {
-      id:21,
-      piece:""
-    },
-    {
-      id:22,
-      piece:""
-    },
-    {
-      id:23,
-      piece:""
-    }
-  ];
-  cases3 = [
-    {
-      id:31,
-      piece:""
-    },
-    {
-      id:32,
-      piece:""
-    },
-    {
-      id:33,
-      piece:""
-    }
-  ];
-  constructor() { }
 
-  /* Fonction pour le morpion
+grille: string[] = [" "," "," "," "," "," "," "," "];
+tour: any;
+
+constructor(private httpClient: HttpClient) {
+  this.getTour();
+}
+
+// caseToGrille(){
+//   this.grille = [];
+//     for (var i=0; i<9; i++) {
+//       var case = new Case();
+//       case.id = i;
+//       case.contenu = "";
+//       this.grille.push(this.case);
+//   }
+// }
+
+ngOnInit() {
+}
+
+changeTour() {
+  if (this.tour == 1){
+    this.tour = 2;
+  }
+  else {
+    this.tour = 1;
+  }
+}
+
+  onClick(i: number){
+    console.log(i);
+    var myJsonString = JSON.stringify(i);
+
+    if (this.tour==1){
+      this.grille[i] = "X";
+    }
+    if (this.tour==2){
+      this.grille[i] = "O";
+    }
+
+    this.changeTour();
+
+
+    this.httpClient
+    .post("http://localhost:8080/morpion/move", { myJsonString })
+    .subscribe(resultat => {
+        if (resultat==0){
+            console.log("Partie en cours");
+        }
+        if (resultat==1){
+            alert("Joueur 1 a gagné !");
+        }
+        if (resultat==2){
+            alert("Joueur 2 a gagné !");
+        }
+        if (resultat==3){
+            alert("Match nul");
+        }
+    });
+  }
+
+  getTour(){
+    this.httpClient
+    .get<any[]>("http://localhost:8080/morpion/player")
+    .subscribe(
+      (response) => {
+        this.tour = response;
+      },
+      (error) => {
+        console.log("Erreur : "+error);
+      }
+    )
+  }
+
+}
+
+
+  // Fonction pour le morpion
   //Fonction 1 Le code n'est pas complet
   //La fonction 1 doit verifier si la case est libre et retourne un booleen
 
-  function verifCaseLibre(id) {
-      var cases1 =['','',''];
-      for (var i=0 ; i < cases1.length; i++) {
-          var move = cases[i];
-          if(cases1[i] == 'X' || cases1[i] == 'O') {
-              return false;
-          }
-      }
-      return true;
-      console.log(verifCaseLibre(id));
+  // verifCaseLibre() {
+  //    var libre = true;
+  //
+  //    for (var i=0 ; i < 3; i++) {
+  //     for (var j=0; j < 3; j++) {
+  //        if(this.cases[i][j] == 'X' || this.cases[i][j] == 'O') {
+  //            console.log("Cette case est occupée");
+  //            console.log(this.cases[i][j]);
+  //            libre = false;
+  //            return libre;
+  //        }
+  //      }
+  //    }
+  //    console.log("Cette case est vide");
+  //    libre = true;
+  //    return libre;
+  //  }
+
+   // verifCaseLibre() {
+   //    var libre = true;
+   //
+   //    for (var i=0 ; i < this.cases1.length; i++) {
+   //        if(this.cases1[i].piece == 'X' || this.cases1[i].piece == 'O') {
+   //            console.log("Cette case est occupée");
+   //            console.log(this.cases1[i].piece);
+   //            libre = false;
+   //            return libre;
+   //        }
+   //    }
+   //    console.log("Cette case est vide");
+   //    libre = true;
+   //    return libre;
+   //  }
+
+//Fonction 2 : Vérifie le tour du joueur
+/*
+//Pas encore testé
+verifTourJoueur() {
+
+   this.httpClient
+   .get<any[]>('http://localhost8080/morpion/turn')
+   .subscribe(
+    (response) => {
+      this.dataTurn = response;
+      console.log(this.dataTurn);
+    },
+    (error) => {
+      console.log("Erreur ! :"+error);
     }
-
-//Fonction 2
-
-function verifTourJoueur() {
-
-   http.get('/move/turn').success(function(data) {
-       scope.playerTurn = data;
-   }).error(function(data, status, headers, config) {
-       scope.errorMessage = "Failed to get the player turn"
-   });
+    );
+    if (this.dataTurn==this.turn) {
+      return true;
+    }
+    else return false;
 }
-
+/*
 //Fonction 3
-scope.markPlayerMove = function (column) {
-   verifTourJoueur().success(function () {
+markPlayerMove = (cases1) {
+   if (verifTourJoueur() == true) {
 
-       var ligne = parseInt(column.id.charAt(0));
-       var colonne = parseInt(column.id.charAt(1));
+       var ligne = parseInt(cases1.id.charAt(0));
+       var colonne = parseInt(cases1.id.charAt(1));
        var params = {'boardRow': boardRow, 'boardColumn': boardColumn}
 
        if (verifCaseLibre(id) == true) {
            // si c'est le tour du joueur
-           if (scope.playerTurn == true) {
+           if (playerTurn == true) {
 
-               http.post("/move/create", params, {
-                   headers: {
-                       'Content-Type': 'application/json; charset=UTF-8'
-                   }
-               }).success(function () {
+               HttpClient
+               .post("http://localhost8080/morpion/create")
+               .subscribe(
+                (response) => {
+                console.log("terminé");
+                },
+                (error) => {
+                console.log("Erreur : "+error);
+              }
+
+               );
                    getMoveHistory().success(function () {
                        var gameStatus = scope.movesInGame[scope.movesInGame.length - 1].gameStatus;
                        if (gameStatus == 'IN_PROGRESS') {
@@ -132,12 +205,15 @@ scope.nextMoveData = []
  });
 }
 */
-
-  onClick(){
-    console.log("test des conditions");
+/*
+setValue(cases1){
+  this.cases1 = cases1;
+  for (var i=0; i<3; i++){
+    if ( this.cases1.piece[i] == "tick") {
+      this.cases1.value[i] = "done";
+    }
+    else {
+      this.cases1.value[i] = "close";
+    }
   }
-
-  ngOnInit() {
-  }
-
-}
+} */

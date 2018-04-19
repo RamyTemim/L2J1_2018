@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
 
 
 import { AppComponent } from './app.component';
@@ -56,7 +57,8 @@ import { SudokuSolutionComponent } from './sudoku-solution/sudoku-solution.compo
     AppRoutingModule,
 	HttpClientModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   providers: [SudokuService],
   bootstrap: [AppComponent]
