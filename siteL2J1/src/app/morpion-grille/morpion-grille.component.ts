@@ -88,6 +88,8 @@ getGameStatus(){
       }
       if (resultat==3){
           alert("Match nul");
+          this.reset();
+          this.tour = 1;
       }
   });
 }
