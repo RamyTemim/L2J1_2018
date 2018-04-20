@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-morpion-index',
@@ -7,7 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MorpionIndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
+
+  reset(){
+    this.httpClient
+    .post("http://localhost:8080/morpion/reset", 1)
+    .subscribe(
+      (response) => {
+        console.log("Reset envoyé !");
+      },
+      (error) => {
+        console.log("Erreur: "+error);
+      }
+    )
+  }
 
   ngOnInit() {
   }
