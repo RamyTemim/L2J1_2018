@@ -28,6 +28,7 @@ public class Application {
 				registry.addMapping("/*").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/sudoku/*").allowedOrigins("http://localhost:4200");
 				registry.addMapping("/morpion/*").allowedOrigins("http://localhost:4200");
+				registry.addMapping("/pfc/*").allowedOrigins("http://localhost:4200");
 			}
 
 		};
