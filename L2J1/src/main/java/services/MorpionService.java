@@ -70,15 +70,17 @@ public class MorpionService {
 	    @JsonIgnore
 	 public int  gameStatus() {
 	    	 
-			   if(grille.getGagnant() != null || nbmove ==9 ) {
+			   if(grille.getGagnant() != null ) {
 				   if (currentJoueur.getId()==1)
 					   status =1;
 				   else if (currentJoueur.getId()==2)
 					   status =2;
-				   else
-					   status =3;
+				  
 				   
 				   return status ;
+			   } else if (nbmove >= 9) {
+				   status =3;
+				   
 			   }
 	        
 				  
@@ -97,9 +99,7 @@ public class MorpionService {
 	public int   clear(Reset rep) {
 		if (rep.getRep() == 1) {
 		for (int i = 0; i < 9; i++) {
-			if (grille.getCaseContenu(i)!= null)
 			    grille.setCaseContenu(i, null);
-	   
 			
 		}
 
@@ -107,6 +107,8 @@ public class MorpionService {
 
 		
 		    status =4;
+		    nbmove=0;
+		    
 		}
 	 return status ;
 	
