@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'morpion-index', component: MorpionIndexComponent },
   { path: 'morpion-j1vs-ia', component: MorpionJ1vsIaComponent },
   { path: 'morpion-j1vs-j2', component: MorpionJ1vsJ2Component },
-  { path: 'sudoku-solution', component: SudokuSolutionComponent }
+  { path: 'sudoku-solution', component: SudokuSolutionComponent },
   { path: 'pfc', component: PfcComponent }
 
 ];
