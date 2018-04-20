@@ -28,6 +28,7 @@ import { MorpionJ1vsJ2Component } from './morpion-j1vs-j2/morpion-j1vs-j2.compon
 import { JoueurComponent } from './joueur/joueur.component';
 import { FormsModule } from '@angular/forms';
 import { SudokuSolutionComponent } from './sudoku-solution/sudoku-solution.component';
+import { PfcComponent } from './pfc/pfc.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SudokuSolutionComponent } from './sudoku-solution/sudoku-solution.compo
     MorpionJ1vsIaComponent,
     MorpionJ1vsJ2Component,
     JoueurComponent,
-    SudokuSolutionComponent
+    SudokuSolutionComponent,
+    PfcComponent
   ],
   imports: [
     BrowserModule,
