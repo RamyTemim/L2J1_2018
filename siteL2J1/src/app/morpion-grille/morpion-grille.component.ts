@@ -16,6 +16,7 @@ gameStatus: number;
 
 constructor(private httpClient: HttpClient) {
   this.getTour();
+  this.reset();
 }
 
 // caseToGrille(){
