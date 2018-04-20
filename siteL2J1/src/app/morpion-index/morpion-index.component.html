@@ -1,7 +1,24 @@
 <div class="morpion">
 	<h1 class="titreMorpion">Morpion</h1>
 	<app-joueur></app-joueur>
-  <app-morpion-grille></app-morpion-grille>
+	<table>
+	<caption> Bienvenue sur le morpion ! </caption>
+	<tr>
+		<td><div></div></td>
+		<td><div></div></td>
+		<td><div></div></td>
+	</tr>
+	<tr>
+		<td><div></div></td>
+		<td><div></div></td>
+		<td><div></div></td>
+	</tr>
+	<tr>
+		<td><div></div></td>
+		<td><div></div></td>
+		<td><div></div></td>
+	</tr>
+</table>
 	<nav class="bouton">
 		<button routerLink="/morpion">Jouer</button>
 		<button (click)="reset()">Reset</button>

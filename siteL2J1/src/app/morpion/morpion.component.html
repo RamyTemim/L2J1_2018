@@ -1,6 +1,23 @@
 <div class="morpion">
   <h1 class="titreMorpion">Morpion</h1>
-  <app-morpion-grille></app-morpion-grille>
+  <table>
+    <caption> Choississez le mode de jeu </caption>
+    <tr>
+      <td><div></div></td>
+      <td><div></div></td>
+      <td><div></div></td>
+    </tr>
+    <tr>
+      <td><div></div></td>
+      <td><div></div></td>
+      <td><div></div></td>
+    </tr>
+    <tr>
+      <td><div></div></td>
+      <td><div></div></td>
+      <td><div></div></td>
+    </tr>
+  </table>
   <nav class="bouton">
     <button id="bouton1" (click)="postChoix1()" routerLink="/morpion-j1vs-ia" disabled>J1 vs IA</button>
  <button id="bouton2"(click)="postChoix2()" routerLink="/morpion-j1vs-j2">J1 vs J2</button>

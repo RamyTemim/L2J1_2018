@@ -46,3 +46,13 @@ button{
 button:hover{
   background-color: rgb(238, 118, 6);
 }
+
+table {
+  margin:1em auto;
+}
+td {
+  height:70px;
+  width:70px;
+  text-align:center;
+  border: 3px black solid;
+}
