@@ -14,7 +14,7 @@ public class PFCController {
 	
 	pfc p = new pfc();
 	
-	@RequestMapping(value="/move" , method = RequestMethod.POST)
+	@RequestMapping(value="/mark" , method = RequestMethod.POST)
 	 public int move(@RequestBody int idcase ) {
 		 return   p.markMove(idcase);
 	}
