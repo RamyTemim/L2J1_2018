@@ -8,20 +8,15 @@ td {
   border: 3px black solid;
 }
 
-/* td {
-border-right:5px solid;
-border-bottom:5px solid;
-} */
 
 /* td:last-child { border-right:none; }
 tr:last-child td { border-bottom:none; } */
 
 div {
-  /* background-color: white; */
 	height: 70px;
 	width: 70px;
 	border: none;
-  font-size: 40px;
+  font-size: 60px;
 	/* text-align: center; */
   /* padding: 25px; */
 }
