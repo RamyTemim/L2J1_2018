@@ -82,7 +82,7 @@ public class MorpionService {
 	    }
 	    
 /////////// reset grille;
-	   // @JsonIgnore
+	   @JsonIgnore
 	public int  clear(int rep) {
 		if (rep == 1) {
 		for (int i = 0; i < 9; i++) {
@@ -92,9 +92,9 @@ public class MorpionService {
 			this.grille.setCaseContenu(i, null);
 			
 		}
-		 //currentJoueur.setId(joueur1.getId());
+		 currentJoueur = joueur1;
 		}
-			return 3;
+			return 4;
 	
 	}
 	    
