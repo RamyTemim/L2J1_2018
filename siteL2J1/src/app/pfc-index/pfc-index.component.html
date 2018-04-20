@@ -1,0 +1,30 @@
+<div class="pfc">
+  <h1>Pierre feuille ciseau</h1>
+  <table class="table">
+      <caption> Choississez une case </caption>
+    <tr>
+      <td class="td"(click)="onClick(1)">{{case[0]}}</td>
+      <td class="td"(click)="onClick(2)">{{case[1]}}</td>
+      <td class="td"(click)="onClick(3)">{{case[2]}}</td>
+    </tr>
+  </table>
+  <table>
+      <th> Score : </th>
+      <tr>
+        <td>Victoire</td>
+        <td>{{win}}</td>
+      </tr>
+      <tr>
+        <td>Défaite</td>
+        <td>{{lose}}</td>
+      </tr>
+      <tr>
+        <td>Match nul</td>
+        <td>{{draw}}</td>
+      </tr>
+  </table>
+  <nav class="bouton">
+    <button routerLink="/pfc">Retour</button>
+    <button routerLink="/index">Quitter</button>
+  </nav>
+</div>

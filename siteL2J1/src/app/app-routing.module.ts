@@ -16,6 +16,7 @@ import { MorpionJ1vsIaComponent } from './morpion-j1vs-ia/morpion-j1vs-ia.compon
 import { MorpionJ1vsJ2Component } from './morpion-j1vs-j2/morpion-j1vs-j2.component';
 import { SudokuSolutionComponent } from './sudoku-solution/sudoku-solution.component';
 import { PfcComponent } from './pfc/pfc.component';
+import { PfcIndexComponent } from './pfc-index/pfc-index.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'morpion-j1vs-ia', component: MorpionJ1vsIaComponent },
   { path: 'morpion-j1vs-j2', component: MorpionJ1vsJ2Component },
   { path: 'sudoku-solution', component: SudokuSolutionComponent },
-  { path: 'pfc', component: PfcComponent }
+  { path: 'pfc', component: PfcComponent },
+  { path: 'pfc-index', component: PfcIndexComponent }
 
 ];
 

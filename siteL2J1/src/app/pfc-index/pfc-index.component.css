@@ -30,3 +30,14 @@ img{
   background-size: cover;
   padding: 20px;
 }
+
+table {
+  margin:1em auto;
+}
+td.td {
+  height:70px;
+  width:70px;
+  text-align:center;
+  border: 3px black solid;
+  cursor: pointer;
+}
