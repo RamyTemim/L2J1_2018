@@ -83,10 +83,14 @@ public class MorpionService {
 	    
 /////////// reset grille;
 <<<<<<< HEAD
+<<<<<<< HEAD
     @JsonIgnore
 =======
 	   // @JsonIgnore
 >>>>>>> cdca94bf424de54d18291669a895bc01440a7eeb
+=======
+	   @JsonIgnore
+>>>>>>> ae31a70908bf8d28e4d008d09aa6874500986681
 	public int  clear(int rep) {
 		if (rep == 1) {
 		for (int i = 0; i < 9; i++) {
@@ -97,12 +101,16 @@ public class MorpionService {
 			
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 		 currentJoueur = joueur1;
 =======
 		 //currentJoueur.setId(joueur1.getId());
 >>>>>>> cdca94bf424de54d18291669a895bc01440a7eeb
+=======
+		 currentJoueur = joueur1;
+>>>>>>> ae31a70908bf8d28e4d008d09aa6874500986681
 		}
-			return 3;
+			return 4;
 	
 	}
 	    
