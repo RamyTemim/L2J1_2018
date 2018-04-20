@@ -7,6 +7,7 @@ import Morpion.CaseInput;
 import Morpion.Game;
 import Morpion.Grille;
 import Morpion.Joueur;
+import Morpion.Reset;
 import Morpion.TypeGame;
 
 
@@ -20,6 +21,7 @@ public class MorpionService {
 	 Joueur  joueur1 = new Joueur(1, 'X');
 	 Joueur joueur2 = new Joueur(2, 'O');
 	 Joueur currentJoueur = joueur1;
+	 int status=4;
 	 int nbmove = 0;
 	 
 	 int series_j1=0;
@@ -68,13 +70,20 @@ public class MorpionService {
 	    @JsonIgnore
 	 public int  gameStatus() {
 	    	 
-			   if(grille.getGagnant() != null)
-				   return currentJoueur.getId();
-			  else if(nbmove == 9) 
-					  return 3;
+			   if(grille.getGagnant() != null || nbmove ==9 ) {
+				   if (currentJoueur.getId()==1)
+					   status =1;
+				   else if (currentJoueur.getId()==2)
+					   status =2;
+				   else
+					   status =3;
+				   
+				   return status ;
+			   }
+	        
 				  
 				  swapTurn();
-		return 4;
+		 return status;
 	      
 }
 	    public int gamePlayer() {
@@ -85,20 +94,21 @@ public class MorpionService {
 
     @JsonIgnore
 
-	public int  clear(int rep) {
-		if (rep == 1) {
+	public int   clear(Reset rep) {
+		if (rep.getRep() == 1) {
 		for (int i = 0; i < 9; i++) {
-			if (grille.getCaseContenu(i)== null)
+			if (grille.getCaseContenu(i)!= null)
 			    grille.setCaseContenu(i, null);
-	        else 
-			this.grille.setCaseContenu(i, null);
+	   
 			
 		}
 
 		 currentJoueur = joueur1;
 
+		
+		    status =4;
 		}
-			return 4;
+	 return status ;
 	
 	}
 	    

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Morpion.CaseInput;
 import Morpion.Joueur;
+import Morpion.Reset;
 import Morpion.TypeGame;
 import services.MorpionService;
 
@@ -48,7 +49,7 @@ public class MorpionController {
 	        }
 	 
 	 @RequestMapping(value="/reset" , method = RequestMethod.POST)
-	 public int  moveuser(@RequestBody int  rep ) {
+	 public int  moveuser(@RequestBody Reset  rep ) {
 		 return   gameService.clear(rep);
 		  
 	 }	
