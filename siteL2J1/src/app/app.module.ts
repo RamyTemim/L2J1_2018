@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './material.module';
-
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -59,8 +57,7 @@ import { PfcComponent } from './pfc/pfc.component';
     AppRoutingModule,
 	HttpClientModule,
     HttpModule,
-    FormsModule,
-    MaterialModule
+    FormsModule
   ],
   providers: [SudokuService],
   bootstrap: [AppComponent]
