@@ -97,6 +97,15 @@ public Joueur getGagnant () {
 	 return winner;
 	}
 
+/////////// reset grille;
+	public void clear() {
+		for (int i = 0; i < grille.length; i++) {
+			if (this.grille[i]== null)
+			this.grille[i] = new CaseGrille(i);
+	        else 
+			this.grille[i].setContenu(null);
+	}
+	}
 
 
 
