@@ -77,7 +77,7 @@ public Joueur getGagnant () {
 	winner = getCol();
 	if (winner != null)
 		return  winner;
-	/// comparaison diagonale  753
+	/// comparaison diagonale  951
 	 Joueur joueur =  getJetProp( 0 );
 	 if ( joueur != null && joueur.equals(getJetProp(4))) {
 		 if (joueur.equals(getJetProp(8))) {
@@ -85,8 +85,8 @@ public Joueur getGagnant () {
 		 }
 		 
 	 }
-	/// comparaison diagonale  951 
-		 joueur =  getJetProp(0);
+	/// comparaison diagonale  753 
+		 joueur =  getJetProp(2);
 		 if (joueur != null && joueur.equals(getJetProp(4))) {
 			 if (joueur.equals(getJetProp(6))) {
 				 winner = joueur ;
