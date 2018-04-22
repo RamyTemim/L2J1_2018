@@ -10,9 +10,10 @@ import 'rxjs/add/operator/map';
 })
 export class MorpionGrilleComponent implements OnInit {
 
-grille: string[] = [" "," "," "," "," "," "," "," "];
+grille: string[] = [" "," "," "," "," "," "," "," "," "];
 tour: any;
 gameStatus: number;
+libre: boolean = false;
 
 constructor(private httpClient: HttpClient) {
   this.getTour();
@@ -47,32 +48,46 @@ changeTour() {
 
   onClick(i: number){
     console.log("Vous avez cliqué sur la case: " +i);
-    // var myJsonString = JSON.stringify(i);
-    // console.log(myJsonString);
-
-    if (this.tour==1){
-      this.grille[i] = "X";
+  
+    if (this.grille[i]==" "){
+      this.libre = true;
     }
-    if (this.tour==2){
-      this.grille[i] = "O";
+    else {
+      this.libre = false;
+    }
+    console.log(this.libre);
+
+    if (this.libre==false){
+      return;
     }
 
-    this.changeTour();
 
-
-    this.httpClient
-    .post("http://localhost:8080/morpion/move", { 'idcase': i })
-    .subscribe(
-      (response) => {
-        console.log("C'est envoyé!");
-      },
-      (error) => {
-        console.log("Erreur: "+error);
+      if (this.tour==1){
+        this.grille[i] = "X";
       }
-    )
+      if (this.tour==2){
+        this.grille[i] = "O";
+      }
+
+      console.log(this.grille[8]);
+
+
+      this.changeTour();
+
+
+      this.httpClient
+      .post("http://localhost:8080/morpion/move", { 'idcase': i })
+      .subscribe(
+        (response) => {
+          console.log("C'est envoyé!");
+        },
+        (error) => {
+          console.log("Erreur: "+error);
+        }
+      )
 
     this.getGameStatus();
-  }
+    }
 
 //Donne l'état du jeu
 
@@ -129,8 +144,9 @@ getGameStatus(){
         console.log("Erreur: "+error);
       }
     )
-    var newGrille: string[] = [" "," "," "," "," "," "," "," "];
+    var newGrille: string[] = [" "," "," "," "," "," "," "," "," "];
     this.grille = newGrille;
+    this.libre = false;
 }
 
 }
