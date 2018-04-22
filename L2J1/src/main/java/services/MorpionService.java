@@ -2,7 +2,7 @@ package services;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import Morpion.CaseGrille;
+
 import Morpion.CaseInput;
 import Morpion.Game;
 import Morpion.Grille;
@@ -129,31 +129,46 @@ public class MorpionService {
 	        	///// si la case est vide on simule un coup 
 				if (grille.getCaseContenu(i) == null) {
 					grille.setCaseContenu(i, joueur1.getCaractere());
-					tmp = Min(grille,profondeur-1);
-					if (tmp > max )
+					 profondeur=profondeur -1;
+					tmp = minIA(profondeur);
+					
+					if ((tmp > max)|| ((tmp == max) && (Math.random()%2 == 0)) )
 						id = i;
+					// on annule le coup
+					grille.setCaseContenu(i, null);
 				}
-				// on annule le coup
-				grille.setCaseContenu(i, null);
+				
 	
 			}
 	        grille.setCaseContenu(id, joueur1.getCaractere());
+	        nbmove = nbmove+1;
+	    
 	      
 	        return id;
 			}
 	    
-	  public int Min(Grille grille,int p) {
-		  if (p == 0 || grille.getGagnant() != null ) {
-			  return eval(grille);
+	    
+	    /////////////////////////////////
+	    ///
+	   ///    fonction min 
+	  ///
+	 //////////////////////////////////
+	    
+	    
+	  public int minIA(int p) {
+		  if (profondeur== 0 || grille.getGagnant() != null  || nbmove == 9) {
+			  return eval();
 		  }
 		  int min = 1000;
 		  int i;
 		  int temp;
 		  for ( i = 0; i < 9; i++) {
-			  if (grille.getCaseContenu(i)==null) {
+			  if (grille.getCaseContenu(i)== null) {
 				  grille.setCaseContenu(i, joueur1.getCaractere());
-				  temp = Max(grille,p-1);
-				  if (temp < min ) {
+				  profondeur=profondeur -1;
+				  temp = maxIA(profondeur);
+				  
+				  if ((temp < min ) || ((temp == min) && (Math.random()% 2 == 0 ))) {
 					  min = temp;
 				  }
 				  grille.setCaseContenu(i,null);
@@ -161,17 +176,26 @@ public class MorpionService {
 		}
 		  return min;
 	  }
-	public int Max(Grille  grille ,int p) {
-		if (p==0 || grille.getGagnant()!= null) {
-			return eval(grille);
+	  
+	  ///////////////////////////////////////
+	  //////
+	  /////    fonction max 
+	  ////
+	  ///////////////////////////////////////
+	  
+	  
+	public int maxIA(int p) {
+		if (profondeur==0 || grille.getGagnant()!= null || nbmove == 9) {
+			return eval();
 		}
 		int max=-1000;
 		int i,temp ;
 		for ( i = 0; i < 9; i++) {
 			if (grille.getCaseContenu(i)==null) {
 				grille.setCaseContenu(i, joueur2.getCaractere());
-				temp= Min(grille,p-1);
-				if (temp > max ) {
+				 profondeur=profondeur -1;
+				temp= minIA(profondeur);
+				if ((temp > max)  || ((temp == max) && (Math.random()%2 == 0))) {
 					max=temp;
 				}
 				grille.setCaseContenu(i, null);
@@ -181,21 +205,28 @@ public class MorpionService {
 	}
 		return max;
 	   
-	    }
+	    } 
+	/////////////////////////////////////////////////////////
+	////////
+	///////   fonction evalution 
+	//////
+	/////////////////////////////////////////////////////////
+	
+	/*
 	public void nb_Series(int n) {
 		int compteur1=0;
 		int compteur2=0;
 		int i ,j;
 		/// diagonale descendante 
 		for (i=0;i<=8;i=i+4) {
-			if (grille.getCaseContenu(i).getProprietaire().getId() == 1 ) {
+			if (grille.getCaseContenu(i).getProprietaire() == joueur1 ) {
 				compteur1++;
 				compteur2=0;
 				if(compteur1 == n ) {
 					series_j1++;
 				}
 			}
-			if (grille.getCaseContenu(i).getProprietaire().getId() == 2 ) {
+			if (grille.getCaseContenu(i).getProprietaire() == joueur2 ) {
 				compteur2++;
 				compteur1=0;
 				if(compteur2 == n ) {
@@ -207,14 +238,14 @@ public class MorpionService {
 		compteur2=0;
 		// Diagonale Montante 
 		for(i=2;i<=6;i=i+2) {
-			if (grille.getCaseContenu(i).getProprietaire().getId() == 1 ) {
+			if (grille.getCaseContenu(i).getProprietaire() == joueur1 ) {
 				compteur1++;
 				compteur2=0;
 				if(compteur1 == n ) {
 					series_j1++;
 				}
 			}
-			if (grille.getCaseContenu(i).getProprietaire().getId() == 2 ) {
+			if (grille.getCaseContenu(i).getProprietaire() == joueur2) {
 				compteur2++;
 				compteur1=0;
 				if(compteur2 == n ) {
@@ -229,14 +260,14 @@ public class MorpionService {
 	          compteur2 = 0;
 	          ///// horizentale 
 	          for(j=0;j<3;j=j++) {
-	            if (grille.getCaseContenu(i+j).getProprietaire().getId() == 1 ) {
+	            if (grille.getCaseContenu(i+j).getProprietaire() == joueur1 ) {
 	  				compteur1++;
 	  				compteur2=0;
 	  				if(compteur1 == n ) {
 	  					series_j1++;
 	  				}
 	  			}
-	  			if (grille.getCaseContenu(i+j).getProprietaire().getId() == 2 ) {
+	  			if (grille.getCaseContenu(i+j).getProprietaire() ==joueur2 ) {
 	  				compteur2++;
 	  				compteur1=0;
 	  				if(compteur2 == n ) {
@@ -245,6 +276,7 @@ public class MorpionService {
 	  		    }
 	          }   
 		}
+		
 		
 		 //// verticalement 
   		for(i=0;i<3;i++) {
@@ -270,13 +302,15 @@ public class MorpionService {
 		
 		
 		}
-	public int eval(Grille grille) {
+	*/
+		
+	public int eval() {
 		int vainqueur,nb_de_Pions=0;
 		int i;
 		
 		/// on compte le nombre de pions sur le plateau 
 		  for ( i = 0; i < 9; i++) {
-			  if(grille.getCaseContenu(i)==null) {
+			  if(grille.getCaseContenu(i) != null) {
 				  nb_de_Pions++;
 			  }
 			
@@ -290,13 +324,37 @@ public class MorpionService {
 			  }else 
 				  return 0;
 		  }
-		  // on compte le nombre de series de 2 pions aliges de chacun des joueur 
-		  nb_Series(2);
-		  return series_j1 - series_j2;
+		
+		 ///////// la partie en cours 
+		return 4;
 	
 	}
-		
 	
+	/*
+	public int gagant (Grille g) {
+		int i;
+		int resu=3;
+		nb_Series(3);
+		if (series_j1 != 0) {
+			
+			resu = 1;
+		}
+		else if(series_j2 !=0 ) {
+			resu = 2;
+		}
+			else {
+				for (i=0;i<9;i++) {
+					if (g.getCaseContenu(i) == null ) {
+						resu = 0;
+					}
+				}
+			}
+		
+		
+	return resu ;
+	}
+		
+*/
 	    
    
 }
