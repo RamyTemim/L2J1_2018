@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -21,6 +20,7 @@ export class MorpionJ1vsIaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.reset();
   }
 
   //Change le tour à chaque coup
@@ -37,7 +37,7 @@ export class MorpionJ1vsIaComponent implements OnInit {
   //Event à chaque clique d'une case -> envoie un post contenant l'id de la case
 
     onClick(i: number){
-      console.log("Vous avez cliqué sur la case: " +i);
+      //Vérifie si la case est libre
 
       if (this.grille[i]==" "){
         this.libre = true;
@@ -75,7 +75,6 @@ export class MorpionJ1vsIaComponent implements OnInit {
           (response) => {
             this.IA = response;
             this.grille[this.IA] = "O";
-            console.log(this.IA);
           },
           (error) => {
             console.log("Erreur : "+error);
@@ -142,7 +141,7 @@ export class MorpionJ1vsIaComponent implements OnInit {
       this.grille = newGrille;
       this.libre = false;
       this.tour = 1;
-      this.IA = 0;
+      this.IA = null;
   }
 
   }

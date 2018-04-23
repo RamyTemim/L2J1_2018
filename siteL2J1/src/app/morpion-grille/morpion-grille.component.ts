@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -20,17 +19,8 @@ constructor(private httpClient: HttpClient) {
   this.reset();
 }
 
-// caseToGrille(){
-//   this.grille = [];
-//     for (var i=0; i<9; i++) {
-//       var case = new Case();
-//       case.id = i;
-//       case.contenu = "";
-//       this.grille.push(this.case);
-//   }
-// }
-
 ngOnInit() {
+  this.reset();
 }
 
 //Change le tour à chaque coup
@@ -47,7 +37,8 @@ changeTour() {
 //Event à chaque clique d'une case -> envoie un post contenant l'id de la case
 
   onClick(i: number){
-    console.log("Vous avez cliqué sur la case: " +i);
+
+    //Vérifier case libre
 
     if (this.grille[i]==" "){
       this.libre = true;
@@ -55,7 +46,6 @@ changeTour() {
     else {
       this.libre = false;
     }
-    console.log(this.libre);
 
     if (this.libre==false){
       return;
