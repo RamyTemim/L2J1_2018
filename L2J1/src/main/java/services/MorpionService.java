@@ -177,7 +177,7 @@ public class MorpionService {
 		  int temp;
 		  for ( i = 0; i < 9; i++) {
 			  if (grille.getCaseContenu(i) == null) {
-				  grille.setCaseContenu(i, joueur2.getCaractere());
+				  grille.setCaseContenu(i, joueur1.getCaractere());
 				  nb_virtuel ++ ;
 				
 				  temp = maxIA(p-1);
@@ -206,7 +206,7 @@ public class MorpionService {
 		int i,temp ;
 		for ( i = 0; i < 9; i++) {
 			if (grille.getCaseContenu(i) == null) {
-				grille.setCaseContenu(i, joueur1.getCaractere());
+				grille.setCaseContenu(i, joueur2.getCaractere());
 				nb_virtuel++;
 	
 				temp= minIA(p-1);
