@@ -30,7 +30,11 @@ public class MorpionService {
 	 
 	 /// innitialiser le niveau de difficulter de l ia 
 	 
-	          int profondeur = 5;
+	          int profondeur = 9;
+	          
+	          
+	          ///////  renvoie la position ia 
+	          int idcase;
 	 
 	 //////////////////////////////////////////////////////////////
 		public void createNewGame( TypeGame gameuser ) {
@@ -123,28 +127,31 @@ public class MorpionService {
 	    public int iaMove() {
 	    	int max = -1000;
 	    	int tmp;
-	    	int id = 10 ;
+	    	int depth = profondeur;
 	        int i;
 	       for ( i = 0; i < 9; i++) {
 	        	///// si la case est vide on simule un coup 
 				if (grille.getCaseContenu(i) == null) {
-					grille.setCaseContenu(i, joueur1.getCaractere());
-					 profondeur=profondeur -1;
-					tmp = minIA(profondeur);
+					grille.setCaseContenu(i, joueur2.getCaractere());
+	
+					tmp = minIA( depth-1 );
 					
-					if ((tmp > max)|| ((tmp == max) && (Math.random()%2 == 0)) )
-						id = i;
+					if ((tmp > max)|| (tmp == max )) {
+						idcase = i;
+						max=tmp;
+						
+					}
 					// on annule le coup
 					grille.setCaseContenu(i, null);
 				}
 				
 	
 			}
-	        grille.setCaseContenu(id, joueur1.getCaractere());
+	        grille.setCaseContenu(idcase, joueur2.getCaractere());
 	        nbmove = nbmove+1;
 	    
 	      
-	        return id;
+	        return idcase;
 			}
 	    
 	    
@@ -156,19 +163,19 @@ public class MorpionService {
 	    
 	    
 	  public int minIA(int p) {
-		  if (profondeur== 0 || grille.getGagnant() != null  || nbmove == 9) {
+		  if (p== 0 || grille.getGagnant() != null  || nbmove == 9) {
 			  return eval();
 		  }
 		  int min = 1000;
 		  int i;
 		  int temp;
 		  for ( i = 0; i < 9; i++) {
-			  if (grille.getCaseContenu(i)== null) {
-				  grille.setCaseContenu(i, joueur1.getCaractere());
-				  profondeur=profondeur -1;
-				  temp = maxIA(profondeur);
+			  if (grille.getCaseContenu(i) == null) {
+				  grille.setCaseContenu(i, joueur2.getCaractere());
+				
+				  temp = maxIA(p-1);
 				  
-				  if ((temp < min ) || ((temp == min) && (Math.random()% 2 == 0 ))) {
+				  if ((temp < min )|| (temp == min) ) {
 					  min = temp;
 				  }
 				  grille.setCaseContenu(i,null);
@@ -185,17 +192,17 @@ public class MorpionService {
 	  
 	  
 	public int maxIA(int p) {
-		if (profondeur==0 || grille.getGagnant()!= null || nbmove == 9) {
+		if (p==0 || grille.getGagnant()!= null || nbmove == 9) {
 			return eval();
 		}
 		int max=-1000;
 		int i,temp ;
 		for ( i = 0; i < 9; i++) {
-			if (grille.getCaseContenu(i)==null) {
-				grille.setCaseContenu(i, joueur2.getCaractere());
-				 profondeur=profondeur -1;
-				temp= minIA(profondeur);
-				if ((temp > max)  || ((temp == max) && (Math.random()%2 == 0))) {
+			if (grille.getCaseContenu(i) == null) {
+				grille.setCaseContenu(i, joueur1.getCaractere());
+	
+				temp= minIA(p-1);
+				if ((temp > max) || (temp == max) ) {
 					max=temp;
 				}
 				grille.setCaseContenu(i, null);
@@ -211,150 +218,29 @@ public class MorpionService {
 	///////   fonction evalution 
 	//////
 	/////////////////////////////////////////////////////////
+
 	
-	/*
-	public void nb_Series(int n) {
-		int compteur1=0;
-		int compteur2=0;
-		int i ,j;
-		/// diagonale descendante 
-		for (i=0;i<=8;i=i+4) {
-			if (grille.getCaseContenu(i).getProprietaire() == joueur1 ) {
-				compteur1++;
-				compteur2=0;
-				if(compteur1 == n ) {
-					series_j1++;
-				}
-			}
-			if (grille.getCaseContenu(i).getProprietaire() == joueur2 ) {
-				compteur2++;
-				compteur1=0;
-				if(compteur2 == n ) {
-					series_j2++;
-				}
-			}
-		}
-		compteur1=0;
-		compteur2=0;
-		// Diagonale Montante 
-		for(i=2;i<=6;i=i+2) {
-			if (grille.getCaseContenu(i).getProprietaire() == joueur1 ) {
-				compteur1++;
-				compteur2=0;
-				if(compteur1 == n ) {
-					series_j1++;
-				}
-			}
-			if (grille.getCaseContenu(i).getProprietaire() == joueur2) {
-				compteur2++;
-				compteur1=0;
-				if(compteur2 == n ) {
-					series_j2++;
-				}
-		}
-		
-	}
-		///// en ligne 
-		for(i=0;i<=6;i=i+3) {
-			 compteur1 = 0;
-	          compteur2 = 0;
-	          ///// horizentale 
-	          for(j=0;j<3;j=j++) {
-	            if (grille.getCaseContenu(i+j).getProprietaire() == joueur1 ) {
-	  				compteur1++;
-	  				compteur2=0;
-	  				if(compteur1 == n ) {
-	  					series_j1++;
-	  				}
-	  			}
-	  			if (grille.getCaseContenu(i+j).getProprietaire() ==joueur2 ) {
-	  				compteur2++;
-	  				compteur1=0;
-	  				if(compteur2 == n ) {
-	  					series_j2++;
-	  				}
-	  		    }
-	          }   
-		}
-		
-		
-		 //// verticalement 
-  		for(i=0;i<3;i++) {
-  			compteur1 = 0;
-	          compteur2 = 0;
-	          for (j=0;j<=6;j=j+3) {
-	        	  if (grille.getCaseContenu(i+j).getProprietaire().getId() == 1 ) {
-		  				compteur1++;
-		  				compteur2=0;
-		  				if(compteur1 == n ) {
-		  					series_j1++;
-		  				}
-		  			}
-		  			if (grille.getCaseContenu(i+j).getProprietaire().getId() == 2 ) {
-		  				compteur2++;
-		  				compteur1=0;
-		  				if(compteur2 == n ) {
-		  					series_j2++;
-		  				}
-		  		    }
-	          }
-  		}
-		
-		
-		}
-	*/
-		
 	public int eval() {
-		int vainqueur,nb_de_Pions=0;
-		int i;
-		
-		/// on compte le nombre de pions sur le plateau 
-		  for ( i = 0; i < 9; i++) {
-			  if(grille.getCaseContenu(i) != null) {
-				  nb_de_Pions++;
-			  }
-			
+		int vainqueur=0;
+		int nb_piont=0;
+		for (int i=0;i<9;i++) {
+			if (grille.getCaseContenu(i)!= null)
+				nb_piont++;
 		}
+	
 		  if ( grille.getGagnant() != null ) {
 			  vainqueur = grille.getGagnant().getId();
-			  if(vainqueur == 1) {
-				  return 1000- nb_de_Pions;
-			  }else if (vainqueur == 2) {
-				  return -1000 + nb_de_Pions;
-			  }else 
-				  return 0;
+			  if(vainqueur == 2) {
+				  return  100 - nb_piont;
+			  }else if (vainqueur == 1) {
+				  return -100 + nb_piont;
+			  }
+				
 		  }
-		
-		 ///////// la partie en cours 
-		return 4;
+			 return vainqueur;
 	
 	}
 	
-	/*
-	public int gagant (Grille g) {
-		int i;
-		int resu=3;
-		nb_Series(3);
-		if (series_j1 != 0) {
-			
-			resu = 1;
-		}
-		else if(series_j2 !=0 ) {
-			resu = 2;
-		}
-			else {
-				for (i=0;i<9;i++) {
-					if (g.getCaseContenu(i) == null ) {
-						resu = 0;
-					}
-				}
-			}
-		
-		
-	return resu ;
-	}
-		
-*/
-	    
+	
    
 }
