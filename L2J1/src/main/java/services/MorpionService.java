@@ -135,8 +135,8 @@ public class MorpionService {
 					grille.setCaseContenu(i, joueur2.getCaractere());
 	
 					tmp = minIA( depth-1 );
-					
-					if ((tmp > max)|| (tmp == max )) {
+					////// pour choisir aleatoire en cas eux il y a deux valeur egaux 
+					if ((tmp > max)||( (tmp == max )&&(Math.random()%2==0) ) ) {
 						idcase = i;
 						max=tmp;
 						
@@ -147,6 +147,7 @@ public class MorpionService {
 				
 	
 			}
+	       ///// annuler le coup jouer 
 	        grille.setCaseContenu(idcase, joueur2.getCaractere());
 	        nbmove = nbmove+1;
 	    
@@ -175,7 +176,7 @@ public class MorpionService {
 				
 				  temp = maxIA(p-1);
 				  
-				  if ((temp < min )|| (temp == min) ) {
+				  if ((temp < min )||( (temp == min) &&(Math.random()%2==0) ) ) {
 					  min = temp;
 				  }
 				  grille.setCaseContenu(i,null);
@@ -202,7 +203,7 @@ public class MorpionService {
 				grille.setCaseContenu(i, joueur1.getCaractere());
 	
 				temp= minIA(p-1);
-				if ((temp > max) || (temp == max) ) {
+				if ((temp > max) || ((temp == max)&&(Math.random()%2==0) ) ){
 					max=temp;
 				}
 				grille.setCaseContenu(i, null);
@@ -231,8 +232,10 @@ public class MorpionService {
 		  if ( grille.getGagnant() != null ) {
 			  vainqueur = grille.getGagnant().getId();
 			  if(vainqueur == 2) {
+				  ///// on esseye de gagner le plus rapide possible 
 				  return  100 - nb_piont;
 			  }else if (vainqueur == 1) {
+				  ///// on esseye de survive le plus rapide possible 
 				  return -100 + nb_piont;
 			  }
 				
