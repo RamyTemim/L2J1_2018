@@ -34,7 +34,11 @@ public class MorpionService {
 	          
 	          
 	          ///////  renvoie la position ia 
+	          
 	          int idcase;
+	          
+	          //////////////
+	           int nb_virtuel;
 	 
 	 //////////////////////////////////////////////////////////////
 		public void createNewGame( TypeGame gameuser ) {
@@ -129,10 +133,12 @@ public class MorpionService {
 	    	int tmp;
 	    	int depth = profondeur;
 	        int i;
+	        nb_virtuel=0;
 	       for ( i = 0; i < 9; i++) {
 	        	///// si la case est vide on simule un coup 
 				if (grille.getCaseContenu(i) == null) {
 					grille.setCaseContenu(i, joueur2.getCaractere());
+					nb_virtuel = nbmove+1;
 	
 					tmp = minIA( depth-1 );
 					////// pour choisir aleatoire en cas eux il y a deux valeur egaux 
@@ -147,7 +153,6 @@ public class MorpionService {
 				
 	
 			}
-	       ///// annuler le coup jouer 
 	        grille.setCaseContenu(idcase, joueur2.getCaractere());
 	        nbmove = nbmove+1;
 	    
@@ -164,7 +169,7 @@ public class MorpionService {
 	    
 	    
 	  public int minIA(int p) {
-		  if (p== 0 || grille.getGagnant() != null  || nbmove == 9) {
+		  if (p == 0 || grille.getGagnant() != null  || nb_virtuel == 9) {
 			  return eval();
 		  }
 		  int min = 1000;
@@ -173,6 +178,7 @@ public class MorpionService {
 		  for ( i = 0; i < 9; i++) {
 			  if (grille.getCaseContenu(i) == null) {
 				  grille.setCaseContenu(i, joueur2.getCaractere());
+				  nb_virtuel ++ ;
 				
 				  temp = maxIA(p-1);
 				  
@@ -193,7 +199,7 @@ public class MorpionService {
 	  
 	  
 	public int maxIA(int p) {
-		if (p==0 || grille.getGagnant()!= null || nbmove == 9) {
+		if (p==0 || grille.getGagnant()!= null || nb_virtuel == 9) {
 			return eval();
 		}
 		int max=-1000;
@@ -201,6 +207,7 @@ public class MorpionService {
 		for ( i = 0; i < 9; i++) {
 			if (grille.getCaseContenu(i) == null) {
 				grille.setCaseContenu(i, joueur1.getCaractere());
+				nb_virtuel++;
 	
 				temp= minIA(p-1);
 				if ((temp > max) || ((temp == max)&&(Math.random()%2==0) ) ){
@@ -236,7 +243,7 @@ public class MorpionService {
 				  return  100 - nb_piont;
 			  }else if (vainqueur == 1) {
 				  ///// on esseye de survive le plus rapide possible 
-				  return -100 + nb_piont;
+				  return -100  + nb_piont;
 			  }
 				
 		  }
