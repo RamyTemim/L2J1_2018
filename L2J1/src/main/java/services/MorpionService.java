@@ -38,6 +38,7 @@ public class MorpionService {
 	          int idcase;
 	          
 	          //////////////
+	          ///// variable recursive pour le min max 
 	           int nb_virtuel;
 	 
 	 //////////////////////////////////////////////////////////////
