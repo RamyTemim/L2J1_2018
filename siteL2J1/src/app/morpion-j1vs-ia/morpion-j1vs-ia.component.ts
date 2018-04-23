@@ -20,16 +20,6 @@ export class MorpionJ1vsIaComponent implements OnInit {
     this.reset();
   }
 
-  // caseToGrille(){
-  //   this.grille = [];
-  //     for (var i=0; i<9; i++) {
-  //       var case = new Case();
-  //       case.id = i;
-  //       case.contenu = "";
-  //       this.grille.push(this.case);
-  //   }
-  // }
-
   ngOnInit() {
   }
 
@@ -60,13 +50,11 @@ export class MorpionJ1vsIaComponent implements OnInit {
         return;
       }
 
-        this.getIAMove();
-
-        console.log(this.IA);
-
         if (this.tour==1){
           this.grille[i] = "X";
-          this.grille[this.IA] = "O";
+          this.getGameStatus();
+          this.changeTour();
+
         }
 
         this.httpClient
@@ -80,7 +68,12 @@ export class MorpionJ1vsIaComponent implements OnInit {
           }
         )
 
-      this.getGameStatus();
+        if (this.tour==2){
+          this.getIAMove();
+          this.grille[this.IA] = "O";
+          this.getGameStatus();
+          this.changeTour();
+        }
       }
 
     getIAMove(){
@@ -155,6 +148,7 @@ export class MorpionJ1vsIaComponent implements OnInit {
       var newGrille: string[] = [" "," "," "," "," "," "," "," "," "];
       this.grille = newGrille;
       this.libre = false;
+      this.tour = 1;
   }
 
   }
