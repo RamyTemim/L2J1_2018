@@ -48,7 +48,7 @@ changeTour() {
 
   onClick(i: number){
     console.log("Vous avez cliqué sur la case: " +i);
-  
+
     if (this.grille[i]==" "){
       this.libre = true;
     }
@@ -68,8 +68,6 @@ changeTour() {
       if (this.tour==2){
         this.grille[i] = "O";
       }
-
-      console.log(this.grille[8]);
 
 
       this.changeTour();
