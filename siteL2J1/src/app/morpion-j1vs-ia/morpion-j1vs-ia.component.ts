@@ -63,19 +63,10 @@ export class MorpionJ1vsIaComponent implements OnInit {
         if(this.tour == 1){
           this.grille[i] = "X";
           this.getGameStatus();
-          this.changeTour();
-          this.doIAMove();
-          this.tour = 1;
+          this.getIAMove();
+          this.getGameStatus();
         }
       }
-
-    doIAMove(){
-      if (this.tour==2){
-      this.getIAMove();
-      this.grille[this.IA] = "O";
-      this.getGameStatus();
-    }
-    }
 
     getIAMove(){
         this.httpClient
@@ -83,6 +74,7 @@ export class MorpionJ1vsIaComponent implements OnInit {
         .subscribe(
           (response) => {
             this.IA = response;
+            this.grille[this.IA] = "O";
             console.log(this.IA);
           },
           (error) => {
