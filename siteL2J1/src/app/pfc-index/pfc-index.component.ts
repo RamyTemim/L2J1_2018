@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -13,6 +12,7 @@ case: string [] = ["Pierre","Feuille","Ciseau"];
 win: number = 0;
 lose: number = 0;
 draw: number = 0;
+bot: number;
 
   constructor(private httpClient: HttpClient) {
     this.reset()
@@ -31,7 +31,6 @@ draw: number = 0;
         console.log("Erreur: "+error);
       }
     )
-
     this.getResultat();
   }
 
