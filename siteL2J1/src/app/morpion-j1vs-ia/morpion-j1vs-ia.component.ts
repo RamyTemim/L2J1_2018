@@ -50,31 +50,32 @@ export class MorpionJ1vsIaComponent implements OnInit {
         return;
       }
 
-        if (this.tour==1){
+      this.httpClient
+      .post("http://localhost:8080/morpion/move", { 'idcase': i })
+      .subscribe(
+        (response) => {
+          console.log("C'est envoyé!");
+        },
+        (error) => {
+          console.log("Erreur: "+error);
+        }
+      )
+        if(this.tour == 1){
           this.grille[i] = "X";
           this.getGameStatus();
           this.changeTour();
-
-        }
-
-        this.httpClient
-        .post("http://localhost:8080/morpion/move", { 'idcase': i })
-        .subscribe(
-          (response) => {
-            console.log("C'est envoyé!");
-          },
-          (error) => {
-            console.log("Erreur: "+error);
-          }
-        )
-
-        if (this.tour==2){
-          this.getIAMove();
-          this.grille[this.IA] = "O";
-          this.getGameStatus();
-          this.changeTour();
+          this.doIAMove();
+          this.tour = 1;
         }
       }
+
+    doIAMove(){
+      if (this.tour==2){
+      this.getIAMove();
+      this.grille[this.IA] = "O";
+      this.getGameStatus();
+    }
+    }
 
     getIAMove(){
         this.httpClient
@@ -149,6 +150,7 @@ export class MorpionJ1vsIaComponent implements OnInit {
       this.grille = newGrille;
       this.libre = false;
       this.tour = 1;
+      this.IA = 0;
   }
 
   }
