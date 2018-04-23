@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import Morpion.CaseInput;
 import Morpion.Joueur;
 import Morpion.Reset;
-import Morpion.TypeGame;
+
 import services.MorpionService;
 
 
@@ -22,15 +22,7 @@ public class MorpionController {
 	
 	MorpionService gameService = new MorpionService(); 
 	
-	@RequestMapping("/pagehello")
-	public String sayHi() {
-		return "Hello there !!!!!!!!! ";
-	}
-	 @RequestMapping(value = "/creategame", method = RequestMethod.POST)
-	 public void createNewGame(@RequestBody TypeGame gameuser ) {
-	        gameService.createNewGame(gameuser); 
-		
-	 }
+
 	 
 	 @RequestMapping(value="/move" , method = RequestMethod.POST)
 	 public int  moveuser(@RequestBody CaseInput idcase ) {

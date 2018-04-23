@@ -8,7 +8,7 @@ import Morpion.Game;
 import Morpion.Grille;
 import Morpion.Joueur;
 import Morpion.Reset;
-import Morpion.TypeGame;
+
 
 
 
@@ -23,38 +23,25 @@ public class MorpionService {
 	 Joueur currentJoueur = joueur1;
 	 int status=4;
 	 int nbmove = 0;
-	 
-	 int series_j1=0;
-	 int series_j2=0;
+	
 	 
 	 
-	 /// innitialiser le niveau de difficulter de l ia 
+	///////////////////////////////////////////////////////
 	 
-	          int profondeur = 9;
+	//////         
+	 			int profondeur = 9;
+	////          
 	          
-	          
-	          ///////  renvoie la position ia 
+	///////  renvoie la position ia 
 	          
 	          int idcase;
-	          
-	          //////////////
-	          ///// variable recursive pour le min max 
+	//////          
+   //////
+    ///// variable recursive pour le min max 
 	           int nb_virtuel;
-	 
+	           
 	 //////////////////////////////////////////////////////////////
-		public void createNewGame( TypeGame gameuser ) {
-		 
-		  // gameuser a les choit de l utilisateur a propos de morpion 
 
-
-		 if (gameuser.getGameType() == "COMPUTER") {
-			  game.setGameType("COMPUTER");
-				  
-		 }else {
-			 game.setGameType("HUMAIN");
-		 }
-			
-  	  }
 		public void swapTurn() {
 			if (currentJoueur.equals(joueur1))
 				currentJoueur = joueur2;
@@ -63,9 +50,7 @@ public class MorpionService {
 			
 		}
 		
-		public int temp(int a ) {
-			return a ;
-		}
+	
 		   @JsonIgnore
 	    public int markMove( CaseInput  idcase ) {
 	    	nbmove = nbmove +1;
@@ -194,6 +179,7 @@ public class MorpionService {
 	  
 	  ///////////////////////////////////////
 	  //////
+	  //////
 	  /////    fonction max 
 	  ////
 	  ///////////////////////////////////////
@@ -241,10 +227,10 @@ public class MorpionService {
 			  vainqueur = grille.getGagnant().getId();
 			  if(vainqueur == 2) {
 				  ///// on esseye de gagner le plus rapide possible 
-				  return  100 - nb_piont;
+				  return  10 - nb_piont;
 			  }else if (vainqueur == 1) {
 				  ///// on esseye de survive le plus rapide possible 
-				  return -100  + nb_piont;
+				  return -10  + nb_piont;
 			  }
 				
 		  }
