@@ -1,6 +1,6 @@
 package services;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 import Morpion.CaseInput;
@@ -51,7 +51,7 @@ public class MorpionService {
 		}
 		
 	
-		   @JsonIgnore
+
 	    public int markMove( CaseInput  idcase ) {
 	    	nbmove = nbmove +1;
 	     grille.setCaseContenu(idcase.getIdcase(), currentJoueur.getCaractere());
@@ -61,17 +61,14 @@ public class MorpionService {
 			 
 	    }
 	  
-	    @JsonIgnore
+	
 	 public int  gameStatus() {
 	    	 
 			   if(grille.getGagnant() != null ) {
-				   if (currentJoueur.getId()==1)
+				   if (grille.getGagnant() == joueur1)
 					   status =1;
-				   else if (currentJoueur.getId()==2)
+				   else if (grille.getGagnant() == joueur2)
 					   status =2;
-				  
-				   
-				   return status ;
 			   } else if (nbmove >= 9) {
 				   status =3;
 				   
@@ -88,7 +85,7 @@ public class MorpionService {
 	    
 /////////// reset grille;
 
-    @JsonIgnore
+
 
 	public int   clear(Reset rep) {
 		if (rep.getRep() == 1) {
@@ -96,11 +93,12 @@ public class MorpionService {
 			    grille.setCaseContenu(i, null);
 			
 		}
+		game.setGrille(grille);
 
 		 currentJoueur = joueur1;
 
 		
-		    status =4;
+		    status = 4;
 		    nbmove=0;
 		    progress.setId(4);
 		    
