@@ -102,6 +102,7 @@ public class MorpionService {
 		
 		    status =4;
 		    nbmove=0;
+		    progress.setId(4);
 		    
 		}
 	 return status ;
