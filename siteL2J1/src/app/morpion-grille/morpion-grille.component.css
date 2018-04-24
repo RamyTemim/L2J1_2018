@@ -1,17 +1,18 @@
 table {
   margin:1em auto;
+  border-spacing: 0px;
 }
 td {
   height:70px;
   width:70px;
   text-align:center;
-  border: 3px black solid
+  border: 2px black solid;
 }
 
-/* td:last-child { border-right:none; }
+td:last-child { border-right:none; }
 tr:last-child td { border-bottom:none; }
-td:nth-child(1) {border-left: none;}
-tr:first-child td {border-top:none;} */
+tr:first-child td { border-top:none; }
+td:first-child { border-left: none; }
 
 
 div {
