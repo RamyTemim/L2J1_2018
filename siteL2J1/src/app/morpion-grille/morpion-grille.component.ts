@@ -15,12 +15,11 @@ gameStatus: number;
 libre: boolean = false;
 
 constructor(private httpClient: HttpClient) {
-  this.getTour();
-  this.reset();
 }
 
 ngOnInit() {
   this.reset();
+  this.getTour();
 }
 
 //Change le tour à chaque coup
@@ -103,6 +102,7 @@ getGameStatus(){
       }
   });
 }
+
 
 //Donne le tour
 

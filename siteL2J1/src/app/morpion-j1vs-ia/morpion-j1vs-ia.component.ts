@@ -15,12 +15,11 @@ export class MorpionJ1vsIaComponent implements OnInit {
   IA: any;
 
   constructor(private httpClient: HttpClient) {
-    this.getTour();
-    this.reset();
   }
 
   ngOnInit() {
     this.reset();
+    this.getTour();
   }
 
   //Change le tour à chaque coup
