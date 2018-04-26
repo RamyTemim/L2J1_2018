@@ -25,7 +25,9 @@ public class AppTest extends TestCase {
 
 			}
 	}
-	
+	/**
+     * check if the grids are differents than each others. 
+     */
 	public void testInequality(){
 		assertFalse(mycontroller.EasyGameSudoku() == mycontroller.HardGameSudoku());
 		assertFalse(mycontroller.MediumGameSudoku() == mycontroller.HardGameSudoku());
