@@ -77,7 +77,7 @@ public Joueur getGagnant () {
 	winner = getCol();
 	if (winner != null)
 		return  winner;
-	/// comparaison diagonale  753
+	/// comparaison diagonale  951
 	 Joueur joueur =  getJetProp( 0 );
 	 if ( joueur != null && joueur.equals(getJetProp(4))) {
 		 if (joueur.equals(getJetProp(8))) {
@@ -85,8 +85,8 @@ public Joueur getGagnant () {
 		 }
 		 
 	 }
-	/// comparaison diagonale  951 
-		 joueur =  getJetProp(0);
+	/// comparaison diagonale  753 
+		 joueur =  getJetProp(2);
 		 if (joueur != null && joueur.equals(getJetProp(4))) {
 			 if (joueur.equals(getJetProp(6))) {
 				 winner = joueur ;
@@ -96,18 +96,6 @@ public Joueur getGagnant () {
 	 
 	 return winner;
 	}
-
-/////////// reset grille;
-	public void clear() {
-		for (int i = 0; i < grille.length; i++) {
-			if (this.grille[i]== null)
-			this.grille[i] = new CaseGrille(i);
-	        else 
-			this.grille[i].setContenu(null);
-	}
-	}
-
-
 
 ///// verifier si la grille est bien remplie 
 //// sert a fire c un match est nul ou pas 

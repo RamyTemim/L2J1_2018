@@ -3,12 +3,12 @@
   <table class="table">
       <caption> Choississez une case </caption>
     <tr>
-      <td class="td"(click)="onClick(1)">{{case[0]}}</td>
-      <td class="td"(click)="onClick(2)">{{case[1]}}</td>
-      <td class="td"(click)="onClick(3)">{{case[2]}}</td>
+      <td id = "pierre" class="td"(click)="onClick(1)"><img src="../../assets/img/rock.png" alt="pierre"/></td>
+      <td id = "feuille" class="td"(click)="onClick(2)"><img src="../../assets/img/paper.png" alt="papier"/></td>
+      <td id = "ciseau" class="td"(click)="onClick(3)"><img src="../../assets/img/scissor.png" alt="ciseau"/></td>
     </tr>
   </table>
-  <table>
+  <table class="table2">
       <th> Score : </th>
       <tr>
         <td>Victoire</td>

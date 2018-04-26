@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -10,26 +9,17 @@ import 'rxjs/add/operator/map';
 })
 export class MorpionGrilleComponent implements OnInit {
 
-grille: string[] = [" "," "," "," "," "," "," "," "];
+grille: string[] = [" "," "," "," "," "," "," "," "," "];
 tour: any;
 gameStatus: number;
+libre: boolean = false;
 
 constructor(private httpClient: HttpClient) {
-  this.getTour();
-  this.reset();
 }
 
-// caseToGrille(){
-//   this.grille = [];
-//     for (var i=0; i<9; i++) {
-//       var case = new Case();
-//       case.id = i;
-//       case.contenu = "";
-//       this.grille.push(this.case);
-//   }
-// }
-
 ngOnInit() {
+  this.reset();
+  this.getTour();
 }
 
 //Change le tour à chaque coup
@@ -46,33 +36,45 @@ changeTour() {
 //Event à chaque clique d'une case -> envoie un post contenant l'id de la case
 
   onClick(i: number){
-    console.log("Vous avez cliqué sur la case: " +i);
-    // var myJsonString = JSON.stringify(i);
-    // console.log(myJsonString);
 
-    if (this.tour==1){
-      this.grille[i] = "X";
+    //Vérifier case libre
+
+    if (this.grille[i]==" "){
+      this.libre = true;
     }
-    if (this.tour==2){
-      this.grille[i] = "O";
+    else {
+      this.libre = false;
     }
 
-    this.changeTour();
+    if (this.libre==false){
+      return;
+    }
 
 
-    this.httpClient
-    .post("http://localhost:8080/morpion/move", { 'idcase': i })
-    .subscribe(
-      (response) => {
-        console.log("C'est envoyé!");
-      },
-      (error) => {
-        console.log("Erreur: "+error);
+      if (this.tour==1){
+        this.grille[i] = "X";
       }
-    )
+      if (this.tour==2){
+        this.grille[i] = "O";
+      }
+
+
+      this.changeTour();
+
+
+      this.httpClient
+      .post("http://localhost:8080/morpion/move", { 'idcase': i })
+      .subscribe(
+        (response) => {
+          console.log("C'est envoyé!");
+        },
+        (error) => {
+          console.log("Erreur: "+error);
+        }
+      )
 
     this.getGameStatus();
-  }
+    }
 
 //Donne l'état du jeu
 
@@ -100,6 +102,7 @@ getGameStatus(){
       }
   });
 }
+
 
 //Donne le tour
 
@@ -129,8 +132,9 @@ getGameStatus(){
         console.log("Erreur: "+error);
       }
     )
-    var newGrille: string[] = [" "," "," "," "," "," "," "," "];
+    var newGrille: string[] = [" "," "," "," "," "," "," "," "," "];
     this.grille = newGrille;
+    this.libre = false;
 }
 
 }

@@ -47,3 +47,32 @@ button{
 button:hover{
   background-color: rgb(238, 118, 6);
 }
+
+table {
+  margin:1em auto;
+  border-spacing: 0px;
+}
+td {
+  height:70px;
+  width:70px;
+  text-align:center;
+  border: 2px black solid;
+}
+
+td:last-child { border-right:none; }
+tr:last-child td { border-bottom:none; }
+tr:first-child td { border-top:none; }
+td:first-child { border-left: none; }
+
+div {
+	height: 70px;
+	width: 70px;
+	border: none;
+  font-size: 60px;
+	/* text-align: center; */
+  /* padding: 25px; */
+}
+
+div:hover{
+  cursor: pointer;
+}

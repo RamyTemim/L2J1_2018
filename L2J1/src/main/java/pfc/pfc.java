@@ -35,7 +35,7 @@ public class pfc {
 	
 	public int generateBot() {
 		Random rand = new Random();
-		this.bot = rand.nextInt((3)+1);
+		this.bot = rand.nextInt(3) + 1;
 		return bot;
 	}
 	
@@ -44,31 +44,33 @@ public class pfc {
 		this.setBot(this.generateBot());
 		
 		if ((joueur==1)&&(bot==1)) {
-			return 3;
+			resultat = 3;
 		}
 		else if ((joueur==1)&&(bot==2)) {
-			return 2;
+			resultat = 2;
 		}
 		else if ((joueur==1)&&(bot==3)) {
-			return 1;
+			resultat = 1;
 		}
 		else if ((joueur==2)&&(bot==1)) {
-			return 1;
+			resultat = 1;
 		}
 		else if ((joueur==2)&&(bot==2)) {
-			return 3;
+			resultat = 3;
 		}
 		else if ((joueur==2)&&(bot==3)) {
-			return 2;
+			resultat = 2;
 		}
 		else if ((joueur==3)&&(bot==1)) {
-			return 2;
+			resultat = 2;
 		}
 		else if ((joueur==3)&&(bot==2)) {
-			return 1;
+			resultat = 1;
 		}
-		return 3;		
-		
+		else if ((joueur==3)&&(bot==3)) {
+			resultat = 3;
+		}
+		return resultat;		
 	}
 	
     public int markMove(int idcase) {

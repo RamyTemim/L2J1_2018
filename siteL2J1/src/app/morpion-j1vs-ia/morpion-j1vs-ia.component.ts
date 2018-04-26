@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { catchError, retry } from 'rxjs/operators';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -11,74 +8,139 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./morpion-j1vs-ia.component.css']
 })
 export class MorpionJ1vsIaComponent implements OnInit {
-  /*private createURL : 'http://localhost:8080/morpion/create'; // post
-  private listURL : 'http://localhost:8080/morpion/list'; // get
-  private autocreateURL : 'http://localhost:8080/morpion/autocreate'; // get
-  private checkURL : 'http://localhost:8080/morpion/check'; // get
-  private turnURL : 'http://localhost:8080/morpion/turn'; //get
-  listMove:  any ={};
-  move: any = {};
-  listPosition: any={};
-  turn : boolean;
+  grille: string[] = [" "," "," "," "," "," "," "," "," "];
+  tour: any;
+  gameStatus: number;
+  libre: boolean = false;
+  IA: any;
 
-  constructor(private http :Http) {
-    this.getListMove();
-    this.getMove();
-    this.getListPosition();
-    this.getTurn();
+  constructor(private httpClient: HttpClient) {
   }
 
-*/
   ngOnInit() {
-
-  }
-/*
-  getListMoveData(){
-    return this.http.get(this.listURL)
-    .map((res: Response) => res.json())
-  }
-  getListMove(){
-      console.log('Affichage de la listMove');
-    this.getListMoveData().subscribe(listMove =>{
-      console.log(listMove);
-      this.listMove = listMove
-    })
+    this.reset();
+    this.getTour();
   }
 
-  getMoveData(){
-    return this.http.get(this.autocreateURL)
-    .map((res: Response) => res.json())
-  }
-  getMove(){
-      console.log('Affichage de Move');
-    this.getMoveData().subscribe(move =>{
-      console.log(move);
-      this.move = move
-    })
+  //Change le tour à chaque coup
+
+  changeTour() {
+    if (this.tour == 1){
+      this.tour = 2;
+    }
+    else {
+      this.tour = 1;
+    }
   }
 
-  getListPositionData(){
-    return this.http.get(this.checkURL)
-    .map((res: Response) => res.json())
-  }
-  getListPosition(){
-      console.log('Affichage de la listPosition');
-    this.getListPositionData().subscribe(listPosition =>{
-      console.log(listPosition);
-      this.listPosition = listPosition
-    })
+  //Event à chaque clique d'une case -> envoie un post contenant l'id de la case
+
+    onClick(i: number){
+      //Vérifie si la case est libre
+
+      if (this.grille[i]==" "){
+        this.libre = true;
+      }
+      else {
+        this.libre = false;
+      }
+
+      if (this.libre==false){
+        return;
+      }
+
+      this.httpClient
+      .post("http://localhost:8080/morpion/move", { 'idcase': i })
+      .subscribe(
+        (response) => {
+          console.log("C'est envoyé!");
+        },
+        (error) => {
+          console.log("Erreur: "+error);
+        }
+      )
+        if(this.tour == 1){
+          this.grille[i] = "X";
+          this.getGameStatus();
+          this.getIAMove();
+          this.getGameStatus();
+        }
+      }
+
+    getIAMove(){
+        this.httpClient
+        .get<any[]>("http://localhost:8080/morpion/automove")
+        .subscribe(
+          (response) => {
+            this.IA = response;
+            this.grille[this.IA] = "O";
+          },
+          (error) => {
+            console.log("Erreur : "+error);
+          }
+        )
+      }
+
+  //Donne l'état du jeu
+
+  getGameStatus(){
+    this.httpClient
+    .get("http://localhost:8080/morpion/gamestatus")
+    .subscribe(resultat => {
+        if (resultat==4){
+            console.log("Partie en cours");
+        }
+        if (resultat==1){
+            alert("Joueur 1 a gagné !");
+            this.reset();
+            this.tour = 1;
+        }
+        if (resultat==2){
+            alert("Joueur 2 a gagné !");
+            this.reset();
+            this.tour = 1;
+        }
+        if (resultat==3){
+            alert("Match nul");
+            this.reset();
+            this.tour = 1;
+        }
+    });
   }
 
-  getTurnData(){
-    return this.http.get(this.turnURL)
-    .map((res: Response) => res.json())
+  //Donne le tour
+
+    getTour(){
+      this.httpClient
+      .get<any[]>("http://localhost:8080/morpion/player")
+      .subscribe(
+        (response) => {
+          this.tour = response;
+        },
+        (error) => {
+          console.log("Erreur : "+error);
+        }
+      )
+    }
+
+  //Reset la grille back et front
+
+    reset(){
+      this.httpClient
+      .post("http://localhost:8080/morpion/reset", 1)
+      .subscribe(
+        (response) => {
+          console.log("Reset envoyé !");
+        },
+        (error) => {
+          console.log("Erreur: "+error);
+        }
+      )
+      var newGrille: string[] = [" "," "," "," "," "," "," "," "," "];
+      this.grille = newGrille;
+      this.libre = false;
+      this.tour = 1;
+      this.IA = null;
   }
-  getTurn(){
-      console.log('Affichage du turn');
-    this.getTurnData().subscribe(turn =>{
-      console.log(turn);
-      this.turn = turn
-    })
+
   }
-*/
-}
