@@ -9,8 +9,8 @@ import 'rxjs/add/operator/map';
 })
 export class SudokuDifficileComponent implements OnInit {
   private sudokuDifficileUrl = 'http://localhost:8080/sudoku/sudokuDifficile';
-  data3: number[][];
-  dataTmp: number[][];
+  data1: number[][];
+  data2: number[][];
 
   constructor(private http: Http) {
   this.getGrilleDifficile();
@@ -22,9 +22,9 @@ export class SudokuDifficileComponent implements OnInit {
   }
 
   getGrilleDifficile(){
-    this.getDataDifficile().subscribe(data3 =>{
-      this.data3 = data3;
-	  this.dataTmp = this.data3.map(function(arr) {
+    this.getDataDifficile().subscribe(dataTmp =>{
+      this.data1 = dataTmp;
+	  this.data2 = this.data1.map(function(arr) {
     return arr.slice();
 });
     });
@@ -35,11 +35,11 @@ export class SudokuDifficileComponent implements OnInit {
   
     saveNumber(x,i,j) {
   var y = +x;
-	this.dataTmp[i][j] = y ;
+	this.data2[i][j] = y ;
   }
   
   validate(){
-	var myJsonString = JSON.stringify(this.dataTmp);
+	var myJsonString = JSON.stringify(this.data2);
 
  this.http.post("http://localhost:8080/sudoku/result", {myJsonString}).subscribe(resultat => {
  if(resultat.json())
