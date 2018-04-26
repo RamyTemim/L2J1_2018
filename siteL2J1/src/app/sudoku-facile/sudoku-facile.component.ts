@@ -26,8 +26,8 @@ export class SudokuFacileComponent {
     }
 
     getGrilleFacile() {
-        this.getDataFacile().subscribe(data9 => {
-            this.data1 = data9;	
+        this.getDataFacile().subscribe(dataTmp => {
+            this.data1 = dataTmp;	
 		this.data2 = this.data1.map(function(arr) {
     return arr.slice();
 });
