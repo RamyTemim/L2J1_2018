@@ -11,7 +11,6 @@ export class MorpionGrilleComponent implements OnInit {
 
 grille: string[] = [" "," "," "," "," "," "," "," "," "];
 tour: any;
-gameStatus: number;
 libre: boolean = false;
 
 constructor(private httpClient: HttpClient) {
@@ -67,13 +66,14 @@ changeTour() {
       .subscribe(
         (response) => {
           console.log("C'est envoyé!");
+          this.getGameStatus();
         },
         (error) => {
           console.log("Erreur: "+error);
         }
       )
 
-    this.getGameStatus();
+
     }
 
 //Donne l'état du jeu

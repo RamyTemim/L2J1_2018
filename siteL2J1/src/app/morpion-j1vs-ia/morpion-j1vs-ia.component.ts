@@ -10,7 +10,6 @@ import 'rxjs/add/operator/map';
 export class MorpionJ1vsIaComponent implements OnInit {
   grille: string[] = [" "," "," "," "," "," "," "," "," "];
   tour: any;
-  gameStatus: number;
   libre: boolean = false;
   IA: any;
 
@@ -63,7 +62,6 @@ export class MorpionJ1vsIaComponent implements OnInit {
           this.grille[i] = "X";
           this.getGameStatus();
           this.getIAMove();
-          this.getGameStatus();
         }
       }
 
@@ -74,6 +72,7 @@ export class MorpionJ1vsIaComponent implements OnInit {
           (response) => {
             this.IA = response;
             this.grille[this.IA] = "O";
+            this.getGameStatus();
           },
           (error) => {
             console.log("Erreur : "+error);
