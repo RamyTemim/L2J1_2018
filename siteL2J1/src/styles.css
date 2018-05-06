@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html{
+  background-color: rgb(176, 180, 210);
+  /*background-image: url("assets/img/banner.jpg");*/
+  background-size: cover;
+}

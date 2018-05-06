@@ -1,8 +1,46 @@
+@font-face {
+ font-family: 'bit';
+ src: url('../../assets/fonts/BIT.otf');
+}
+
 h1
 {
+  margin-top: 20px;
   font-size: 40px;
 	font-weight: normal;
-	text-align: left;
+	text-align: middle;
 	color: black;
-	text-shadow: black 2px 2px 2px;
+  font-family: 'bit', arial;
+}
+
+
+form{
+  margin-top: 50px;
+  transition: all 4s ease-in-out;
+  margin-bottom: 150px;
+}
+
+.p-holder{
+  font-family: 'bit', arial;
+  width: 50%;
+  height: 40px;
+  margin: 20px 0;
+  background: rgba(0,0,0,0);
+  border: none;
+  border-bottom: 1px solid blue;
+}
+
+form .envoyer{
+  height: 50px;
+  font-family: 'bit', arial;
+  color: black;
+  background: #ff5722;
+  border-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+form .envoyer:hover{
+  background-color: #f44336;
+  cursor: pointer;
 }

@@ -1,14 +1,14 @@
-#footer
-{
+#footer{
   text-decoration: none;
-  position:absolute;
+  bottom: 0;
   width: 100%;
-  background-color: #4dd2ff;
+  background-color: rgba(26, 59, 177, 0.91);
   text-align: center;
   color: white;
   left: 0;
   font-size: 12px;
 }
+
 a{
   border-right: 1px solid white;
   padding-left: 2px;
@@ -17,6 +17,16 @@ a{
   padding-left: 10px;
   padding-right: 10px;
 }
+.antipipe{
+  border-right: none;
+}
 a:hover{
   text-decoration: underline;
+}
+.antipipe_icon{
+  border-right: none;
+}
+.antipipe_icon :hover{
+  border-right: none;
+  filter: grayscale(70%);
 }

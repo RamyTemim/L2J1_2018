@@ -1,0 +1,61 @@
+<!-- *********** Code avant la modification ***********
+--><!--
+<table>
+  <tr *ngFor = "let case of cases">
+    <td *ngFor = "let case of cases">
+      <div (click)="onClick()"></div>
+  </td>
+  </tr>
+</table> -->
+<table>
+  <caption> Tour du joueur {{tour}} </caption><br/>
+  <tr>
+    <td><div (click)="onClick(0)">{{grille[0]}}</div></td>
+    <td><div (click)="onClick(1)">{{grille[1]}}</div></td>
+    <td><div (click)="onClick(2)">{{grille[2]}}</div></td>
+  </tr>
+  <tr>
+    <td><div (click)="onClick(3)">{{grille[3]}}</div></td>
+    <td><div (click)="onClick(4)">{{grille[4]}}</div></td>
+    <td><div (click)="onClick(5)">{{grille[5]}}</div></td>
+  </tr>
+  <tr>
+    <td><div (click)="onClick(6)">{{grille[6]}}</div></td>
+    <td><div (click)="onClick(7)">{{grille[7]}}</div></td>
+    <td><div (click)="onClick(8)">{{grille[8]}}</div></td>
+  </tr>
+</table>
+
+<!-- <table>
+  <tr *ngFor="let case of grille;let i = index">
+    <td *ngFor="let case of grille;let j = index">
+      <div (click)="onClick($event.target.value,i,j)">
+    </div>
+    </td>
+  </tr>
+</table> -->
+
+
+
+<!--
+*********** Utilisation de 3 lignes cases avec comme attributs id et piece ***********
+*********** Voir ci-dessous ***********
+-->
+<!--<table>
+<tr>
+  <td *ngFor = "let case of cases">
+    <div (click)="onClick()"></div>
+  </td>
+</tr>
+
+  <tr>
+    <td *ngFor = "let case of cases2">
+      <div (click)="onClick()"></div>
+    </td>
+  </tr>
+  <tr>
+    <td *ngFor = "let case of cases3">
+      <div (click)="onClick()"></div>
+    </td>
+  </tr>
+</table> -->

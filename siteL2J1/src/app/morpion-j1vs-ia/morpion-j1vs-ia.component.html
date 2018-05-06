@@ -1,0 +1,29 @@
+<body class="morpion">
+  <h1 class="titreMorpion">Morpion</h1>
+  <table>
+    <caption> Tour du joueur {{tour}} </caption><br/>
+    <tr>
+      <td><div (click)="onClick(0)">{{grille[0]}}</div></td>
+      <td><div (click)="onClick(1)">{{grille[1]}}</div></td>
+      <td><div (click)="onClick(2)">{{grille[2]}}</div></td>
+    </tr>
+    <tr>
+      <td><div (click)="onClick(3)">{{grille[3]}}</div></td>
+      <td><div (click)="onClick(4)">{{grille[4]}}</div></td>
+      <td><div (click)="onClick(5)">{{grille[5]}}</div></td>
+    </tr>
+    <tr>
+      <td><div (click)="onClick(6)">{{grille[6]}}</div></td>
+      <td><div (click)="onClick(7)">{{grille[7]}}</div></td>
+      <td><div (click)="onClick(8)">{{grille[8]}}</div></td>
+    </tr>
+  </table>
+  <nav class="bouton">
+    <button routerLink="/morpion-index">Retour</button>
+  </nav>
+</body>
+<article class="descriptionMorpion">
+    <span class="dj">Description du jeu :</span><br>
+    Le morpion est un jeu de réflexion se pratiquant à deux joueurs au tour par tour et dont le but est de créer le premier un alignement sur une grille.<br>
+		Règle du jeu: Les joueurs inscrivent tour à tour leur symbole sur une grille. Le premier joueur qui parvient à aligner 3 de ses symboles horizontalement, verticalement ou en diagonale gagne la partie.
+</article>

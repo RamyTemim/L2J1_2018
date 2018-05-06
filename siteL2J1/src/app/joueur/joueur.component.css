@@ -1,0 +1,73 @@
+@font-face {
+ font-family: 'crayon';
+ src: url('../../assets/fonts/crayon.ttf');
+}
+div{
+  font-size: 20px;
+  font-family: 'crayon';
+}
+input{
+  border-bottom: 2px black solid;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 150px;
+}
+input placeholder{
+  font-family: 'crayon';
+}
+
+.main{
+  width: 45%;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom: 0px;
+  margin-top: 20px;
+}
+h1{
+  font-size: 20px;
+  text-align: center;
+  background-color: none;
+  color: black;
+}
+
+.ajoutdelement{
+  position: relative;
+  padding-bottom: 0px;
+  height: 30px;
+}
+
+.ajoutdetexte{
+  width: 80%;
+  height: 20px;
+}
+
+.ajoutdelement button{
+  margin-left: 5px;
+  height: 35px;
+  width: 70px;
+  padding: 5px;
+  position:absolute;
+}
+
+ul{
+  list-style: none;
+  font-size: 20px;
+  color: black;
+  margin-left: -40px;
+  margin-bottom: 0px;
+}
+
+li{
+  background-color: none;
+  padding: 10px 0px;
+  margin-bottom: 5px;
+}
+
+span{
+  cursor: pointer;
+  position: relative;
+  float: right;
+  margin-right: 10px;
+}

@@ -1,40 +1,130 @@
-/*
-*{
-  width: 900px;
-  margin: auto;
-}*/
-fieldset
-{
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-legend
-{
-    text-shadow: 2px 2px 2px;
-    color: red;
-}
-
-li
-{
-  list-style-type: none;
-  display: flex;
-  text-shadow: 1px 1px 1px;
-}
 .bienvenue{
-  width: 900px;
-  background-color: black;
-  opacity: 0.7;
-  color: white;
+  background-color: #26267D;
   border-radius: 12px;
   padding: 20px;
   margin: auto;
 }
-.bienvenue p{
+
+h2 span{
+  color: white;
+}
+
+.container{
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+  width: 70%;
+  height: 0;
+  color: black;
+  padding-bottom: 40%;
+  background-image: url("../../assets/img/abstract_white.jpg");
+  background-size: cover;
+  border: solid 10px #2c2c2c;
+}
+
+.slider{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slider p{
+  margin-left:auto;
+  margin-right:auto;
+  width: 70%;
+  height:100%;
   text-align: center;
 }
-h2 span{
-  text-align: left;
-  border-bottom: 1px solid #0033cc;
-  color: #0033cc;
+
+.slider h2{
+  color : blzck;
+  font-size: 15px;
+  font-size: 30px;
+}
+
+#i1,#i2,#i3{
+  display: none;
+}
+
+.pre, .nxt{
+  width: 12%;
+  height: 100%;
+  position: absolute;;
+  top: 0;
+  background: rgba(88,88,88,.4);
+  z-index: 99;
+  cursor: pointer;
+}
+
+.pre{
+  left:0;
+}
+
+.nxt{
+  right:0;
+}
+
+.nav{
+  width: 100%;
+  height: 11px;
+  bottom: 12%;
+  position : absolute;
+  text-align: center;
+  z-index: 99;
+}
+
+.dots{
+  top: -5px;
+  width: 18px;
+  height: 18px;
+  margin: 0 4px;
+  position: relative;
+  border-radius: 50%;
+  display: inline-block;
+  background: rgba(0,0,0,.6);
+}
+
+.slider{
+  z-index: -1;
+}
+
+#i1:checked ~ #one,
+#i2:checked ~ #two,
+#i3:checked ~ #three{
+  z-index:9;
+}
+
+#i1:checked ~ .nav #dot1,
+#i2:checked ~ .nav #dot2,
+#i3:checked ~ .nav #dot3{
+  background: #b6b6b6;
+}
+
+.fleche{
+  margin-top: 190px;
+  color: black;
+  font-size: 3em;
+  font-family: fantasy;
+}
+
+.fleche:hover{
+  animation: shake 0.6s infinite;
+}
+
+@keyframes shake {
+  0%{
+    transform: translate(0px,0px) rotate(0deg);
+  }
+  25%{
+    transform: translate(1px,1px) rotate(1deg);
+  }
+  50%{
+    transform: translate(-1px,-1px) rotate(-1deg);
+  }
+  75%{
+    transform: translate(2px,-1px) rotate(2deg);
+  }
+  100%{
+    transform: translate(-1px,1px) rotate(-1deg);
+  }
 }

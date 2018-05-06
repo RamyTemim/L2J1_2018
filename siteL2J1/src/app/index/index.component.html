@@ -1,25 +1,52 @@
-<section class="bienvenue">
-  <h2><span>Accueil</span></h2><br>
-  <p>
-  Bonjour et bienvenue sur STAM la plateforme de jeux en ligne.<br>
-  Le projet STAM est une plateforme de jeux en ligne dédiée aux amateurs de jeux de
-logique. Le site permettra de jouer à des jeux déjà très populaires « revisités ». Nos jeux sont « fait maison », c’est-à-dire, qu’ils auront non seulement une touche d’originalité mais
-pourront être également directement modifié par l’équipe de développement en fonction de vos avis nottament chers joueurs.
-</p>
+<section>
+  <h2><span class ="bienvenue">Bienvenue sur Grid Game</span></h2><br>
 </section>
-<fieldset>
-  <legend> News </legend>
-  <ul>
-    <li>22/01/18 : Création des components et structure du site</li>
-    <li>03/02/18 : Ajout du navigateur</li>
-    <li>08/02/18 : Ajout de contenu dans :
-      <ul><li>- Index </li>
-          <li>- Morpion</li>
-          <li>- Sudoku </li>
-          <li>- Conditions d'utilisation</li>
-          <li>- Auteur</li>
-          <li>- Nous contacter</li>
-      </ul>
-    </li>
-  </ul>
-</fieldset>
+
+  <div class="container">
+
+    <input type="radio" name="texte" id="i1" checked>
+    <input type="radio" name="texte" id="i2">
+    <input type="radio" name="texte" id="i3">
+
+    <div class="slider" id="one">
+    <h2> Bienvenue </h2> <br>
+    <p>  Bienvenue sur Grid Game la plateforme de jeux en ligne.<br>
+      Le projet Grid Game est une plateforme de jeux en ligne dédiée aux amateurs de jeux de
+    logique. Le site permettra de jouer à des jeux déjà très populaires « revisités ». Nos jeux sont « fait maison », c’est-à-dire, qu’ils auront non seulement une touche d’originalité mais
+    pourront être également directement modifié par l’équipe de développement en fonction de vos avis !
+    </p>
+      <label for="i3" class="pre"><p class="fleche">&lt;</p></label>
+      <label for="i2" class="nxt"><p class="fleche">&gt;</p></label>
+    </div>
+
+    <div class="slider" id="two">
+     <h2>Nouveautés</h2><br>
+      <p>22/01/18 : Création des components et structure du site<br>
+      03/02/18 : Ajout du navigateur<br>
+      08/02/18 : Ajout de contenu dans les différents component<br>
+      19/03/18 : Modification du design du site<br>
+      14/04/18 : Jeu du sudoku disponible !<br>
+      20/04/18 : Jeu du morpion disponible !<br>
+      24/04/18 : Jeu du pierre feuille ciseau disponible !<br>
+      </p>
+      <label for="i1" class="pre"><p class="fleche">&lt;</p></label>
+      <label for="i3" class="nxt"><p class="fleche">&gt;</p></label>
+    </div>
+
+    <div class="slider" id="three">
+    <h2> Informations </h2><br>
+     <p>* Veuillez lire les conditions d'utilisation<br>
+     * Pour nous contacter, il suffit de nous envoyer un mail dans la rubrique contacter<br>
+     * L'option login est encore en cours de développement
+   </p>
+      <label for="i2" class="pre"><p class="fleche">&lt;</p></label>
+      <label for="i1" class="nxt"><p class="fleche">&gt;</p></label>
+    </div>
+
+    <div class="nav">
+      <label class="dots" id="dot1" for="i1"></label>
+      <label class="dots" id="dot2" for="i2"></label>
+      <label class="dots" id="dot3" for="i3"></label>
+    </div>
+
+  </div>

@@ -1,16 +1,24 @@
 package controllers;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import sudoku.*;
+import com.google.gson.Gson;
+
+import services.SudokuService;
+import sudoku.AbstractGrid;
 
 @RestController
+@RequestMapping("/sudoku")
 public class SudokuController {
 
-	int[][] solvedboard = new int[9][9];
-	int[][] grid = new int[9][9];
+	@Autowired
+	SudokuService service;
 
 	/**
 	 * Generate an easy sudoku (20 holes)
@@ -19,10 +27,11 @@ public class SudokuController {
 	 */
 	@RequestMapping(value = "/sudokuFacile", method = RequestMethod.GET)
 	public int[][] EasyGameSudoku() {
-		EasyGrid easy = new EasyGrid();
-		easy.affect(easy.generateRestSudokuGrid(), grid);
-		easy.affect(easy.getSolvedSudoku(), solvedboard);
-		return grid;
+		AbstractGrid easy = new AbstractGrid();
+		easy.affect(easy.generateRestSudokuGrid("easy"), service.getGrid());
+		easy.affect(easy.getSolvedSudoku(), service.getSolvedboard());
+		service.getLog().info("generate easy sudoku");
+		return service.getGrid();
 	}
 
 	/**
@@ -32,10 +41,11 @@ public class SudokuController {
 	 */
 	@RequestMapping(value = "/sudokuNormal", method = RequestMethod.GET)
 	public int[][] MediumGameSudoku() {
-		MediumGrid medium = new MediumGrid();
-		medium.affect(medium.generateRestSudokuGrid(), grid);
-		medium.affect(medium.getSolvedSudoku(), solvedboard);
-		return grid;
+		AbstractGrid medium = new AbstractGrid();
+		medium.affect(medium.generateRestSudokuGrid("medium"), service.getGrid());
+		medium.affect(medium.getSolvedSudoku(), service.getSolvedboard());
+		service.getLog().info("generate normal sudoku");
+		return service.getGrid();
 	}
 
 	/**
@@ -45,10 +55,11 @@ public class SudokuController {
 	 */
 	@RequestMapping(value = "/sudokuDifficile", method = RequestMethod.GET)
 	public int[][] HardGameSudoku() {
-		HardGrid hard = new HardGrid();
-		hard.affect(hard.generateRestSudokuGrid(), grid);
-		hard.affect(hard.getSolvedSudoku(), solvedboard);
-		return grid;
+		AbstractGrid hard = new AbstractGrid();
+		hard.affect(hard.generateRestSudokuGrid("hard"), service.getGrid());
+		hard.affect(hard.getSolvedSudoku(), service.getSolvedboard());
+		service.getLog().info("generate hard sudoku");
+		return service.getGrid();
 	}
 
 	/**
@@ -57,7 +68,32 @@ public class SudokuController {
 	 */
 	@RequestMapping(value = "/solvedSudoku", method = RequestMethod.GET)
 	public int[][] EasyGameSudokuSolved() {
-		return solvedboard;
+		service.getLog().info("get sudoku solution");
+		return service.getSolvedboard();
 	}
+
+	/**
+	 * get the result from the user's input grid in order to compare it with the solution
+	 * 
+	 * @param result
+	 * @return true if the user's input is equals to the solution
+	 */
+	@RequestMapping(value = "/result", method = RequestMethod.POST)
+	public boolean sudokuResult(@RequestBody String result) {
+		Gson gson = new Gson();
+		int[][] intArray2 = null;
+		AbstractGrid mygrid = new AbstractGrid();
+
+		try {
+			JSONObject json = new JSONObject(result);
+			intArray2 = gson.fromJson(json.get("myJsonString").toString(), int[][].class);
+		} catch (JSONException exception) {
+			service.getLog().error("enable to parse the json string : " + result);
+		}
+		
+		return mygrid.compare(EasyGameSudokuSolved(), intArray2);
+	}
+	
+
 
 }

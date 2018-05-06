@@ -1,0 +1,30 @@
+<div class="pfc">
+  <h1>Pierre feuille ciseau</h1>
+  <table class="table">
+      <caption> Choississez une case </caption>
+    <tr>
+      <td id = "pierre" class="td"(click)="onClick(1)"><img src="../../assets/img/rock.png" alt="pierre"/></td>
+      <td id = "feuille" class="td"(click)="onClick(2)"><img src="../../assets/img/paper.png" alt="papier"/></td>
+      <td id = "ciseau" class="td"(click)="onClick(3)"><img src="../../assets/img/scissor.png" alt="ciseau"/></td>
+    </tr>
+  </table>
+  <table class="table2">
+      <th> Score : </th>
+      <tr>
+        <td>Victoire</td>
+        <td>{{win}}</td>
+      </tr>
+      <tr>
+        <td>Défaite</td>
+        <td>{{lose}}</td>
+      </tr>
+      <tr>
+        <td>Match nul</td>
+        <td>{{draw}}</td>
+      </tr>
+  </table>
+  <nav class="bouton">
+    <button routerLink="/pfc">Retour</button>
+    <button routerLink="/index">Quitter</button>
+  </nav>
+</div>

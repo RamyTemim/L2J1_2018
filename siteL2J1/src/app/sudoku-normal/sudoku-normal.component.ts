@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-sudoku-normal',
@@ -8,14 +9,12 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./sudoku-normal.component.css']
 })
 export class SudokuNormalComponent implements OnInit {
-  private sudokuNormalUrl = 'http://localhost:8080/sudokuNormal';
-  private solution = 'http://localhost:8080/solvedSudoku';
-  data2: any ={};
-  data2sol: any ={};
+  private sudokuNormalUrl = 'http://localhost:8080/sudoku/sudokuNormal';
+  data1: number[][];
+  data2: number[][];
 
   constructor(private http: Http) {
   this.getGrilleNormal();
-  this.getGrilleSolved();
   }
 
   getDataNormal(){
@@ -23,28 +22,36 @@ export class SudokuNormalComponent implements OnInit {
     .map((res: Response) => res.json())
   }
   
-   getDataSolution(){
-    return this.http.get(this.solution)
-    .map((res: Response) => res.json())
-  }
   
   getGrilleNormal(){
-      console.log('Affichage grille normal');
-    this.getDataNormal().subscribe(data2 =>{
-      console.log(data2);
-      this.data2 = data2
-    })
-  }
-     getGrilleSolved(){
-      console.log('Affichage de la solution');
-    this.getDataSolution().subscribe(data2sol =>{
-      console.log(data2sol);
-      this.data2sol = data2sol
-    })
+    this.getDataNormal().subscribe(dataTmp =>{
+      this.data1 = dataTmp;
+	  this.data2 = this.data1.map(function(arr) {
+    return arr.slice();
+    });
+  });
   }
 
 
   ngOnInit() {
+  }
+  
+    saveNumber(x,i,j) {
+  var y = +x;
+	this.data2[i][j] = y ;
+  }
+  
+  validate(){
+	var myJsonString = JSON.stringify(this.data2);
+
+ this.http.post("http://localhost:8080/sudoku/result", {myJsonString}).subscribe(resultat => {
+ if(resultat.json())
+	{alert("you win !");}
+  else
+	{alert("you lose");}
+  
+ });
+  
   }
 
 }

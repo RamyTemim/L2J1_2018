@@ -1,0 +1,19 @@
+<div class="sudoku">
+	<h1 class="titreSudoku">Sudoku</h1>
+
+
+<table >
+	<tr *ngFor="let data of datasol">
+		<td *ngFor="let num of data"><input type="text" maxlength="1" [value]="num  !== 0 ? num  : ''" [disabled]= "num  !== 0 ? true  : false" ></td>
+	</tr>
+</table>
+
+	<nav class="bouton">
+		<button routerLink="/index">Quitter</button>
+		<button routerLink="/sudoku">Retour</button>
+	</nav>
+</div>
+	<article class="descriptionSudoku">
+		<span class="dj">Description du jeu :</span><br>
+		Le sudoku est un jeu en forme de grille défini en 1979 par l’Américain Howard Garns, mais inspiré du carré latin, ainsi que du problème des 36 officiers du mathématicien suisse Leonhard Euler.<br>Le but du jeu est de remplir ces cases avec des chiffres allant de 1 à 9 en veillant toujours à ce qu'un même chiffre ne figure qu'une seule fois par colonne, une seule fois par ligne, et une seule fois par carré de neuf cases.
+	</article>
