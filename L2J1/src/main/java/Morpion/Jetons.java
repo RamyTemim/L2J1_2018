@@ -1,32 +1,31 @@
 package Morpion;
 
-
 public class Jetons {
-////////tous le champs 
-private char car;
-private Joueur  proprietaire ;
-/////// contructeur 
-public Jetons(char car, Joueur proprietaire) {
-	this.car=car;
-	this.proprietaire = proprietaire ;
-}
-public Jetons(char c ) {
-	this.car = c;
-}
+	private char car;
+	private Joueur proprietaire;
 
+	/////// constructeur
+	public Jetons(char car, Joueur proprietaire) {
+		this.car = car;
+		this.proprietaire = proprietaire;
+	}
 
-////// getter et setters 
-public Joueur getProprietaire() {
-	return proprietaire;
-}
+	public Jetons(char c) {
+		this.car = c;
+	}
 
-////// Methodes
+	////// getter et setters
+	public Joueur getProprietaire() {
+		return proprietaire;
+	}
 
-///// afficher les jetons 
-@Override 
-public String toString() {
-	 // convertir le resultat en String 
-	 return Character.toString(this.car);
-}
+	////// Methodes
+
+	///// afficher les jetons
+	@Override
+	public String toString() {
+		// convertir le resultat en String
+		return Character.toString(this.car);
+	}
 
 }
