@@ -5,7 +5,7 @@
 <table >
 	<tr *ngFor="let data of data1;let i = index">
 		<td *ngFor="let num of data;let j = index">
-		<input type="text" maxlength="1" [value]="num  !== 0 ? num  : ''" [disabled]= "num  !== 0 ? true  : false" 
+		<input type="text" maxlength="1" [value]="num  !== 0 ? num  : ''" [disabled]= "num  !== 0 ? true  : false"
 		(input)="saveNumber($event.target.value,i,j)"></td>
 	</tr>
 </table>
@@ -13,7 +13,7 @@
 	<nav class="bouton">
 		<button (click) = "validate()">Valider</button>
 		<button routerLink="/sudoku-solution">Solution</button>
-		<button routerLink="index">Quitter</button>
+		<button routerLink="/index">Quitter</button>
 		<button routerLink="/sudoku">Retour</button>
 	</nav>
 </div>

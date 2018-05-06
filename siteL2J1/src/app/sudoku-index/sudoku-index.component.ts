@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sudoku-index.component.css']
 })
 export class SudokuIndexComponent implements OnInit {
-
+  case: number[] = [0,0,0,0,0,0,0,0,0];
+  row: number[] = [0,0,0,0,0,0,0,0];
   constructor() { }
 
   ngOnInit() {

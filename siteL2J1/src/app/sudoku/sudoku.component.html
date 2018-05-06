@@ -5,20 +5,20 @@
 
 	<table>
                 <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
+                    <td></td>
+                    <td></td>
                     <td>C</td>
                     <td>H</td>
                     <td>O</td>
                     <td>I</td>
                     <td>X</td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>D</td>
                     <td>U</td>
-                    <td><input type="text" maxlength="1"></td>
+                    <td></td>
                     <td>N</td>
                     <td>I</td>
                     <td>V</td>
@@ -26,84 +26,11 @@
                     <td>A</td>
                     <td>U</td>
                 </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
+								<tr *ngFor = "let cases of row">
+                    <td *ngFor = "let cases of case"></td>
                 </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-     </table>
+	</table>
+
 	<nav class="bouton">
 		<button routerLink="/sudoku-facile">Grille facile</button>
 		<button routerLink="/sudoku-normal">Grille normale</button>
@@ -115,4 +42,3 @@
 		<span class="dj">Description du jeu :</span><br>
 		Le sudoku est un jeu en forme de grille défini en 1979 par l’Américain Howard Garns, mais inspiré du carré latin, ainsi que du problème des 36 officiers du mathématicien suisse Leonhard Euler.<br>Le but du jeu est de remplir ces cases avec des chiffres allant de 1 à 9 en veillant toujours à ce qu'un même chiffre ne figure qu'une seule fois par colonne, une seule fois par ligne, et une seule fois par carré de neuf cases.
 	</article>
-

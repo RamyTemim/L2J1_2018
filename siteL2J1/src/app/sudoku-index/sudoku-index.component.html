@@ -3,7 +3,7 @@
 	<app-joueur></app-joueur>
 	<table>
                 <tr>
-                    <td><input type="text" maxlength="1"></td>
+                    <td></td>
                     <td>S</td>
                     <td>U</td>
                     <td>D</td>
@@ -11,99 +11,15 @@
                     <td>K</td>
                     <td>U</td>
                     <td>!</td>
-                    <td><input type="text" maxlength="1"></td>
+                    <td></td>
                 </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
-                    <td><input type="text" maxlength="1"></td>
+                <tr *ngFor = "let cases of row">
+                    <td *ngFor = "let cases of case"></td>
                 </tr>
      </table>
 	<nav class="bouton">
 		<button routerLink="/sudoku">Jouer</button>
+
 		<button routerLink="/index">Quitter</button>
 	</nav>
 </div>

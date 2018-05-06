@@ -8,6 +8,8 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./sudoku.component.css']
 })
 export class SudokuComponent implements OnInit {
+  case: number[] = [0,0,0,0,0,0,0,0,0];
+  row: number[] = [0,0,0,0,0,0,0];
 
   ngOnInit() {
   }
